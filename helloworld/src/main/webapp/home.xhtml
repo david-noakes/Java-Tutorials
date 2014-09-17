@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+   <title>JSF Tutorial!</title>
+</head>
+<h:body>
+   <P>HelloWorld App 1  #{helloWorld.message}</P>
+      <h2>Implicit Navigation</h2>
+      <hr />
+      <h:form>
+         <h3>Using Managed Bean</h3>
+         <h:commandButton action="#{navigationController.moveToPage1}"
+            value="Page1" />
+         <h3>Using JSF outcome</h3>
+         <h:commandButton action="page2" value="Page2" />
+      </h:form>
+      <br/>
+      <h2>Conditional Navigation</h2>
+      <hr />
+      <h:form>
+         <h:commandLink action="#{navigationController.showPage}"
+            value="Page1 ">
+            <f:param name="pageId" value="1" />
+         </h:commandLink>
+              
+         <h:commandLink action="#{navigationController.showPage}"
+            value="Page2 ">
+            <f:param name="pageId" value="2" />
+         </h:commandLink>
+              
+         <h:commandLink action="#{navigationController.showPage}"
+            value="Home">
+            <f:param name="pageId" value="3" />
+         </h:commandLink>
+      </h:form>
+      <br/>
+      <h2>"From Action" Navigation</h2>
+      <hr />
+      <h:form>
+         <h:commandLink action="#{navigationController.processPage1}"
+         value="Page1 " />
+              
+         <h:commandLink action="#{navigationController.processPage2}"
+         value="Page2" />
+              
+      </h:form>
+      <br/>
+      <h2>Forward vs Redirection Navigation</h2>
+      <hr />
+      <h:form>
+         <h3>Forward</h3>
+         <h:commandButton action="page1" value="Page1" />
+         <h3>Redirect</h3>
+         <h:commandButton action="page1?faces-redirect=true"
+         value="Page1" />
+      </h:form>
+      <h2>ConvertNumber Example</h2>
+      <table border="1" cellspacing="2" cellpadding="2">
+         <tr><th>Parameter</th><th>Value Passed</th><th>Output</th></tr>
+         <tr><td>minFractionDigits="2"</td><td>100.12345</td>
+         <td>
+            <h:outputText value="100.12345" >
+               <f:convertNumber minFractionDigits="2" />
+            </h:outputText>
+         </td></tr>
+         <tr><td>pattern="#000.000"</td><td>100.12345</td>
+         <td>
+            <h:outputText value="100.12345" >
+               <f:convertNumber pattern="#000.000" />
+            </h:outputText>
+         </td></tr>
+         <tr><td>currencySymbol="$"</td><td>$100</td>
+         <td>
+            <h:outputText value="$100">
+               <f:convertNumber currencySymbol="$" type="currency" />
+            </h:outputText>
+         </td></tr>
+         <tr><td>type="percent"</td><td>100.12345%</td>
+         <td>
+            <h:outputText value="100.12345%" >
+               <f:convertNumber type="percent" />
+            </h:outputText>
+         </td></tr>
+      </table>
+<!--        <ui:composition template="templates/common.xhtml"> -->
+<!--          <ui:param name="title" value="Home" /> -->
+<!--          <ui:define name="content">				 -->
+<!--             <br/><br/> -->
+<!--              <h:link value="Page 1" outcome="page1" /> -->
+<!--              <h:link value="Page 2" outcome="page2" />			 -->
+<!--             <br/><br/> -->
+<!--          </ui:define> -->
+<!--       </ui:composition> -->
+   <h2>h:validateLength Example</h2>
+   <h:form>
+      <h:inputText id="nameInput" value="#{userData.name}" 
+         label="name" >
+         <f:validateLength minimum="5" maximum="8" />
+      </h:inputText>			
+      <h:commandButton value="submit" action="result"/>
+      <h:message for="nameInput" style="color:red" />
+   </h:form>   
+   <h2>DataTable Example</h2>
+   <h:form>
+      <h:dataTable value="#{userData.employees}" var="employee"
+         styleClass="employeeTable"
+         headerClass="employeeTableHeader"
+         rowClasses="employeeTableOddRow,employeeTableEvenRow">
+         <h:column>    				
+            <f:facet name="header">Name</f:facet>    				
+            #{employee.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Department</f:facet>
+            #{employee.department}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Age</f:facet>
+            #{employee.age}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Salary</f:facet>
+            #{employee.salary}
+         </h:column>
+      </h:dataTable>
+   </h:form>
+ 
+</h:body>
+</html>
