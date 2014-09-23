@@ -13,6 +13,6 @@ public class NorthWind
   
   public String getMessage()
   {
-    return "North Wind!";
+    return "North Wind";
   }
 }

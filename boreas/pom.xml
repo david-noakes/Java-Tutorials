@@ -4,7 +4,7 @@
   <groupId>com.tutorialspoint.boreas</groupId>
   <artifactId>boreas</artifactId>
   <packaging>war</packaging>
-  <version>1.0.001.0013</version>
+  <version>1.0.002.0003</version>
   <name>boreas Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
