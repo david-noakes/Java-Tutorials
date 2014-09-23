@@ -30,28 +30,58 @@ public class Employee {
     private String Notes;
     private String Attachments;
     
+    
+    // Attribute names
+    private static final String ID_name = "ID";
+    private static final String Company_name = "Company";
+    private static final String LastName_name = "LastName";
+    private static final String FirstName_name = "FirstName";
+    private static final String EmailAddress_name = "EmailAddress";
+    private static final String JobTitle_name = "JobTitle";
+    private static final String BusinessPhone_name = "BusinessPhone";
+    private static final String HomePhone_name = "HomePhone";
+    private static final String MobilePhone_name = "MobilePhone";
+    private static final String FaxNumber_name = "FaxNumber";
+    private static final String Address_name = "Address";
+    private static final String City_name = "City";
+    private static final String StateProvince_name = "StateProvince";
+    private static final String PostalCode_name = "PostalCode";
+    private static final String CountryRegion_name = "CountryRegion";
+    private static final String WebPage_name = "WebPage";
+    private static final String Notes_name = "Notes";
+    private static final String Attachments_name = "Attachments";
+    
+    private static final String SET_PREFIX = "set";
+    
+    // Database field names
+    
+    
+    // mappings
+    
     private static final HashMap fieldList = new HashMap() {{
-	    put("ID", "ID");
-	    put("Company", "Company");
-	    put("LastName","Last Name");
-	    put("FirstName","First Name");
-	    put("EmailAddress","E-mail Address");
-	    put("JobTitle", "Job Title");
-	    put("BusinessPhone","Business Phone");
-	    put("HomePhone","Home Phone");
-	    put("MobilePhone","Mobile Phone");
-	    put("FaxNumber","Fax Number");
-	    put("Address","Address");
-	    put("City","City");
-	    put("StateProvince", "State/Province");
-	    put("PostalCode", "ZIP/Postal Code");
-	    put("CountryRegion", "Country/Region");
-	    put("WebPage", "Web Page");
-	    put("Notes", "Notes");
-	    put("Attachments", "Attachments");
+	    put(ID_name, "ID");
+	    put(Company_name, "Company");
+	    put(LastName_name,"Last Name");
+	    put(FirstName_name,"First Name");
+	    put(EmailAddress_name,"E-mail Address");
+	    put(JobTitle_name, "Job Title");
+	    put(BusinessPhone_name,"Business Phone");
+	    put(HomePhone_name,"Home Phone");
+	    put(MobilePhone_name,"Mobile Phone");
+	    put(FaxNumber_name,"Fax Number");
+	    put(Address_name,"Address");
+	    put(City_name,"City");
+	    put(StateProvince_name, "State/Province");
+	    put(PostalCode_name, "ZIP/Postal Code");
+	    put(CountryRegion_name, "Country/Region");
+	    put(WebPage_name, "Web Page");
+	    put(Notes_name, "Notes");
+	    put(Attachments_name, "Attachments");
     }};
     
-	//Constructors
+    private static HashMap fieldSetters = new HashMap();
+
+    //Constructors
     public Employee() {
 		super();
 		ID = 0;
@@ -72,78 +102,67 @@ public class Employee {
 	    WebPage = "";
 	    Notes = "";
 	    Attachments = "";
-	    
+	    if (fieldSetters.size() == 0) {
+	    	loadSetters();
+	    }
 	}
 
-    
-    public void Morph(ResultSet result) {
-    	int keyIdx;
+    /* This is hand coded, but about the same effort as the one using reflection
+     * 
+     * 
+     */
+    public void morphFromDB(ResultSet result) {
     	String dbFieldName;
-    	String fieldValue;
-    	String key;
-    	Method setter;
-	    if (result != null ) {
-			Iterator iter = (Iterator) fieldList.keySet().iterator();
-			while (iter.hasNext() ) {
-				try {
-					key = (String) iter.next();
-					dbFieldName  = (String)fieldList.get(key);
-					keyIdx = result.findColumn(dbFieldName);
-					
-				    //setter = this.getClass().getDeclaredMethod("set"+key);
-					if (key.contentEquals("ID")) {
-					    setID(result.getInt(keyIdx));
-					} else if (key.contentEquals("Company")) {    
-					    setCompany(result.getString(keyIdx));
-					} else if (key.contentEquals("LastName")) {    
-					    setLastName(result.getString(keyIdx));
-					} else if (key.contentEquals("FirstName")) {
-					    setFirstName(result.getString(keyIdx));
-					} else if (key.contentEquals("EmailAddress")) {
-					    setEmailAddress(result.getString(keyIdx));
-					} else if (key.contentEquals("JobTitle")) {
-					    setJobTitle(result.getString(keyIdx));
-					} else if (key.contentEquals("BusinessPhone")) {
-					    setBusinessPhone(result.getString(keyIdx));
-					} else if (key.contentEquals("HomePhone")) {
-					    setHomePhone(result.getString(keyIdx));
-					} else if (key.contentEquals("MobilePhone")) {
-					    setMobilePhone(result.getString(keyIdx));
-					} else if (key.contentEquals("FaxNumber")) {
-					    setFaxNumber(result.getString(keyIdx));
-					} else if (key.contentEquals("Address")) {
-					    setAddress(result.getString(keyIdx));
-					} else if (key.contentEquals("City")) {
-					    setCity(result.getString(keyIdx));
-					} else if (key.contentEquals("StateProvince")) {
-					    setStateProvince(result.getString(keyIdx));
-					} else if (key.contentEquals("PostalCode")) {
-					    setPostalCode(result.getString(keyIdx));
-					} else if (key.contentEquals("CountryRegion")) {
-					    setCountryRegion(result.getString(keyIdx));
-					} else if (key.contentEquals("WebPage")) {
-					    setWebPage(result.getString(keyIdx));
-					} else if (key.contentEquals("Notes")) {
-					    setNotes(result.getString(keyIdx));
-					} else if (key.contentEquals("Attachments")) {
-					    setAttachments(result.getString(keyIdx));
-					}
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		try {
+			dbFieldName  = (String)fieldList.get(ID_name);
+		    setID(result.getInt(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(Company_name);    
+		    setCompany(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(LastName_name);    
+		    setLastName(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(FirstName_name);
+		    setFirstName(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(EmailAddress_name);
+		    setEmailAddress(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(JobTitle_name);
+		    setJobTitle(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(BusinessPhone_name);
+		    setBusinessPhone(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(HomePhone_name);
+		    setHomePhone(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(MobilePhone_name);
+		    setMobilePhone(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(FaxNumber_name);
+		    setFaxNumber(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(Address_name);
+		    setAddress(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(City_name);
+		    setCity(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(StateProvince_name);
+		    setStateProvince(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(PostalCode_name);
+		    setPostalCode(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(CountryRegion_name);
+		    setCountryRegion(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(WebPage_name);
+		    setWebPage(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(Notes_name);
+		    setNotes(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(Attachments_name);
+		    setAttachments(result.getString(dbFieldName));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-	    }	
     }
     
-    public void MorphFailsWithNoSuchMethod(ResultSet result) {
+    public void morphUsingReflection(ResultSet result) {
     	// getting a setter method fails
     	int keyIdx;
     	String dbFieldName;
@@ -158,10 +177,13 @@ public class Employee {
 					dbFieldName  = (String)fieldList.get(key);
 					keyIdx = result.findColumn(dbFieldName);
 					
-				    setter = this.getClass().getDeclaredMethod("set"+key);	
-				    if (getClass().getField(key).getType().isPrimitive()) {
-				    	int i = result.getInt(keyIdx);
-				    	setter.invoke(this, i);
+				    setter = (Method) fieldSetters.get(key);	
+				    if (this.getClass().getDeclaredField(key).getType().isPrimitive()) {
+				    	if (this.getClass().getDeclaredField(key).getType().equals(Integer.TYPE)) {
+				    		int i = result.getInt(keyIdx);
+				    		setter.invoke(this, i);
+				    	}
+				    	// TODO - add any other primitive types here
 				    } else {
 				    	fieldValue = result.getString(keyIdx);
 				        setter.invoke(this, fieldValue);
@@ -171,9 +193,6 @@ public class Employee {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NoSuchMethodException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
@@ -194,6 +213,66 @@ public class Employee {
 		}
     }
     
+    
+    // this is used to help with morphUsingReflection()
+    private void loadSetters() {
+	    Class noparams[] = {};
+		Class[] paramString = new Class[1];	
+		paramString[0] = String.class;
+		Class[] paramInt = new Class[1];	
+		paramInt[0] = Integer.TYPE;
+		Method method;
+    	if (fieldSetters.size() == 0) {
+    		// TODO - we have the list in a map, try using a loop (from getMethods()
+    		//      - note the need to pass the correct paramtype
+    		try {
+    			Class<Employee> cls = (Class<Employee>) Class.forName("com.tutorial.boreas.Employee");
+	    		method = cls.getDeclaredMethod(SET_PREFIX+ID_name, paramInt);
+	    		fieldSetters.put(ID_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+Company_name, paramString);
+	    		fieldSetters.put(Company_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+LastName_name, paramString);
+	    		fieldSetters.put(LastName_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+FirstName_name, paramString);
+	    		fieldSetters.put(FirstName_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+EmailAddress_name, paramString);
+	    		fieldSetters.put(EmailAddress_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+JobTitle_name, paramString);
+	    		fieldSetters.put(JobTitle_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+BusinessPhone_name, paramString);
+	    		fieldSetters.put(BusinessPhone_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+HomePhone_name, paramString);
+	    		fieldSetters.put(HomePhone_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+MobilePhone_name, paramString);
+	    		fieldSetters.put(MobilePhone_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+FaxNumber_name, paramString);
+	    		fieldSetters.put(FaxNumber_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+Address_name, paramString);
+	    		fieldSetters.put(Address_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+City_name, paramString);
+	    		fieldSetters.put(City_name,method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+StateProvince_name, paramString);
+	    		fieldSetters.put(StateProvince_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+PostalCode_name, paramString);
+	    		fieldSetters.put(PostalCode_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+CountryRegion_name, paramString);
+	    		fieldSetters.put(CountryRegion_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+WebPage_name, paramString);
+	    		fieldSetters.put(WebPage_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+Notes_name, paramString);
+	    		fieldSetters.put(Notes_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+Attachments_name, paramString);
+	    		fieldSetters.put(Attachments_name, method);
+		    } catch  (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		    	
+		    } catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    }
     
     // Setters and Getters
 	public int getID() {

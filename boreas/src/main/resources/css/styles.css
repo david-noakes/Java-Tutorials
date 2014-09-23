@@ -13,11 +13,11 @@
 }
 
 .empolyeeTableOddRow{
-   text-align:center;
+   text-align:left;
    background:none repeat scroll 0 0 #FFFFFFF;	
 }
 
 .employeeTableEvenRow{
-   text-align:center;
+   text-align:left;
    background:none repeat scroll 0 0 #D3D3D3;
 }

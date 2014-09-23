@@ -21,6 +21,9 @@ public class EmployeeData  implements Serializable{
     ResultSet results = null;
 	
     public List<Employee> getEmployees() {
+    	if (sessionData == null) {
+    		getConnection();
+    	}
         ResultSet results = null;
         PreparedStatement pst = null;
         List<Employee> records = new ArrayList<Employee>();
@@ -34,7 +37,8 @@ public class EmployeeData  implements Serializable{
 
             while(results.next()){
                Employee employee = new Employee();
-               employee.Morph(results);
+               //employee.morphFromDB(results);
+               employee.morphUsingReflection(results);
 //               employee.setID(results.getInt(1));
 //               employee.setCompany(results.getString(2));
 //               employee.setLastName(results.getString(3));
