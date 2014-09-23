@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -29,6 +30,7 @@ public class Employee {
     private String WebPage;
     private String Notes;
     private String Attachments;
+    private Date   StartDate;
     
     
     // Attribute names
@@ -50,6 +52,7 @@ public class Employee {
     private static final String WebPage_name = "WebPage";
     private static final String Notes_name = "Notes";
     private static final String Attachments_name = "Attachments";
+    private static final String StartDate_name   = "StartDate"; 
     
     private static final String SET_PREFIX = "set";
     
@@ -77,6 +80,7 @@ public class Employee {
 	    put(WebPage_name, "Web Page");
 	    put(Notes_name, "Notes");
 	    put(Attachments_name, "Attachments");
+	    put(StartDate_name, "Start Date");
     }};
     
     private static HashMap fieldSetters = new HashMap();
@@ -150,6 +154,8 @@ public class Employee {
 		    setNotes(result.getString(dbFieldName));
 		    dbFieldName  = (String)fieldList.get(Attachments_name);
 		    setAttachments(result.getString(dbFieldName));
+		    dbFieldName  = (String)fieldList.get(StartDate_name);
+		    setStartDate(result.getDate(dbFieldName));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -185,8 +191,12 @@ public class Employee {
 				    	}
 				    	// TODO - add any other primitive types here
 				    } else {
+				    	if (this.getClass().getDeclaredField(key).getType().equals(String.class)) {
 				    	fieldValue = result.getString(keyIdx);
 				        setter.invoke(this, fieldValue);
+				    	} else if (this.getClass().getDeclaredField(key).getType().equals(Date.class)) {
+					        setter.invoke(this, result.getDate(keyIdx));
+					    }
 				    }
 					
 				} catch (SQLException e) {
@@ -219,6 +229,8 @@ public class Employee {
 	    Class noparams[] = {};
 		Class[] paramString = new Class[1];	
 		paramString[0] = String.class;
+		Class[] paramDate = new Class[1];
+		paramDate[0] = Date.class;
 		Class[] paramInt = new Class[1];	
 		paramInt[0] = Integer.TYPE;
 		Method method;
@@ -263,6 +275,8 @@ public class Employee {
 	    		fieldSetters.put(Notes_name, method);
 	    		method = cls.getDeclaredMethod(SET_PREFIX+Attachments_name, paramString);
 	    		fieldSetters.put(Attachments_name, method);
+	    		method = cls.getDeclaredMethod(SET_PREFIX+StartDate_name, paramDate);
+	    		fieldSetters.put(StartDate_name, method);
 		    } catch  (NoSuchMethodException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -450,5 +464,13 @@ public class Employee {
 		} else {
 			Attachments = "";
 		}
+	}
+
+	public Date getStartDate() {
+		return StartDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		StartDate = startDate;
 	}	
 }

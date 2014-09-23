@@ -56,7 +56,8 @@ public class NorthwindTest {
 	 System.out.println(" -----ID----- Company   Last Name   First Name  ");
 	 while (it.hasNext()) {
 		 emp = (Employee) it.next();
-		 System.out.println(emp.getID()+"  "+emp.getCompany()+"  "+emp.getLastName()+"  "+emp.getFirstName());
+		 System.out.println(emp.getID()+"  "+emp.getCompany()+"  "+emp.getLastName()+"  "+emp.getFirstName()+
+				 " "+emp.getStartDate());
 		 
 	 }
 	 
