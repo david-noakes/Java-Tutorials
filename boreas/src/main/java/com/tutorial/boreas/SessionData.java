@@ -67,6 +67,9 @@ public class SessionData extends HashMap {
 		this.connection = connection;
 	}
 	
+	// NOTE - do not put getters in this bean for JSF pages wanting session data
+	// JSF is unable to create a second copy of the bean
+	// instead put the getters into the bean for the page, and let it get it from sessionData
 	
 	
 }
