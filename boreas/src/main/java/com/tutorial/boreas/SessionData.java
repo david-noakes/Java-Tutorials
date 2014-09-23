@@ -58,7 +58,6 @@ public class SessionData extends HashMap {
 		}
 		
 		return instance;
-//		return getInstance(" ", " ");
 	}
 	public Connection getConnection() {
 		return connection;
