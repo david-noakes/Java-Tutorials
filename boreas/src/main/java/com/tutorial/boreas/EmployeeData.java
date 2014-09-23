@@ -66,4 +66,13 @@ public class EmployeeData  implements Serializable{
   	   con = sessionData.getConnection();
 	   return con;
     }
+	public String getContext() {
+		getConnection();
+		return (String) sessionData.get(sessionData.CONTEXT);
+	}
+	
+	public String getDestination(){
+		getConnection();
+		return (String) sessionData.get(sessionData.DESTINATION);
+	}
 }

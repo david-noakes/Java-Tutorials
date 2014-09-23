@@ -1,17 +1,20 @@
 package com.tutorial.boreas;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "SessionData", eager = true)
 @SessionScoped
-public class SessionData {
+public class SessionData extends HashMap {
+	
+	
+	public static final String CONTEXT = "context";
+	public static final String DESTINATION = "destination";
 	
 	private String username = " ";
 	private String password = " ";
@@ -34,7 +37,7 @@ public class SessionData {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	private SessionData(String uName, String pWord) throws SQLException {
 		this.username = uName;
 		this.password = pWord;

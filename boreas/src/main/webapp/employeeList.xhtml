@@ -15,10 +15,14 @@
       headerClass="employeeTableHeader"
       rowClasses="employeeTableOddRow,employeeTableEvenRow">
       <h:column><f:facet name="header">Employee ID</f:facet>
-         #{c.getID()}
+	   <h:form>
+		   <h:commandLink action="#{navigationController.showPage}" value="#{c.getID()}">
+		      <f:param name="pageId" value="#{navigationController.employeeDetailContext()}#{c.getID()}" />
+		   </h:commandLink>
+	   </h:form>
       </h:column>
       <h:column><f:facet name="header">Last Name</f:facet>
-         #{c.getLastName()}
+	      #{c.getLastName()}
       </h:column>
       <h:column><f:facet name="header">First Name</f:facet>
          #{c.getFirstName()}
