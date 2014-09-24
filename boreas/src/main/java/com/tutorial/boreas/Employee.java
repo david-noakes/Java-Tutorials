@@ -149,7 +149,17 @@ public class Employee {
 		    dbFieldName  = (String)fieldList.get(CountryRegion_name);
 		    setCountryRegion(result.getString(dbFieldName));
 		    dbFieldName  = (String)fieldList.get(WebPage_name);
-		    setWebPage(result.getString(dbFieldName));
+    		// for some reason, the field repeats with #
+    		String splits[] = result.getString(dbFieldName).split("#");
+    		if (splits.length>1) {
+    			if (splits[0].length() != 0) {
+    				setWebPage(splits[0]);
+    			} else {
+    				setWebPage(splits[1]);
+    			}
+    		} else {
+    			setWebPage(splits[0]);
+    		}
 		    dbFieldName  = (String)fieldList.get(Notes_name);
 		    setNotes(result.getString(dbFieldName));
 		    dbFieldName  = (String)fieldList.get(Attachments_name);
@@ -193,6 +203,19 @@ public class Employee {
 				    } else {
 				    	if (this.getClass().getDeclaredField(key).getType().equals(String.class)) {
 				    	fieldValue = result.getString(keyIdx);
+				    	if (key.equals(WebPage_name)) {
+				    		// for some reason, the field repeats with #
+				    		String splits[] = fieldValue.split("#");
+				    		if (splits.length>1) {
+				    			if (splits[0].length() != 0) {
+				    				fieldValue = splits[0];
+				    			} else {
+				    				fieldValue = splits[1];
+				    			}
+				    		} else {
+				    			setWebPage(splits[0]);
+				    		}
+				    	}
 				        setter.invoke(this, fieldValue);
 				    	} else if (this.getClass().getDeclaredField(key).getType().equals(Date.class)) {
 					        setter.invoke(this, result.getDate(keyIdx));

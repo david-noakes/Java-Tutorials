@@ -9,7 +9,40 @@
 <h:body>
 	   <h3>Employee Details</h3>
    <p>#{employeeData.getContext()}:#{employeeData.getDestination()}</p>
-	   
+   <table border="2">
+    <tr>
+     <td>&nbsp;&nbsp;</td>
+     
+     <td><table border="1" cellpadding="1">
+         <tr><td>First Name:</td><td>#{employeeData.putEmployeeToSessionData().getFirstName()}</td>
+         <td rowspan="4">#{employeeData.getEmployeeFromSessionData().getAttachments()}</td>
+         <td>Email:</td><td>#{employeeData.getEmployeeFromSessionData().getEmailAddress()}</td>
+         </tr>
+         <tr><td>Last Name:</td><td>#{employeeData.getEmployeeFromSessionData().getLastName()}</td>
+         <td>Web:</td><td>#{employeeData.getEmployeeFromSessionData().getWebPage()}</td>
+         </tr>
+         <tr><td>Company:</td><td>#{employeeData.getEmployeeFromSessionData().getCompany()}</td><td colspan="2">&nbsp;</td></tr>
+         <tr><td>Job Title:</td><td>#{employeeData.getEmployeeFromSessionData().getJobTitle()}</td><td colspan="2">&nbsp;</td></tr>
+         <tr><td colspan="5">&nbsp;</td></tr>
+         <tr><td>Phone Numbers</td><td>&nbsp;</td><td>Notes</td></tr>
+         <tr><td>Business Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getBusinessPhone()}</td>
+         <td colspan="3" rowspan="11" style="vertical-align:top">#{employeeData.getEmployeeFromSessionData().getNotes()}</td>
+         </tr>
+         <tr><td>Home Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getHomePhone()}</td></tr>
+         <tr><td>Mobile Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getMobilePhone()}</td></tr>
+         <tr><td>Fax Number:</td><td>#{employeeData.getEmployeeFromSessionData().getFaxNumber()}</td></tr>
+         <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+         <tr><td>Address</td><td>&nbsp;</td></tr>
+         <tr><td>Street:</td><td>#{employeeData.getEmployeeFromSessionData().getAddress()}</td></tr>
+         <tr><td>City:</td><td>#{employeeData.getEmployeeFromSessionData().getCity()}</td></tr>
+         <tr><td>State/Province:</td><td>#{employeeData.getEmployeeFromSessionData().getStateProvince()}</td></tr>
+         <tr><td>Zip/Postcode:</td><td>#{employeeData.getEmployeeFromSessionData().getPostalCode()}</td></tr>
+         <tr><td>Country/Region:</td><td>#{employeeData.getEmployeeFromSessionData().getCountryRegion()}</td></tr>
+		</table>
+	</td>
+     
+    </tr>
+   </table>
    <h:form>
    <h:commandButton action="#{navigationController.showPage()}" value="Employee List" >
    <f:param name="pageId" value="employeeList" />

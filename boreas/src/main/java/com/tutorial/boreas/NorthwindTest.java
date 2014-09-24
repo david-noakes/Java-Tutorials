@@ -20,6 +20,7 @@ public class NorthwindTest {
 	 String username = " "; // No username/password required
 	 String password = " "; // for desktop access to MS Access.
 	 showEmployeeTable(driver, url, username, password);
+	 //showEmployee(driver, args);
  }
  /** Query the employee table and print the first and
  * last names.
@@ -57,7 +58,7 @@ public class NorthwindTest {
 	 while (it.hasNext()) {
 		 emp = (Employee) it.next();
 		 System.out.println(emp.getID()+"  "+emp.getCompany()+"  "+emp.getLastName()+"  "+emp.getFirstName()+
-				 " "+emp.getStartDate());
+				 " "+emp.getStartDate()+", "+emp.getWebPage());
 		 
 	 }
 	 
@@ -71,4 +72,31 @@ public class NorthwindTest {
 
  }
  
+ public static void showEmployee(String driver, String[] args){
+	 // Load database driver if it's not already loaded.
+	 try {
+		 Class.forName(driver);
+		 EmployeeData empData = new EmployeeData();
+		 // Establish network connection to database.
+		 Connection connection = empData.getConnection();
+		 SessionData sessionData = SessionData.getInstance();
+		 Employee emp;
+		 System.out.println("Employee Details\n" + "==========");
+		 System.out.println(" -----ID----- Company   Last Name   First Name  Start Date");
+		 for (int i=0;i<args.length;i++) {
+			 sessionData.put(SessionData.DESTINATION, args[i]);
+			 emp = empData.getContextEmployee();
+			 System.out.println(emp.getID()+"  "+emp.getCompany()+"  "+emp.getLastName()+", "+emp.getFirstName()+
+					 " : "+emp.getStartDate());
+		 }
+	 } catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 
+ }
+
 }

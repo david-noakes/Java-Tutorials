@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -19,6 +20,8 @@ public class EmployeeData  implements Serializable{
 	private Connection con = null;
     private static final long serialVersionUID = 1L;
     ResultSet results = null;
+    
+    private static final String EMPLOYEE_DTO = "employeeDTO";
 	
     public List<Employee> getEmployees() {
     	if (sessionData == null) {
@@ -53,6 +56,48 @@ public class EmployeeData  implements Serializable{
         return records;
     }
     
+    public Employee getContextEmployee() {
+    	if (sessionData == null) {
+    		getConnection();
+    	}
+    	Employee employee = new Employee();
+        ResultSet results = null;
+        PreparedStatement pst = null;
+        String sql = "select * from employees where ID = "+getDestination();
+        try {   
+            pst = con.prepareStatement(sql);
+            pst.execute();
+            results = pst.getResultSet();
+
+            while(results.next()){
+               //employee.morphFromDB(results);
+               employee.morphUsingReflection(results);
+            }
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+        return employee;
+    }
+    /**
+     * gets an employee from the database, based on the destination saved in the sessionData
+     * it then stores this employeeDTO into sessionData
+     * @return Employee
+     */
+    public Employee putEmployeeToSessionData() {
+    	Employee employee = getContextEmployee();
+    	sessionData.put(EMPLOYEE_DTO, employee);
+    	return employee;
+    }
+    
+    /**
+     * use the employee stored in sessionData
+     * @return saved employeeDTO
+     */
+	public Employee getEmployeeFromSessionData() {
+		Employee employee = getSavedEmployee();
+		return employee;
+	}
+     
     public Connection getConnection() {
 	   if (sessionData == null) {
 		  try {
@@ -74,5 +119,13 @@ public class EmployeeData  implements Serializable{
 	public String getDestination(){
 		getConnection();
 		return (String) sessionData.get(sessionData.DESTINATION);
+	}
+	
+	public Employee getSavedEmployee() {
+		if (sessionData == null) {
+			getConnection();
+		}
+		Employee employee = getContextEmployee();
+		return employee;
 	}
 }
