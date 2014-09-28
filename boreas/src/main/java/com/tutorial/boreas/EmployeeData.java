@@ -23,13 +23,13 @@ public class EmployeeData  implements Serializable{
     
     private static final String EMPLOYEE_DTO = "employeeDTO";
 	
-    public List<Employee> getEmployees() {
+    public List<EmployeeDTO> getEmployees() {
     	if (sessionData == null) {
     		getConnection();
     	}
         ResultSet results = null;
         PreparedStatement pst = null;
-        List<Employee> records = new ArrayList<Employee>();
+        List<EmployeeDTO> records = new ArrayList<EmployeeDTO>();
         String sql = "select * from employees";
         //this fails on record names with spaces
         
@@ -39,7 +39,7 @@ public class EmployeeData  implements Serializable{
             results = pst.getResultSet();
 
             while(results.next()){
-               Employee employee = new Employee();
+               EmployeeDTO employee = new EmployeeDTO();
                //employee.morphFromDB(results);
                employee.morphUsingReflection(results);
 //               employee.setID(results.getInt(1));
@@ -56,11 +56,11 @@ public class EmployeeData  implements Serializable{
         return records;
     }
     
-    public Employee getContextEmployee() {
+    public EmployeeDTO getContextEmployee() {
     	if (sessionData == null) {
     		getConnection();
     	}
-    	Employee employee = new Employee();
+    	EmployeeDTO employee = new EmployeeDTO();
         ResultSet results = null;
         PreparedStatement pst = null;
         String sql = "select * from employees where ID = "+getDestination();
@@ -83,8 +83,8 @@ public class EmployeeData  implements Serializable{
      * it then stores this employeeDTO into sessionData
      * @return Employee
      */
-    public Employee putEmployeeToSessionData() {
-    	Employee employee = getContextEmployee();
+    public EmployeeDTO putEmployeeToSessionData() {
+    	EmployeeDTO employee = getContextEmployee();
     	sessionData.put(EMPLOYEE_DTO, employee);
     	return employee;
     }
@@ -93,8 +93,8 @@ public class EmployeeData  implements Serializable{
      * use the employee stored in sessionData
      * @return saved employeeDTO
      */
-	public Employee getEmployeeFromSessionData() {
-		Employee employee = getSavedEmployee();
+	public EmployeeDTO getEmployeeFromSessionData() {
+		EmployeeDTO employee = getSavedEmployee();
 		return employee;
 	}
      
@@ -121,11 +121,11 @@ public class EmployeeData  implements Serializable{
 		return (String) sessionData.get(sessionData.DESTINATION);
 	}
 	
-	public Employee getSavedEmployee() {
+	public EmployeeDTO getSavedEmployee() {
 		if (sessionData == null) {
 			getConnection();
 		}
-		Employee employee = getContextEmployee();
+		EmployeeDTO employee = getContextEmployee();
 		return employee;
 	}
 }

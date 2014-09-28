@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-public class Employee {
+public class EmployeeDTO {
 	// Northwind Employee Table
 	private int ID;
 	private String Company;
@@ -86,7 +86,7 @@ public class Employee {
     private static HashMap fieldSetters = new HashMap();
 
     //Constructors
-    public Employee() {
+    public EmployeeDTO() {
 		super();
 		ID = 0;
 		Company = "";
@@ -261,7 +261,7 @@ public class Employee {
     		// TODO - we have the list in a map, try using a loop (from getMethods()
     		//      - note the need to pass the correct paramtype
     		try {
-    			Class<Employee> cls = (Class<Employee>) Class.forName("com.tutorial.boreas.Employee");
+    			Class<EmployeeDTO> cls = (Class<EmployeeDTO>) Class.forName("com.tutorial.boreas.Employee");
 	    		method = cls.getDeclaredMethod(SET_PREFIX+ID_name, paramInt);
 	    		fieldSetters.put(ID_name, method);
 	    		method = cls.getDeclaredMethod(SET_PREFIX+Company_name, paramString);

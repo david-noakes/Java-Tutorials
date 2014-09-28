@@ -50,13 +50,13 @@ public class NorthwindTest {
 //	 System.out.print(resultSet.getString("firstname") + " ");
 //	 System.out.println(resultSet.getString("lastname"));
 //	 }
-	 List <Employee> res = empData.getEmployees();
+	 List <EmployeeDTO> res = empData.getEmployees();
 	 Iterator it = res.iterator();
-	 Employee emp;
+	 EmployeeDTO emp;
 	 System.out.println("Employees\n" + "==========");
 	 System.out.println(" -----ID----- Company   Last Name   First Name  ");
 	 while (it.hasNext()) {
-		 emp = (Employee) it.next();
+		 emp = (EmployeeDTO) it.next();
 		 System.out.println(emp.getID()+"  "+emp.getCompany()+"  "+emp.getLastName()+"  "+emp.getFirstName()+
 				 " "+emp.getStartDate()+", "+emp.getWebPage());
 		 
@@ -80,7 +80,7 @@ public class NorthwindTest {
 		 // Establish network connection to database.
 		 Connection connection = empData.getConnection();
 		 SessionData sessionData = SessionData.getInstance();
-		 Employee emp;
+		 EmployeeDTO emp;
 		 System.out.println("Employee Details\n" + "==========");
 		 System.out.println(" -----ID----- Company   Last Name   First Name  Start Date");
 		 for (int i=0;i<args.length;i++) {
