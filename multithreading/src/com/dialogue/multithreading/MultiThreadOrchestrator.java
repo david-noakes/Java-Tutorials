@@ -46,32 +46,28 @@ public class MultiThreadOrchestrator {
 	List<MultiThreadWorker> workers;
 	private boolean tooManyWorkers = false;
 	private boolean needMoreWorkers = false;
-    List<MultiThreadWorker> spareWorkers;
 	
 	
 	
 	// ////////////////////////////////////////////
-	private Date currentTime;
 	private static int maxThreads = 11;
 	private static int minThreads = 3;
-	private long sleepTime = 1;
-	private long counter = 0;
+	private static int nbrThreadsInit = 11;
 	private boolean stopping = false;
 	long updateTimestamp; 
 	// ////////////////////////////////////////////
 
 	
-	// Current 'Sleep' timer - can be changed by this Application
-	private static int currentSleepTimeValue = 1;
 	// Default 'Sleep' timer - no more than 22 queries per second
 	private static int defaultSleepTimeValue = 10;
 	// housekeeping loop sleep timer - for processing our Q and waiting for 1 second to elapse
-	private static int housekeepingSleepTimeValue = 17;
+	private static int housekeepingSleepTimeValue = 11;
 	// Long 'Sleep' timer when there are no records to process
 	private static int longSleepTimeValue = 5000;
 	// Timer increase value
 	private static int increaseTimeValue = 100;
-	private static final int almost1Second = 980;
+	private static int almost1Second =  1000 - housekeepingSleepTimeValue +1;
+	private static int minNbrToRead = minThreads;
 	
 	private final String statusProcessing = "PROCESSING";
 	private final String statusFailed = "FAILED";
@@ -96,11 +92,12 @@ public class MultiThreadOrchestrator {
 		stopFile = performInit();
 		openDBConnection();
 		int counter = 0;
+		int burst = 0;
+		int wqLen = 0;
 
 		// ////////////////////////////////////////////
 		workers = new ArrayList<MultiThreadWorker>(maxThreads);
-		spareWorkers = new ArrayList<MultiThreadWorker>(maxThreads);
-		for (int i = 0; i < minThreads; i++) {
+		for (int i = 0; i < nbrThreadsInit; i++) {
 			workers.add(new MultiThreadWorker("Worker "+ i));
 		}
 
@@ -109,28 +106,28 @@ public class MultiThreadOrchestrator {
 		long currentTime  = System.currentTimeMillis();
         long startTime  = currentTime;
 		int timeDelta = 0;
+		int saveTimeDelta = 0;
 
 		while (!stopping) {
-			
+		    almost1Second = 1000 - housekeepingSleepTimeValue +1;
 			// TODO - read dbOutput 22 rows at a time, and apportion to workers
 			try {
-				List rows = performQuery();  // could set stopping = true
+				List rows = performQuery(wqLen);  // could set stopping = true
 				counter += rows.size();
+				System.out.println("read "+rows.size()+ " qLen = " + wqLen);
+				burst = rows.size() + workerQLen(); // how many we are trying to process this second
 				if (stopFile.exists()) {
 					stopping = true;
 				} 
 				if (rows.size() > 0) {
-					int n = 0;
+				    // load levelling - not needed first time round, but it doesn't matter
 					for (int i = 0; i<rows.size();i++) {
-						workers.get(n).qLength = workers.get(n).qLength + 1;
-						n++;
-						if (n<workers.size()) {
-						} else {	
-							n=0;
-						}
+					    MultiThreadWorker mtw = workerWithShortestQ();
+					    mtw.qLength += 1;
 					}
 				}
                 currentTime = System.currentTimeMillis();
+                saveTimeDelta = 0;
 				if (!workersStarted) {
 				    // set this again
 				    startTime = System.currentTimeMillis();
@@ -138,6 +135,13 @@ public class MultiThreadOrchestrator {
 						workers.get(i).start();
 					}
 					workersStarted = true;
+				} else {
+                    for (int i = 0; i < workers.size(); i++) {
+                        // start any new ones
+                        if (!workers.get(i).isRunning()) {
+                            workers.get(i).start();
+                        }
+                    }
 				}
 				
 				// allow the workers to do some work
@@ -147,9 +151,14 @@ public class MultiThreadOrchestrator {
 				// process the output from the workers, update the database
 				// there output is our inputQ - threadsafe
 				while (timeDelta < almost1Second) {
-	                if (allWorkerQsEmpty() && timeDelta < 800) {
-	                    tooManyWorkers = true;
-	                    logger.info("too many workers");
+	                if (allWorkerQsEmpty()) {
+	                    if (saveTimeDelta == 0) {
+	                        saveTimeDelta = timeDelta;
+	                    }
+	                    if (!stopping && !tooManyWorkers  && timeDelta < 800) {
+    	                    tooManyWorkers = true;
+    	                    System.out.println("too many workers @ "+timeDelta);
+	                    }
 	                }
 				    if (inputQLength > 0) {
 				        // process 1 entry in our input q
@@ -181,39 +190,53 @@ public class MultiThreadOrchestrator {
 					        workers.get(i).stopNow();
 					    }
 					}
-					Thread.sleep(500);
+					Thread.sleep(300);
 				} else { 
 				    // not stopping, almost 1 second elapsed.
 				    // do we need more or less workers?
-    				if (!allWorkerQsEmpty()) {
+				    wqLen = workerQLen();
+    				if (wqLen > 0) {
     				    needMoreWorkers = true;
-    				    logger.info("more workers needed Q = " + workerQLen());
+    				    System.out.println("more workers needed Q = " + wqLen);
+    				}
+    				burst -= wqLen;
+    				if (saveTimeDelta !=0) {
+    				    System.out.println("processed " + burst + " items in " + saveTimeDelta + " ms");
+    				} else {
+    				    System.out.println("processed " + burst + " items in " + timeDelta + " ms");
     				}
     				if (needMoreWorkers) {
-    				    if (workers.size() < maxThreads) {
-    				        if (spareWorkers.size()>0) {
-    	                        int n = 0;
-    	                        MultiThreadWorker mtw = spareWorkers.get(n);
-    	                        spareWorkers.remove(n);
-    	                        mtw.start();
-    	                        workers.add(mtw);
-    				        } else {
+    				    int nbrNeeded = wqLen / workers.size();
+    				    if (nbrNeeded == 0) {
+    				        nbrNeeded = 1;
+    				    }
+    				    for (int i = 0; i < nbrNeeded; i++) {
+        				    if (workers.size() < maxThreads) {
+        				        // do not start them until we give them work
     				            int n = workers.size();
     				            MultiThreadWorker mtw = new MultiThreadWorker("Worker "+ n); 
-                                mtw.start();
                                 workers.add(mtw);
-    				        }
+        				    }
     				    }
     				    needMoreWorkers = false;
     				    tooManyWorkers = false;
     				}
     				if (tooManyWorkers) {
-    				    if (workers.size() > minThreads) {
-    				       int n = workers.size() - 1;
-    				       MultiThreadWorker mtw = workers.get(n);
-    				       workers.remove(n);
-    				       mtw.stop();
-    				       spareWorkers.add(mtw);
+    				    if (workers.size() > minThreads  && saveTimeDelta > 0) {
+    				        // we need a fraction of the workers removed.
+    				        //int nbrToRemove = (int) (((double)(1000-saveTimeDelta)) / ((double) 1000) * ((double) workers.size()));
+    				        //System.out.println("removing " + nbrToRemove + " threads");
+                            int nbrToRemove = 1;
+    				        int n=workers.size() - 1;
+    				        while (n > minThreads && nbrToRemove > 0) {
+        				        MultiThreadWorker mtw = workers.get(n);
+        				        if (mtw.qLength == 0) {
+        				            workers.remove(n);
+        				            mtw.stop();
+        				            nbrToRemove--;
+                                }
+        				        n--;
+    				        }
     				    }
     				    tooManyWorkers = false;
     				}
@@ -230,7 +253,7 @@ public class MultiThreadOrchestrator {
 	    long deltaT = updateTimestamp - startTime;
 	    double decSecs = ((double) deltaT) / 1000;
 	    int seconds = (int) (deltaT / 1000);
-	    long average = (counter * 1000) / deltaT;		// per second
+	    double average = Math.floor(((double) counter * 1000) / ((double) deltaT)*100)/100;		// per second 2 decimal places
 	    logger.info(" #### - Stopping - processed " + counter + " requests in "+ decSecs + " seconds" +
 	                " ==> average = " + average + " per second");
 	    System.out.println(" #### - Stopping - processed " + counter + " requests in "+ decSecs + " seconds" +
@@ -241,9 +264,6 @@ public class MultiThreadOrchestrator {
 		logger.info("##### Starting Geocoding Application");
 
 		//readConfigFile(configFilePath);
-
-		// Set 'Sleep' timer to 'Default' (Working) status
-		currentSleepTimeValue = defaultSleepTimeValue;
 
 		// Update 'urlSuffix' value to include 'clientID'
 		//urlSuffix = urlSuffix + "&client=" + clientID;
@@ -322,10 +342,14 @@ public class MultiThreadOrchestrator {
 		}
 	}		
 
-	private List performQuery() {
+	private List performQuery(int qLen) {
 		List zx = new ArrayList();
 		String s;
-		for (int i=0;i<22;i++) {
+		int nbrToRead = 22 - qLen;
+		if (nbrToRead < minNbrToRead) {
+		    nbrToRead = minNbrToRead; // keep ticking over
+		}
+		for (int i=0;i<nbrToRead;i++) {
 			try {
 				s = dbOutput.readLine();
 				if (s == null) {
@@ -338,7 +362,7 @@ public class MultiThreadOrchestrator {
 				e.printStackTrace();
 			}	
 		}
-		if (zx.size() < 22) {
+		if (zx.size() < nbrToRead) {
 			stopping = true;
 		}
 		return zx;
@@ -371,5 +395,18 @@ public class MultiThreadOrchestrator {
         this.inputQLength = inputQLength;
     }
 
+    private MultiThreadWorker workerWithShortestQ(){
+        int n = workers.size() - 1;
+        int mtwQlen = 999; 
+        MultiThreadWorker mtw = workers.get(n);
+        mtwQlen = mtw.qLength;
+        for (int i = n - 1; i >=0; i--) {
+            if (workers.get(i).qLength < mtwQlen) {
+                mtw = workers.get(i);
+                mtwQlen = mtw.qLength;
+            }
+        }
+        return mtw;
+    }
 	
 }

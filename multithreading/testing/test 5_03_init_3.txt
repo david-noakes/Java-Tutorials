@@ -1,0 +1,2823 @@
+test 5.03 - initially 3
+02/10/2014 4:34:33 PM com.dialogue.multithreading.MultiThreadOrchestrator performInit
+INFO: ##### Starting Geocoding Application
+Creating Worker 0
+Creating Worker 1
+Creating Worker 2
+read 22 qLen = 0
+Starting Worker 0
+Starting Worker 1
+Starting Worker 2
+Running Worker 1
+Running Worker 2
+Thread: Worker 1, row 1, Qlen = 7
+Thread: Worker 1, waiting for 185
+Running Worker 0
+Thread: Worker 2, row 1, Qlen = 8
+Thread: Worker 2, waiting for 223
+Thread: Worker 0, row 1, Qlen = 7
+Thread: Worker 0, waiting for 184
+Thread: Worker 0, row 2, Qlen = 6
+Thread: Worker 1, row 2, Qlen = 6
+Thread: Worker 0, waiting for 194
+Thread: Worker 1, waiting for 188
+Thread: Worker 2, row 2, Qlen = 7
+Thread: Worker 2, waiting for 200
+Thread: Worker 1, row 3, Qlen = 5
+Thread: Worker 1, waiting for 195
+Thread: Worker 0, row 3, Qlen = 5
+Thread: Worker 0, waiting for 181
+Thread: Worker 2, row 3, Qlen = 6
+Thread: Worker 2, waiting for 208
+Thread: Worker 0, row 4, Qlen = 4
+Thread: Worker 0, waiting for 202
+Thread: Worker 1, row 4, Qlen = 4
+Thread: Worker 1, waiting for 208
+Thread: Worker 2, row 4, Qlen = 5
+Thread: Worker 2, waiting for 182
+Thread: Worker 0, row 5, Qlen = 3
+Thread: Worker 0, waiting for 224
+Thread: Worker 1, row 5, Qlen = 3
+Thread: Worker 1, waiting for 232
+Thread: Worker 2, row 5, Qlen = 4
+Thread: Worker 2, waiting for 221
+Thread: Worker 0, row 6, Qlen = 2
+Thread: Worker 0, waiting for 204
+more workers needed Q = 9
+processed 13 items in 1001 ms
+Creating Worker 3
+Creating Worker 4
+Creating Worker 5
+read 13 qLen = 9
+Thread: Worker 1, row 6, Qlen = 2
+Thread: Worker 1, waiting for 215
+Thread: Worker 2, row 6, Qlen = 3
+Thread: Worker 2, waiting for 210
+Thread: Worker 0, row 7, Qlen = 1
+Thread: Worker 0, waiting for 230
+Starting Worker 3
+Starting Worker 4
+Running Worker 3
+Starting Worker 5
+Thread: Worker 3, row 1, Qlen = 3
+Running Worker 4
+Thread: Worker 3, waiting for 191
+Thread: Worker 4, row 1, Qlen = 3
+Thread: Worker 4, waiting for 230
+Running Worker 5
+Thread: Worker 5, row 1, Qlen = 4
+Thread: Worker 5, waiting for 231
+Thread: Worker 1, row 7, Qlen = 2
+Thread: Worker 1, waiting for 223
+Thread: Worker 2, row 7, Qlen = 2
+Thread: Worker 2, waiting for 185
+Thread: Worker 3, row 2, Qlen = 2
+Thread: Worker 3, waiting for 233
+Thread: Worker 0, row 8, Qlen = 2
+Thread: Worker 0, waiting for 220
+Thread: Worker 2, row 8, Qlen = 1
+Thread: Worker 2, waiting for 213
+Thread: Worker 4, row 2, Qlen = 2
+Thread: Worker 4, waiting for 215
+Thread: Worker 1, row 8, Qlen = 1
+Thread: Worker 1, waiting for 228
+Thread: Worker 5, row 2, Qlen = 3
+Thread: Worker 5, waiting for 236
+Thread: Worker 3, row 3, Qlen = 1
+Thread: Worker 3, waiting for 204
+Thread: Worker 0, row 9, Qlen = 1
+Thread: Worker 0, waiting for 207
+Thread: Worker 2, NOT sleeping elapsed 1672
+Thread: Worker 2, row 9, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 3, Qlen = 1
+Thread: Worker 4, waiting for 225
+Thread: Worker 1, NOT sleeping elapsed 1688
+Thread: Worker 1, row 9, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 10, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 3, Qlen = 2
+Thread: Worker 5, waiting for 211
+Thread: Worker 1, row 10, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 11, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 11, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 12, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 12, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 13, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 13, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 14, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 14, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 15, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, NOT sleeping elapsed 1860
+Thread: Worker 0, row 10, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 16, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 11, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 15, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 17, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 4, Qlen = 1
+Thread: Worker 5, waiting for 215
+Thread: Worker 0, row 12, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 4, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 16, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 4, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 18, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 13, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 5, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 17, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 5, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 19, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 14, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 6, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 18, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 6, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 20, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 7, Qlen = 0
+Thread: Worker 0, row 15, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 19, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 7, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 21, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 8, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 16, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 20, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 8, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 22, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 17, Qlen = 0
+Thread: Worker 3, row 9, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 21, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 9, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 23, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 18, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 10, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 22, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 10, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 24, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 19, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 11, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 23, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 11, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 25, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 20, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 12, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 24, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 12, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 26, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 13, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 21, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 25, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 13, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 27, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 14, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 22, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 5, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 26, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 14, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 28, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 23, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 15, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 6, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 27, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 15, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 29, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 16, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 24, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 7, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 28, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 16, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 30, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 25, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 17, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 8, Qlen = 0
+Thread: Worker 5, sleeping for 23
+processed 22 items in 907 ms
+Thread: Worker 1, row 29, Qlen = 0
+Thread: Worker 1, sleeping for 23
+read 22 qLen = 0
+Thread: Worker 4, row 17, Qlen = 4
+Thread: Worker 4, waiting for 230
+Thread: Worker 2, row 31, Qlen = 4
+Thread: Worker 2, waiting for 183
+Thread: Worker 3, row 18, Qlen = 4
+Thread: Worker 3, waiting for 231
+Thread: Worker 0, row 26, Qlen = 3
+Thread: Worker 0, waiting for 219
+Thread: Worker 5, row 9, Qlen = 4
+Thread: Worker 5, waiting for 203
+Thread: Worker 1, row 30, Qlen = 3
+Thread: Worker 1, waiting for 190
+Thread: Worker 2, row 32, Qlen = 3
+Thread: Worker 2, waiting for 226
+Thread: Worker 1, row 31, Qlen = 2
+Thread: Worker 1, waiting for 236
+Thread: Worker 5, row 10, Qlen = 3
+Thread: Worker 5, waiting for 209
+Thread: Worker 0, row 27, Qlen = 2
+Thread: Worker 0, waiting for 234
+Thread: Worker 4, row 18, Qlen = 3
+Thread: Worker 4, waiting for 197
+Thread: Worker 3, row 19, Qlen = 3
+Thread: Worker 3, waiting for 203
+Thread: Worker 2, row 33, Qlen = 2
+Thread: Worker 2, waiting for 239
+Thread: Worker 5, row 11, Qlen = 2
+Thread: Worker 5, waiting for 187
+Thread: Worker 4, row 19, Qlen = 2
+Thread: Worker 4, waiting for 186
+Thread: Worker 1, row 32, Qlen = 1
+Thread: Worker 1, waiting for 236
+Thread: Worker 3, row 20, Qlen = 2
+Thread: Worker 3, waiting for 224
+Thread: Worker 0, row 28, Qlen = 1
+Thread: Worker 0, waiting for 197
+Thread: Worker 4, row 20, Qlen = 1
+Thread: Worker 4, waiting for 217
+Thread: Worker 5, row 12, Qlen = 1
+Thread: Worker 5, waiting for 188
+Thread: Worker 2, row 34, Qlen = 1
+Thread: Worker 2, waiting for 192
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 21, Qlen = 1
+Thread: Worker 3, waiting for 201
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 29, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 33, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 30, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 34, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 31, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 35, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 32, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 36, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 33, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 37, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 34, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 38, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 35, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 13, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 39, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 36, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 14, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 21, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 40, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 37, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 35, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 15, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 22, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 41, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 22, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 38, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 36, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 16, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 23, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 42, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 23, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 39, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 37, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 17, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 24, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 43, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 24, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 40, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 38, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 18, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 25, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 44, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 25, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 41, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 39, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 19, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 26, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 45, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 26, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 42, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 40, Qlen = 0
+Thread: Worker 2, sleeping for 23
+processed 22 items in 875 ms
+read 22 qLen = 0
+Thread: Worker 5, row 20, Qlen = 4
+Thread: Worker 5, waiting for 207
+Thread: Worker 4, row 27, Qlen = 4
+Thread: Worker 4, waiting for 211
+Thread: Worker 1, row 46, Qlen = 3
+Thread: Worker 1, waiting for 205
+Thread: Worker 3, row 27, Qlen = 4
+Thread: Worker 3, waiting for 180
+Thread: Worker 0, row 43, Qlen = 3
+Thread: Worker 0, waiting for 198
+Thread: Worker 2, row 41, Qlen = 4
+Thread: Worker 2, waiting for 210
+Thread: Worker 3, row 28, Qlen = 3
+Thread: Worker 3, waiting for 182
+Thread: Worker 5, row 21, Qlen = 3
+Thread: Worker 5, waiting for 230
+Thread: Worker 4, row 28, Qlen = 3
+Thread: Worker 4, waiting for 195
+Thread: Worker 0, row 44, Qlen = 2
+Thread: Worker 0, waiting for 238
+Thread: Worker 1, row 47, Qlen = 2
+Thread: Worker 1, waiting for 229
+Thread: Worker 2, row 42, Qlen = 3
+Thread: Worker 2, waiting for 180
+Thread: Worker 3, row 29, Qlen = 2
+Thread: Worker 3, waiting for 184
+Thread: Worker 2, row 43, Qlen = 2
+Thread: Worker 4, row 29, Qlen = 2
+Thread: Worker 4, waiting for 231
+Thread: Worker 2, waiting for 233
+Thread: Worker 5, row 22, Qlen = 2
+Thread: Worker 5, waiting for 196
+Thread: Worker 1, row 48, Qlen = 1
+Thread: Worker 1, waiting for 238
+Thread: Worker 0, row 45, Qlen = 1
+Thread: Worker 0, waiting for 184
+Thread: Worker 3, row 30, Qlen = 1
+Thread: Worker 3, waiting for 186
+Thread: Worker 5, row 23, Qlen = 1
+Thread: Worker 5, waiting for 197
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 30, Qlen = 1
+Thread: Worker 4, waiting for 207
+Thread: Worker 2, row 44, Qlen = 1
+Thread: Worker 2, waiting for 217
+Thread: Worker 0, row 46, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 47, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 49, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 48, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 50, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 49, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 51, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 50, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 31, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 52, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 51, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 32, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 53, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 52, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 33, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 54, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 53, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 34, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 55, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 54, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 24, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 35, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 31, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 56, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 55, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 25, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 45, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 36, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 32, Qlen = 0
+Thread: Worker 1, row 57, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 56, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 26, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 46, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 37, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 33, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 58, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 57, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 27, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 47, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 38, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 59, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 34, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 58, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 28, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 48, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 39, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 60, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 35, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 59, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 29, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 49, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 40, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 61, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 36, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 60, Qlen = 0
+Thread: Worker 0, sleeping for 23
+processed 22 items in 860 ms
+read 22 qLen = 0
+Thread: Worker 5, row 30, Qlen = 4
+Thread: Worker 5, waiting for 180
+Thread: Worker 2, row 50, Qlen = 4
+Thread: Worker 2, waiting for 215
+Thread: Worker 3, row 41, Qlen = 4
+Thread: Worker 3, waiting for 236
+Thread: Worker 4, row 37, Qlen = 4
+Thread: Worker 4, waiting for 237
+Thread: Worker 1, row 62, Qlen = 3
+Thread: Worker 1, waiting for 202
+Thread: Worker 0, row 61, Qlen = 3
+Thread: Worker 0, waiting for 204
+Thread: Worker 5, row 31, Qlen = 3
+Thread: Worker 5, waiting for 235
+Thread: Worker 1, row 63, Qlen = 2
+Thread: Worker 1, waiting for 182
+Thread: Worker 0, row 62, Qlen = 2
+Thread: Worker 0, waiting for 223
+Thread: Worker 2, row 51, Qlen = 3
+Thread: Worker 2, waiting for 211
+Thread: Worker 3, row 42, Qlen = 3
+Thread: Worker 3, waiting for 204
+Thread: Worker 4, row 38, Qlen = 3
+Thread: Worker 4, waiting for 196
+Thread: Worker 1, row 64, Qlen = 1
+Thread: Worker 1, waiting for 233
+Thread: Worker 5, row 32, Qlen = 2
+Thread: Worker 5, waiting for 182
+Thread: Worker 2, row 52, Qlen = 2
+Thread: Worker 2, waiting for 205
+Thread: Worker 0, row 63, Qlen = 1
+Thread: Worker 0, waiting for 203
+Thread: Worker 4, row 39, Qlen = 2
+Thread: Worker 4, waiting for 230
+Thread: Worker 3, row 43, Qlen = 2
+Thread: Worker 3, waiting for 222
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 33, Qlen = 1
+Thread: Worker 5, waiting for 219
+Thread: Worker 2, row 53, Qlen = 1
+Thread: Worker 2, waiting for 209
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 65, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 64, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 40, Qlen = 1
+Thread: Worker 4, waiting for 206
+Thread: Worker 3, row 44, Qlen = 1
+Thread: Worker 3, waiting for 186
+Thread: Worker 1, row 66, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 65, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 67, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 66, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 68, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 67, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 69, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 68, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 70, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 69, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 71, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 70, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 72, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 71, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 73, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 72, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 54, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 74, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 34, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 73, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 45, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 75, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 55, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 35, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 41, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 74, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 46, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 76, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 56, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 36, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 42, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 75, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 47, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 77, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 57, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 37, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 43, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 76, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 48, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 78, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 58, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 38, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 44, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 77, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 49, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 79, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 59, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 39, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 45, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 78, Qlen = 0
+Thread: Worker 0, sleeping for 23
+processed 22 items in 891 ms
+read 22 qLen = 0
+Thread: Worker 3, row 50, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 80, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 60, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 40, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 46, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 79, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 51, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 81, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 61, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 41, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 47, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 80, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 52, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 82, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 62, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 42, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 48, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 81, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 53, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 83, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 63, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 43, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 49, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 82, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 54, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 84, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 64, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 44, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 50, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 83, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 55, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 85, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 65, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 45, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 51, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 84, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 56, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 86, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 66, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 46, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 52, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 85, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 57, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 87, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 67, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 47, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 53, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 86, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 58, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 88, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 68, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 48, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 54, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 87, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 59, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 89, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 69, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 49, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 55, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 88, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 60, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 90, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 70, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 50, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 56, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 89, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 61, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 91, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 71, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 51, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 57, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 90, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 62, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 92, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 72, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 52, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 58, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 91, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 63, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 73, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 93, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 53, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 59, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 92, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 64, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 74, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 94, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 54, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 60, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 93, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 65, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 75, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 95, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 55, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 61, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 94, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 66, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 96, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 76, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 56, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 62, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 95, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 67, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 97, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 77, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 57, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 63, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 96, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 68, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 98, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 78, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 58, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 64, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 97, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 69, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 99, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 79, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 59, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 65, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 98, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 70, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 100, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 80, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 60, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 66, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 99, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 71, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 101, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 81, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 61, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 67, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 100, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 72, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 102, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 82, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 62, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 68, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 101, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 73, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 103, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 83, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 63, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 69, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 102, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 104, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 70, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 84, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 103, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 74, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 64, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 85, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 71, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 104, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 105, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 75, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 65, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 72, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 86, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 105, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 106, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 76, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 66, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 87, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 73, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 106, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 107, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 77, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 67, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 74, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 88, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 107, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 108, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 78, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 68, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 89, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 75, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 108, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 109, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 79, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 69, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 76, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 90, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 109, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 110, Qlen = 3
+Thread: Worker 1, waiting for 230
+Thread: Worker 3, row 80, Qlen = 4
+Thread: Worker 3, waiting for 222
+Thread: Worker 5, row 70, Qlen = 4
+Thread: Worker 5, waiting for 236
+Thread: Worker 4, row 77, Qlen = 4
+Thread: Worker 2, row 91, Qlen = 4
+Thread: Worker 4, waiting for 195
+Thread: Worker 2, waiting for 210
+Thread: Worker 0, row 110, Qlen = 3
+Thread: Worker 0, waiting for 190
+Thread: Worker 0, row 111, Qlen = 2
+Thread: Worker 0, waiting for 202
+Thread: Worker 4, row 78, Qlen = 3
+Thread: Worker 4, waiting for 238
+Thread: Worker 2, row 92, Qlen = 3
+Thread: Worker 2, waiting for 186
+Thread: Worker 1, row 111, Qlen = 2
+Thread: Worker 1, waiting for 218
+Thread: Worker 3, row 81, Qlen = 3
+Thread: Worker 3, waiting for 221
+Thread: Worker 5, row 71, Qlen = 3
+Thread: Worker 5, waiting for 232
+Thread: Worker 0, row 112, Qlen = 1
+Thread: Worker 0, waiting for 229
+Thread: Worker 2, row 93, Qlen = 2
+Thread: Worker 2, waiting for 233
+Thread: Worker 1, row 112, Qlen = 1
+Thread: Worker 1, waiting for 233
+Thread: Worker 4, row 79, Qlen = 2
+Thread: Worker 4, waiting for 225
+Thread: Worker 3, row 82, Qlen = 2
+Thread: Worker 3, waiting for 237
+Thread: Worker 5, row 72, Qlen = 2
+Thread: Worker 5, waiting for 193
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 94, Qlen = 1
+Thread: Worker 2, waiting for 217
+Thread: Worker 0, row 113, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 73, Qlen = 1
+Thread: Worker 4, row 80, Qlen = 1
+Thread: Worker 4, waiting for 200
+Thread: Worker 5, waiting for 196
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 114, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 83, Qlen = 1
+Thread: Worker 3, waiting for 182
+Thread: Worker 1, row 113, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 115, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 114, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 116, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 115, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 117, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 116, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 118, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 117, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 119, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 118, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 1, row 119, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 120, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 121, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 81, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 95, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 122, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 120, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 84, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 82, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 96, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 74, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 123, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 121, Qlen = 0
+Thread: Worker 3, row 85, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 83, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 97, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 75, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 124, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 122, Qlen = 0
+Thread: Worker 3, row 86, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 84, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 98, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 125, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 76, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 87, Qlen = 0
+Thread: Worker 1, row 123, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 85, Qlen = 0
+Thread: Worker 4, sleeping for 23
+processed 22 items in 922 ms
+read 22 qLen = 0
+Thread: Worker 2, row 99, Qlen = 4
+Thread: Worker 2, waiting for 227
+Thread: Worker 0, row 126, Qlen = 3
+Thread: Worker 0, waiting for 202
+Thread: Worker 5, row 77, Qlen = 4
+Thread: Worker 5, waiting for 197
+Thread: Worker 3, row 88, Qlen = 4
+Thread: Worker 3, waiting for 202
+Thread: Worker 1, row 124, Qlen = 3
+Thread: Worker 1, waiting for 211
+Thread: Worker 4, row 86, Qlen = 4
+Thread: Worker 4, waiting for 220
+Thread: Worker 5, row 78, Qlen = 3
+Thread: Worker 5, waiting for 185
+Thread: Worker 0, row 127, Qlen = 2
+Thread: Worker 0, waiting for 214
+Thread: Worker 3, row 89, Qlen = 3
+Thread: Worker 3, waiting for 216
+Thread: Worker 1, row 125, Qlen = 2
+Thread: Worker 1, waiting for 191
+Thread: Worker 2, row 100, Qlen = 3
+Thread: Worker 2, waiting for 221
+Thread: Worker 4, row 87, Qlen = 3
+Thread: Worker 4, waiting for 205
+Thread: Worker 5, row 79, Qlen = 2
+Thread: Worker 5, waiting for 215
+Thread: Worker 1, row 126, Qlen = 1
+Thread: Worker 1, waiting for 219
+Thread: Worker 0, row 128, Qlen = 1
+Thread: Worker 0, waiting for 196
+Thread: Worker 3, row 90, Qlen = 2
+Thread: Worker 3, waiting for 196
+Thread: Worker 4, row 88, Qlen = 2
+Thread: Worker 4, waiting for 237
+Thread: Worker 2, row 101, Qlen = 2
+Thread: Worker 2, waiting for 181
+Thread: Worker 5, row 80, Qlen = 1
+Thread: Worker 5, waiting for 184
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 91, Qlen = 1
+Thread: Worker 3, waiting for 239
+Thread: Worker 2, row 102, Qlen = 1
+Thread: Worker 2, waiting for 239
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 129, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 127, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 130, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 89, Qlen = 1
+Thread: Worker 4, waiting for 187
+Thread: Worker 1, row 128, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 131, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 129, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 132, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 130, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 133, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 131, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 134, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 132, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 135, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 133, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 136, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 81, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 134, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 137, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 82, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 135, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 83, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 92, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 90, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 103, Qlen = 0
+Thread: Worker 0, row 138, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 93, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 91, Qlen = 0
+Thread: Worker 2, row 104, Qlen = 0
+Thread: Worker 5, row 84, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 139, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 136, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 94, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 85, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 92, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 137, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 140, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 105, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 95, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 93, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, row 86, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 106, Qlen = 0
+Thread: Worker 1, row 138, Qlen = 0
+Thread: Worker 0, row 141, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, sleeping for 23
+processed 22 items in 891 ms
+read 22 qLen = 0
+Thread: Worker 4, row 94, Qlen = 4
+Thread: Worker 0, row 142, Qlen = 3
+Thread: Worker 0, waiting for 196
+Thread: Worker 4, waiting for 180
+Thread: Worker 2, row 107, Qlen = 4
+Thread: Worker 2, waiting for 208
+Thread: Worker 3, row 96, Qlen = 4
+Thread: Worker 3, waiting for 235
+Thread: Worker 5, row 87, Qlen = 4
+Thread: Worker 5, waiting for 214
+Thread: Worker 1, row 139, Qlen = 3
+Thread: Worker 1, waiting for 188
+Thread: Worker 4, row 95, Qlen = 3
+Thread: Worker 4, waiting for 184
+Thread: Worker 1, row 140, Qlen = 2
+Thread: Worker 1, waiting for 194
+Thread: Worker 0, row 143, Qlen = 2
+Thread: Worker 0, waiting for 208
+Thread: Worker 2, row 108, Qlen = 3
+Thread: Worker 2, waiting for 234
+Thread: Worker 5, row 88, Qlen = 3
+Thread: Worker 5, waiting for 210
+Thread: Worker 3, row 97, Qlen = 3
+Thread: Worker 3, waiting for 211
+Thread: Worker 4, row 96, Qlen = 2
+Thread: Worker 4, waiting for 219
+Thread: Worker 1, row 141, Qlen = 1
+Thread: Worker 1, waiting for 222
+Thread: Worker 0, row 144, Qlen = 1
+Thread: Worker 0, waiting for 185
+Thread: Worker 5, row 89, Qlen = 2
+Thread: Worker 5, waiting for 180
+Thread: Worker 2, row 109, Qlen = 2
+Thread: Worker 2, waiting for 193
+Thread: Worker 3, row 98, Qlen = 2
+Thread: Worker 3, waiting for 219
+Thread: Worker 4, row 97, Qlen = 1
+Thread: Worker 4, waiting for 206
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 90, Qlen = 1
+Thread: Worker 5, waiting for 235
+Thread: Worker 0, row 145, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 142, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 110, Qlen = 1
+Thread: Worker 2, waiting for 234
+Thread: Worker 0, row 146, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 143, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 147, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 99, Qlen = 1
+Thread: Worker 3, waiting for 220
+Thread: Worker 1, row 144, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 148, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 145, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 149, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 146, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 150, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 147, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 151, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 148, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 152, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 149, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 153, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 98, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 154, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 99, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 150, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 100, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 155, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 91, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 101, Qlen = 0
+Thread: Worker 1, row 151, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 156, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 111, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 100, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 92, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 102, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 157, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 152, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 112, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 101, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 93, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 158, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 153, Qlen = 0
+Thread: Worker 4, row 103, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 113, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 102, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 94, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 104, Qlen = 0
+Thread: Worker 0, row 159, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 154, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 114, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 103, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 95, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 155, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 160, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 105, Qlen = 0
+Thread: Worker 4, sleeping for 23
+processed 22 items in 906 ms
+read 22 qLen = 0
+Thread: Worker 2, row 115, Qlen = 4
+Thread: Worker 2, waiting for 211
+Thread: Worker 3, row 104, Qlen = 4
+Thread: Worker 3, waiting for 224
+Thread: Worker 5, row 96, Qlen = 4
+Thread: Worker 5, waiting for 188
+Thread: Worker 1, row 156, Qlen = 3
+Thread: Worker 0, row 161, Qlen = 3
+Thread: Worker 0, waiting for 223
+Thread: Worker 1, waiting for 194
+Thread: Worker 4, row 106, Qlen = 4
+Thread: Worker 4, waiting for 216
+Thread: Worker 5, row 97, Qlen = 3
+Thread: Worker 5, waiting for 235
+Thread: Worker 2, row 116, Qlen = 3
+Thread: Worker 2, waiting for 221
+Thread: Worker 1, row 157, Qlen = 2
+Thread: Worker 1, waiting for 180
+Thread: Worker 4, row 107, Qlen = 3
+Thread: Worker 4, waiting for 237
+Thread: Worker 3, row 105, Qlen = 3
+Thread: Worker 3, waiting for 225
+Thread: Worker 0, row 162, Qlen = 2
+Thread: Worker 0, waiting for 198
+Thread: Worker 1, row 158, Qlen = 1
+Thread: Worker 1, waiting for 232
+Thread: Worker 2, row 117, Qlen = 2
+Thread: Worker 2, waiting for 230
+Thread: Worker 0, row 163, Qlen = 1
+Thread: Worker 0, waiting for 218
+Thread: Worker 5, row 98, Qlen = 2
+Thread: Worker 5, waiting for 239
+Thread: Worker 3, row 106, Qlen = 2
+Thread: Worker 3, waiting for 182
+Thread: Worker 4, row 108, Qlen = 2
+Thread: Worker 4, waiting for 239
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 107, Qlen = 1
+Thread: Worker 3, waiting for 222
+Thread: Worker 1, row 159, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 118, Qlen = 1
+Thread: Worker 2, waiting for 223
+Thread: Worker 1, row 160, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 99, Qlen = 1
+Thread: Worker 5, waiting for 231
+Thread: Worker 0, row 164, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 161, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 165, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 109, Qlen = 1
+Thread: Worker 4, waiting for 237
+Thread: Worker 1, row 162, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 166, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 163, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 167, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 164, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 168, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 165, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 169, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 166, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 170, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 0, row 171, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 0, row 172, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 167, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 173, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 174, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 168, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 119, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 108, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 100, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 175, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 169, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 109, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 120, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 101, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 110, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 176, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 170, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 110, Qlen = 0
+Thread: Worker 2, row 121, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 102, Qlen = 0
+Thread: Worker 5, sleeping for 23
+processed 22 items in 969 ms
+read 22 qLen = 0
+Thread: Worker 4, row 111, Qlen = 4
+Thread: Worker 4, waiting for 203
+Thread: Worker 0, row 177, Qlen = 3
+Thread: Worker 0, waiting for 221
+Thread: Worker 1, row 171, Qlen = 3
+Thread: Worker 1, waiting for 226
+Thread: Worker 2, row 122, Qlen = 4
+Thread: Worker 2, waiting for 227
+Thread: Worker 3, row 111, Qlen = 4
+Thread: Worker 3, waiting for 233
+Thread: Worker 5, row 103, Qlen = 4
+Thread: Worker 5, waiting for 187
+Thread: Worker 4, row 112, Qlen = 3
+Thread: Worker 4, waiting for 199
+Thread: Worker 5, row 104, Qlen = 3
+Thread: Worker 5, waiting for 226
+Thread: Worker 0, row 178, Qlen = 2
+Thread: Worker 0, waiting for 237
+Thread: Worker 1, row 172, Qlen = 2
+Thread: Worker 1, waiting for 189
+Thread: Worker 2, row 123, Qlen = 3
+Thread: Worker 2, waiting for 237
+Thread: Worker 3, row 112, Qlen = 3
+Thread: Worker 3, waiting for 224
+Thread: Worker 4, row 113, Qlen = 2
+Thread: Worker 4, waiting for 233
+Thread: Worker 1, row 173, Qlen = 1
+Thread: Worker 1, waiting for 201
+Thread: Worker 5, row 105, Qlen = 2
+Thread: Worker 5, waiting for 228
+Thread: Worker 0, row 179, Qlen = 1
+Thread: Worker 0, waiting for 228
+Thread: Worker 3, row 113, Qlen = 2
+Thread: Worker 3, waiting for 217
+Thread: Worker 2, row 124, Qlen = 2
+Thread: Worker 2, waiting for 196
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 114, Qlen = 1
+Thread: Worker 4, waiting for 228
+Thread: Worker 1, row 174, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 106, Qlen = 1
+Thread: Worker 5, waiting for 240
+Thread: Worker 1, row 175, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 125, Qlen = 1
+Thread: Worker 2, waiting for 208
+Thread: Worker 3, row 114, Qlen = 1
+Thread: Worker 3, waiting for 228
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 176, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 180, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 177, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 181, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 178, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 182, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 179, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 183, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 180, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 184, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 181, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 185, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 182, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 186, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 0, row 187, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 183, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 188, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 115, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 184, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 107, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 126, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 189, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 115, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 116, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 185, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 108, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 127, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 190, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 116, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 117, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 186, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 128, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 109, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 191, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 117, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 118, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 187, Qlen = 0
+Thread: Worker 1, sleeping for 23
+processed 22 items in 938 ms
+read 22 qLen = 0
+Thread: Worker 2, row 129, Qlen = 4
+Thread: Worker 2, waiting for 208
+Thread: Worker 5, row 110, Qlen = 4
+Thread: Worker 5, waiting for 192
+Thread: Worker 0, row 192, Qlen = 3
+Thread: Worker 0, waiting for 194
+Thread: Worker 3, row 118, Qlen = 4
+Thread: Worker 3, waiting for 201
+Thread: Worker 4, row 119, Qlen = 4
+Thread: Worker 4, waiting for 232
+Thread: Worker 1, row 188, Qlen = 3
+Thread: Worker 1, waiting for 226
+Thread: Worker 5, row 111, Qlen = 3
+Thread: Worker 5, waiting for 230
+Thread: Worker 0, row 193, Qlen = 2
+Thread: Worker 0, waiting for 203
+Thread: Worker 2, row 130, Qlen = 3
+Thread: Worker 2, waiting for 219
+Thread: Worker 3, row 119, Qlen = 3
+Thread: Worker 3, waiting for 224
+Thread: Worker 1, row 189, Qlen = 2
+Thread: Worker 1, waiting for 236
+Thread: Worker 4, row 120, Qlen = 3
+Thread: Worker 4, waiting for 187
+Thread: Worker 0, row 194, Qlen = 1
+Thread: Worker 0, waiting for 191
+Thread: Worker 5, row 112, Qlen = 2
+Thread: Worker 5, waiting for 222
+Thread: Worker 2, row 131, Qlen = 2
+Thread: Worker 2, waiting for 184
+Thread: Worker 3, row 120, Qlen = 2
+Thread: Worker 3, waiting for 232
+Thread: Worker 4, row 121, Qlen = 2
+Thread: Worker 4, waiting for 199
+Thread: Worker 1, row 190, Qlen = 1
+Thread: Worker 1, waiting for 209
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 132, Qlen = 1
+Thread: Worker 2, waiting for 233
+Thread: Worker 0, row 195, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 122, Qlen = 1
+Thread: Worker 4, waiting for 218
+Thread: Worker 0, row 196, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 113, Qlen = 1
+Thread: Worker 5, waiting for 228
+Thread: Worker 0, row 197, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 121, Qlen = 1
+Thread: Worker 3, waiting for 185
+Thread: Worker 0, row 198, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 199, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 191, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 200, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 192, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 201, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 193, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 202, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 194, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 203, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 195, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 204, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 205, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 1, row 196, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 133, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 206, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 122, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 123, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 197, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 134, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 123, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 207, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 124, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, row 114, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 198, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 135, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 208, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 124, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 4, row 125, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, row 115, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 199, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 136, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 125, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 209, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 126, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, row 116, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 200, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 137, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 210, Qlen = 0
+Thread: Worker 3, row 126, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 127, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 5, row 117, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 201, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 138, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 127, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 211, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 128, Qlen = 0
+Thread: Worker 4, sleeping for 23
+processed 22 items in 891 ms
+Thread: Worker 5, row 118, Qlen = 0
+read 22 qLen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 202, Qlen = 3
+Thread: Worker 1, waiting for 234
+Thread: Worker 2, row 139, Qlen = 4
+Thread: Worker 2, waiting for 229
+Thread: Worker 3, row 128, Qlen = 4
+Thread: Worker 0, row 212, Qlen = 3
+Thread: Worker 0, waiting for 189
+Thread: Worker 3, waiting for 229
+Thread: Worker 4, row 129, Qlen = 4
+Thread: Worker 4, waiting for 213
+Thread: Worker 5, row 119, Qlen = 4
+Thread: Worker 5, waiting for 186
+Thread: Worker 0, row 213, Qlen = 2
+Thread: Worker 0, waiting for 212
+Thread: Worker 5, row 120, Qlen = 3
+Thread: Worker 5, waiting for 226
+Thread: Worker 4, row 130, Qlen = 3
+Thread: Worker 4, waiting for 221
+Thread: Worker 2, row 140, Qlen = 3
+Thread: Worker 2, waiting for 197
+Thread: Worker 1, row 203, Qlen = 2
+Thread: Worker 1, waiting for 232
+Thread: Worker 3, row 129, Qlen = 3
+Thread: Worker 3, waiting for 205
+Thread: Worker 0, row 214, Qlen = 1
+Thread: Worker 0, waiting for 214
+Thread: Worker 5, row 121, Qlen = 2
+Thread: Worker 2, row 141, Qlen = 2
+Thread: Worker 5, waiting for 225
+Thread: Worker 2, waiting for 186
+Thread: Worker 3, row 130, Qlen = 2
+Thread: Worker 3, waiting for 202
+Thread: Worker 4, row 131, Qlen = 2
+Thread: Worker 4, waiting for 238
+Thread: Worker 1, row 204, Qlen = 1
+Thread: Worker 1, waiting for 207
+Thread: Worker 2, row 142, Qlen = 1
+Thread: Worker 2, waiting for 230
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 131, Qlen = 1
+Thread: Worker 3, waiting for 207
+Thread: Worker 0, row 215, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 122, Qlen = 1
+Thread: Worker 5, waiting for 200
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 216, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 132, Qlen = 1
+Thread: Worker 4, waiting for 231
+Thread: Worker 1, row 205, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 217, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 206, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 218, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 207, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 219, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 208, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 220, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 209, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 221, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 210, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 222, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 223, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 143, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 224, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 211, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 123, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 144, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 225, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 212, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 124, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 132, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 145, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 226, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 213, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 125, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 133, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 146, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 133, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 227, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 214, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 134, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 126, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 147, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 134, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 228, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 215, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 127, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 3, row 135, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 2, row 148, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 135, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 229, Qlen = 0
+Thread: Worker 0, sleeping for 23
+processed 22 items in 938 ms
+read 22 qLen = 0
+Thread: Worker 1, row 216, Qlen = 3
+Thread: Worker 1, waiting for 193
+Thread: Worker 5, row 128, Qlen = 4
+Thread: Worker 3, row 136, Qlen = 4
+Thread: Worker 3, waiting for 232
+Thread: Worker 5, waiting for 227
+Thread: Worker 2, row 149, Qlen = 4
+Thread: Worker 2, waiting for 225
+Thread: Worker 4, row 136, Qlen = 4
+Thread: Worker 4, waiting for 224
+Thread: Worker 0, row 230, Qlen = 3
+Thread: Worker 0, waiting for 226
+Thread: Worker 1, row 217, Qlen = 2
+Thread: Worker 1, waiting for 224
+Thread: Worker 5, row 129, Qlen = 3
+Thread: Worker 5, waiting for 184
+Thread: Worker 2, row 150, Qlen = 3
+Thread: Worker 2, waiting for 226
+Thread: Worker 3, row 137, Qlen = 3
+Thread: Worker 3, waiting for 195
+Thread: Worker 4, row 137, Qlen = 3
+Thread: Worker 4, waiting for 217
+Thread: Worker 0, row 231, Qlen = 2
+Thread: Worker 0, waiting for 239
+Thread: Worker 5, row 130, Qlen = 2
+Thread: Worker 5, waiting for 209
+Thread: Worker 1, row 218, Qlen = 1
+Thread: Worker 1, waiting for 219
+Thread: Worker 3, row 138, Qlen = 2
+Thread: Worker 3, waiting for 238
+Thread: Worker 4, row 138, Qlen = 2
+Thread: Worker 4, waiting for 210
+Thread: Worker 2, row 151, Qlen = 2
+Thread: Worker 2, waiting for 203
+Thread: Worker 0, row 232, Qlen = 1
+Thread: Worker 0, waiting for 194
+Thread: Worker 5, row 131, Qlen = 1
+Thread: Worker 5, waiting for 203
+Thread: Worker 1, sleeping for 23
+Thread: Worker 1, row 219, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 152, Qlen = 1
+Thread: Worker 2, waiting for 184
+Thread: Worker 4, row 139, Qlen = 1
+Thread: Worker 4, waiting for 183
+Thread: Worker 3, row 139, Qlen = 1
+Thread: Worker 3, waiting for 223
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 220, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 233, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 221, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 234, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 222, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 235, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 223, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 236, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 224, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 237, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 225, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 238, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 0, row 239, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 0, row 240, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 1, row 226, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 241, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 140, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 153, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 132, Qlen = 0
+Thread: Worker 2, row 154, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 141, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 242, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 227, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 228, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 140, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 133, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 155, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 243, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 142, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 141, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 229, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 5, row 134, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 156, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 143, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 244, Qlen = 0
+Thread: Worker 0, sleeping for 23
+processed 22 items in 938 ms
+read 22 qLen = 0
+Thread: Worker 4, row 144, Qlen = 4
+Thread: Worker 4, waiting for 227
+Thread: Worker 0, row 245, Qlen = 3
+Thread: Worker 0, waiting for 195
+Thread: Worker 2, row 157, Qlen = 4
+Thread: Worker 2, waiting for 201
+Thread: Worker 3, row 142, Qlen = 4
+Thread: Worker 3, waiting for 189
+Thread: Worker 1, row 230, Qlen = 3
+Thread: Worker 1, waiting for 210
+Thread: Worker 5, row 135, Qlen = 4
+Thread: Worker 5, waiting for 205
+Thread: Worker 3, row 143, Qlen = 3
+Thread: Worker 3, waiting for 208
+Thread: Worker 0, row 246, Qlen = 2
+Thread: Worker 0, waiting for 202
+Thread: Worker 2, row 158, Qlen = 3
+Thread: Worker 2, waiting for 214
+Thread: Worker 5, row 136, Qlen = 3
+Thread: Worker 5, waiting for 220
+Thread: Worker 1, row 231, Qlen = 2
+Thread: Worker 1, waiting for 220
+Thread: Worker 4, row 145, Qlen = 3
+Thread: Worker 4, waiting for 227
+Thread: Worker 0, row 247, Qlen = 1
+Thread: Worker 0, waiting for 223
+Thread: Worker 3, row 144, Qlen = 2
+Thread: Worker 3, waiting for 239
+Thread: Worker 2, row 159, Qlen = 2
+Thread: Worker 2, waiting for 219
+Thread: Worker 5, row 137, Qlen = 2
+Thread: Worker 5, waiting for 231
+Thread: Worker 1, row 232, Qlen = 1
+Thread: Worker 1, waiting for 227
+Thread: Worker 4, row 146, Qlen = 2
+Thread: Worker 4, waiting for 188
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 160, Qlen = 1
+Thread: Worker 2, waiting for 194
+Thread: Worker 3, row 145, Qlen = 1
+Thread: Worker 3, waiting for 206
+Thread: Worker 4, row 147, Qlen = 1
+Thread: Worker 4, waiting for 221
+Thread: Worker 0, row 248, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 5, row 138, Qlen = 1
+Thread: Worker 5, waiting for 226
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 249, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 233, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 250, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 234, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 251, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 235, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 252, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 236, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 253, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 237, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 254, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 238, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 255, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 239, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 240, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 256, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 146, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 241, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 161, Qlen = 0
+Thread: Worker 4, row 148, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 257, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 147, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 139, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 242, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 149, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 162, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 258, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 148, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 140, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 243, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 150, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 259, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 163, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 149, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 141, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 244, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 151, Qlen = 0
+Thread: Worker 2, row 164, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 260, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 150, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 142, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 245, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 261, Qlen = 0
+Thread: Worker 2, row 165, Qlen = 0
+Thread: Worker 4, row 152, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, sleeping for 23
+processed 22 items in 891 ms
+read 1 qLen = 0
+Thread: Worker 3, row 151, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 143, Qlen = 1
+Thread: Worker 5, waiting for 213
+Thread: Worker 1, row 246, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 153, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 166, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 262, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 152, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 247, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 167, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 263, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 154, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 153, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 248, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 155, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 168, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 264, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 154, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 249, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 156, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 265, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 169, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 155, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 250, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 266, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 157, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 170, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 156, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 251, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 158, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 267, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 171, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 157, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 252, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 268, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 159, Qlen = 0
+Thread: Worker 2, row 172, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 158, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 253, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 269, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 160, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 173, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 159, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 254, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 161, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 174, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 270, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 160, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 255, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 162, Qlen = 0
+Thread: Worker 0, row 271, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 175, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 161, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 144, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 256, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 163, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 176, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 272, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 162, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 145, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 257, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 177, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 164, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 273, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 163, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 146, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 258, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 165, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 178, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 274, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 164, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 147, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 259, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 275, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 179, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 166, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 165, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 148, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 260, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 167, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 180, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 276, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 166, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 149, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 261, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 168, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 181, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 277, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 167, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 150, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 262, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 278, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 169, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 182, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 168, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 151, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 263, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 170, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 279, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 183, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 169, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 152, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 264, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 280, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 184, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 171, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 170, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 153, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 265, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 281, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 185, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 172, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 171, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 154, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 266, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 282, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 186, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 173, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 172, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 155, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 267, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 2, row 187, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 174, Qlen = 0
+Thread: Worker 0, row 283, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 173, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 156, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 268, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 284, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 175, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 188, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 174, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 157, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 269, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 176, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 285, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 189, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 175, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 158, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 270, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 177, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 286, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 190, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 176, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 159, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 271, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 287, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 178, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 191, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 177, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 160, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 272, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 179, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 288, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 192, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 178, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 161, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 273, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 180, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 289, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 193, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 179, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 162, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 274, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 181, Qlen = 0
+Thread: Worker 2, row 194, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 290, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 3, row 180, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 163, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 275, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 182, Qlen = 0
+Thread: Worker 2, row 195, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 291, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, row 181, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 164, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 276, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 183, Qlen = 0
+Thread: Worker 0, row 292, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 196, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 182, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 165, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 277, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 293, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 184, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 197, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 183, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 166, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 278, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 0, row 294, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 185, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 198, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 184, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 167, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 279, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 186, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 295, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 199, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 3, row 185, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 168, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 1, row 280, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 4, row 187, Qlen = 0
+Thread: Worker 2, row 200, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 296, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 297, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 0, row 298, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 1, row 281, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 186, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 5, row 169, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 201, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 188, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 299, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 189, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 202, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 0, row 300, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 4, row 190, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 2, row 203, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, row 170, Qlen = 0
+Thread: Worker 5, sleeping for 23
+Thread: Worker 2, row 204, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 4, row 191, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread: Worker 0, row 301, Qlen = 0
+Thread: Worker 1, row 282, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 187, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 3, sleeping for 23
+Thread: Worker 1, row 283, Qlen = 0
+Thread: Worker 1, sleeping for 23
+Thread: Worker 3, row 188, Qlen = 0
+Thread: Worker 3, sleeping for 23
+Thread: Worker 0, row 302, Qlen = 0
+Thread: Worker 0, sleeping for 23
+Thread: Worker 2, row 205, Qlen = 0
+Thread: Worker 5, row 171, Qlen = 0
+Thread: Worker 2, sleeping for 23
+Thread: Worker 5, sleeping for 23
+Thread: Worker 4, row 192, Qlen = 0
+Thread: Worker 4, sleeping for 23
+Thread Worker 1 exiting.
+Thread Worker 0 exiting.
+Thread Worker 3 exiting.
+Thread Worker 2 exiting.
+Thread Worker 5 exiting.
+Thread Worker 4 exiting.
+02/10/2014 4:34:50 PM com.dialogue.multithreading.MultiThreadOrchestrator closeDBConnection
+INFO: Finishing Geocoding Application - Something called 'exit()'...
+02/10/2014 4:34:50 PM com.dialogue.multithreading.MultiThreadOrchestrator run
+INFO:  #### - Stopping - processed 300 requests in 15.954 seconds ==> average = 18.8 per second
+ #### - Stopping - processed 300 requests in 15.954 seconds ==> average = 18.8 per second

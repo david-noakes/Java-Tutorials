@@ -8,7 +8,7 @@ public class MultiThreadWorker  implements Runnable {
     private boolean stopping = false;
     private boolean running = false;
     public int sleepTime = 20;
-    public int sleepAdj = 50;
+    public int sleepAdj = 23;
     public int qLength = 0;
 	public MultiThreadWorker(String name) {
 		threadName = name;
@@ -40,7 +40,7 @@ public class MultiThreadWorker  implements Runnable {
 	            	long endTime = System.currentTimeMillis();
 	            	int deltaT = (int) (endTime - currentTime);
 	            	if (deltaT < 1000) { // less than a second has elapsed
-	            		sleepTime = (1000 - deltaT - sleepAdj);
+	            		sleepTime = sleepAdj;
 	            		System.out.println("Thread: " + threadName + ", sleeping for " + sleepTime);
 	            		Thread.sleep(sleepTime);
 	            	} else {
@@ -57,10 +57,8 @@ public class MultiThreadWorker  implements Runnable {
 	}
     public void start ()  {
 	    System.out.println("Starting " +  threadName);
-	    if (t == null) {
-	        t = new Thread (this, threadName);
-	        t.start ();
-	    }
+        t = new Thread (this, threadName);
+        t.start ();
    }
 
    public void stop() {
