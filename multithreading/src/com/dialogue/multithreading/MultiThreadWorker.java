@@ -1,52 +1,75 @@
 package com.dialogue.multithreading;
 
 import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class MultiThreadWorker  implements Runnable {
     private Thread t;
     private String threadName;
     private boolean stopping = false;
     private boolean running = false;
-    public int sleepTime = 20;
-    public int sleepAdj = 23;
-    public int qLength = 0;
-	public MultiThreadWorker(String name) {
+    private static int smallSleepTime = 7; 
+    private int sleepTime = 20;
+    private static int sleepAdj = 17;
+    private static int almost1Second = 987;
+    public  boolean isProcessing = false;
+    public long currentTime = System.currentTimeMillis();
+    
+    ///////////////////////////////////////////////
+    // QUEUES - Thread safe
+    private ArrayBlockingQueue<InputDTO> workerQueue = null;
+    private ArrayBlockingQueue<ServiceResult> resultQueue = null;
+    
+    
+    
+	public MultiThreadWorker(String name, ArrayBlockingQueue<InputDTO> wQ, ArrayBlockingQueue<ServiceResult> rQ ) {
 		threadName = name;
 		System.out.println("Creating " +  threadName);		
+		workerQueue = wQ;
+		resultQueue = rQ;
 	}
 
 	@Override
 	public void run() {
 		Random rand = new Random();
-		long currentTime = System.currentTimeMillis();
+		currentTime = System.currentTimeMillis();
+		InputDTO dto = null;
+		ServiceResult res = null;
+		OutputDTO outDTO = null;
 		running = true;
-		Long cnt = (long) 0;
-	      System.out.println("Running " +  threadName );
-	      try {
+        System.out.println("Running " +  threadName );
+	    try {
 	    	  while (!stopping) {
-	    		  cnt++;
-	            System.out.println("Thread: " + threadName + ", row " + cnt + ", Qlen = " + qLength);
-                int pauseTime = rand.nextInt(61)+180; // random web request time 180..240
-	            if (qLength > 0) {
-	                // Let the thread sleep for a while.
-	                // simulate processing
-    	            System.out.println("Thread: " + threadName + ", waiting for " + pauseTime);
+                int pauseTime = rand.nextInt(51)+180; // random web request time 180..230
+	            if (getQLength() > 0) {
+                    dto = getFromWorkerQ();   // may block
+	                // simulate processing = Let the thread sleep for a while.
+	                System.out.println("Thread: " + threadName + ", row " + dto.getRowNbr() + ", Qlen = " + getQLength() +
+	                                   ", working for " + pauseTime);
     	            Thread.sleep(pauseTime);
+    	            // send back the results
+    	            outDTO = new OutputDTO(dto.getData());
+    	            res = new ServiceResult(MultiThreadOrchestrator.statusSuccess, outDTO);
+    	            putToResultQ(res);
 	            }
-	            if (qLength > 0) { // decrement Q after processing
-	            	qLength -= 1;
-	            }
-	            if (qLength == 0) {  // simulate q empty
+	            if (getQLength() == 0) {  
 	            	long endTime = System.currentTimeMillis();
 	            	int deltaT = (int) (endTime - currentTime);
-	            	if (deltaT < 1000) { // less than a second has elapsed
-	            		sleepTime = sleepAdj;
-	            		System.out.println("Thread: " + threadName + ", sleeping for " + sleepTime);
-	            		Thread.sleep(sleepTime);
+                    if (deltaT < 100) { // less than a tenth second has elapsed
+                        System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", sleeping for " + smallSleepTime);
+                        Thread.sleep(smallSleepTime);
+                    } else if (deltaT < almost1Second) { // less than a second has elapsed
+                        sleepTime = 1000 - deltaT - sleepAdj;
+                        if (sleepTime < 0) {
+                            sleepTime = smallSleepTime;
+                        }
+	            		System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", sleeping for " + sleepTime);
+            		    Thread.sleep(sleepTime);
 	            	} else {
-	            		System.out.println("Thread: " + threadName + ", NOT sleeping elapsed " + deltaT);
+	            		System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", elapsed " + deltaT + ", sleeping for " + smallSleepTime);
+	            		Thread.sleep(smallSleepTime);
 	            	}
-            		currentTime = System.currentTimeMillis();
+            		//currentTime = System.currentTimeMillis();
 	            }
 	    	  }  
 	     } catch (InterruptedException e) {
@@ -57,8 +80,10 @@ public class MultiThreadWorker  implements Runnable {
 	}
     public void start ()  {
 	    System.out.println("Starting " +  threadName);
-        t = new Thread (this, threadName);
-        t.start ();
+	    if (t == null) {
+            t = new Thread (this, threadName);
+            t.start ();
+	    }
    }
 
    public void stop() {
@@ -69,11 +94,33 @@ public class MultiThreadWorker  implements Runnable {
 	   t.interrupt(); 
    }
 
-public boolean isRunning() {
-    return running;
-}
-
-public void setRunning(boolean running) {
-    this.running = running;
-}
+    public boolean isRunning() {
+        return running;
+    }
+    
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+    
+    private int getQLength() {
+        synchronized (workerQueue) {
+            return workerQueue.size();
+        }
+    }
+    
+    private InputDTO getFromWorkerQ() throws InterruptedException {
+        synchronized (workerQueue) {
+            InputDTO dto = workerQueue.take(); 
+            isProcessing = true;
+            return dto;
+        }
+    }
+    
+    private void putToResultQ(ServiceResult sr) throws InterruptedException {
+        synchronized (resultQueue) {
+            resultQueue.put(sr);
+            isProcessing = false;
+        }
+    }
+    
 }
