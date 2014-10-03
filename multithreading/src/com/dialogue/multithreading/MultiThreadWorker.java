@@ -16,7 +16,7 @@ public class MultiThreadWorker  implements Runnable {
     public long currentTime = System.currentTimeMillis();
     
     ///////////////////////////////////////////////
-    // QUEUES - Thread safe
+    // QUEUES - Thread safe - shared between all workers and controller
     private ArrayBlockingQueue<InputDTO> workerQueue = null;
     private ArrayBlockingQueue<ServiceResult> resultQueue = null;
     
@@ -32,14 +32,14 @@ public class MultiThreadWorker  implements Runnable {
 	@Override
 	public void run() {
 		Random rand = new Random();
-		currentTime = System.currentTimeMillis();
 		InputDTO dto = null;
 		ServiceResult res = null;
 		OutputDTO outDTO = null;
 		running = true;
         System.out.println("Running " +  threadName );
 	    try {
-	    	  while (!stopping) {
+	        currentTime = System.currentTimeMillis();
+	    	while (!stopping) {
                 int pauseTime = rand.nextInt(51)+180; // random web request time 180..230
 	            if (getQLength() > 0) {
                     dto = getFromWorkerQ();   // may block
@@ -56,8 +56,8 @@ public class MultiThreadWorker  implements Runnable {
 	            	long endTime = System.currentTimeMillis();
 	            	int deltaT = (int) (endTime - currentTime);
                     if (deltaT < 100) { // less than a tenth second has elapsed
-                        System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", sleeping for " + smallSleepTime);
-                        Thread.sleep(smallSleepTime);
+                        System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", sleeping for " + sleepAdj);
+                        Thread.sleep(sleepAdj);
                     } else if (deltaT < almost1Second) { // less than a second has elapsed
                         sleepTime = 1000 - deltaT - sleepAdj;
                         if (sleepTime < 0) {
@@ -71,7 +71,7 @@ public class MultiThreadWorker  implements Runnable {
 	            	}
             		//currentTime = System.currentTimeMillis();
 	            }
-	    	  }  
+	    	}  
 	     } catch (InterruptedException e) {
 	         System.out.println("Thread " +  threadName + " interrupted.");
 	     }
