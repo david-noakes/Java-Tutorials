@@ -2,13 +2,17 @@ package com.dialogue.multithreading;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class MultiThreadWorker  implements Runnable {
     private Thread t;
     private String threadName;
     private boolean stopping = false;
     private boolean running = false;
-    private static int smallSleepTime = 7; 
+    private static int smallSleepTime = 11; 
+    private static int pollWaitTime = 3;  // not currently used. 
+    // poll takes an average of 10 microseconds to fail
+    // polling can cause a blocking loop for the workers than can last for up to 500ms
     private int sleepTime = 20;
     private static int sleepAdj = 17;
     private static int almost1Second = 987;
@@ -42,15 +46,18 @@ public class MultiThreadWorker  implements Runnable {
 	    	while (!stopping) {
                 int pauseTime = rand.nextInt(51)+180; // random web request time 180..230
 	            if (getQLength() > 0) {
-                    dto = getFromWorkerQ();   // may block
+	                // prevent blocking loop by checking Q length first
+                    dto = getFromWorkerQ();   // may return null
+                    if (dto != null) {
 	                // simulate processing = Let the thread sleep for a while.
-	                System.out.println("Thread: " + threadName + ", row " + dto.getRowNbr() + ", Qlen = " + getQLength() +
-	                                   ", working for " + pauseTime);
-    	            Thread.sleep(pauseTime);
-    	            // send back the results
-    	            outDTO = new OutputDTO(dto.getData());
-    	            res = new ServiceResult(MultiThreadOrchestrator.statusSuccess, outDTO);
-    	            putToResultQ(res);
+    	                System.out.println("Thread: " + threadName + ", row " + dto.getRowNbr() + ", Qlen = " + getQLength() +
+    	                                   ", working for " + pauseTime);
+        	            Thread.sleep(pauseTime);
+        	            // send back the results
+        	            outDTO = new OutputDTO(dto.getData());
+        	            res = new ServiceResult(MultiThreadOrchestrator.statusSuccess, outDTO);
+        	            putToResultQ(res);
+                    }
 	            }
 	            if (getQLength() == 0) {  
 	            	long endTime = System.currentTimeMillis();
@@ -110,8 +117,20 @@ public class MultiThreadWorker  implements Runnable {
     
     private InputDTO getFromWorkerQ() throws InterruptedException {
         synchronized (workerQueue) {
-            InputDTO dto = workerQueue.take(); 
-            isProcessing = true;
+            // take() and poll(timeout) can block
+            // the timeout is erratic - often at least 5 to 10 times the value
+            // polling can cause a blocking loop that can run for up to 500ms for all workers
+            // by checking the Q length before trying take(), we generally 
+            // have sufficient rows to satisfy all workers.
+            long t1 = System.nanoTime();
+            InputDTO dto = workerQueue.take(); //poll(); //(pollWaitTime, TimeUnit.MICROSECONDS);
+            long t2 = System.nanoTime() - t1;
+            if (t2 > 100000) { // 10th of milisecond
+                System.out.println(threadName + " poll timeout="+t2+" nanos");
+            }
+            if (dto != null) {
+                isProcessing = true;
+            }
             return dto;
         }
     }

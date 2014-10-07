@@ -304,7 +304,7 @@ public class MultiThreadOrchestrator {
 	}
 
 	private File performInit() {
-		logger.info("##### Starting Geocoding Application");
+		logger.info("##### Starting Application");
 
 		//readConfigFile(configFilePath);
 
@@ -336,7 +336,7 @@ public class MultiThreadOrchestrator {
 				logger.info("DB Connection was created for " + postgresConnection);
 			} catch (ClassNotFoundException ex) {
 				logger.severe("DB Connection was NOT Created (" + postgresDriver + " : " + postgresConnection + ") - " + ex.getMessage());
-				logger.severe("Finishing Geocoding Application - No DB Connection...");
+				logger.severe("Finishing Application - No DB Connection...");
 				System.exit(1);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -348,9 +348,9 @@ public class MultiThreadOrchestrator {
 
 	private void closeDBConnection(boolean stopFile) {
 		if (stopFile) {
-			logger.info("Finishing Geocoding Application - 'Stop' File was found...");
+			logger.info("Finishing Application - 'Stop' File was found...");
 		} else {
-			logger.info("Finishing Geocoding Application - Something called 'exit()'...");
+			logger.info("Finishing Application - Something called 'exit()'...");
 
 		}
 		if (simulateDB) {
