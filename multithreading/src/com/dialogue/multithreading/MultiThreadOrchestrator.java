@@ -5,17 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
@@ -57,7 +52,7 @@ public class MultiThreadOrchestrator {
 	// ////////////////////////////////////////////
 	private static int maxThreads = 11;
 	private static int minThreads = 3;
-	private static int nbrThreadsInit = 3;
+	private static int nbrThreadsInit = 5;
 	private boolean stopping = false;
 	long updateTimestamp; 
 	private static int requestsPerSecond = 22;
@@ -73,7 +68,7 @@ public class MultiThreadOrchestrator {
     // pseudo processsing loop sleep timer - for processing 1 Q item 
     private static int pseudoProcessingSleepTimeValue = 7;
     //pause after loading queue for workers to do work
-    private static int waitForWorkersTime = 350-(queueLoadingPauseTimeValue * nbrThreadsInit);
+    private static int waitForWorkersTime = Math.max(300,350-(queueLoadingPauseTimeValue * nbrThreadsInit));
     
     
 	// Long 'Sleep' timer when there are no records to process
@@ -142,6 +137,9 @@ public class MultiThreadOrchestrator {
 				if (stopFile.exists()) {
 					stopping = true;   // only set flag to allow orderly shutdown
 				} 
+                for (int i = 0; i < workers.size(); i++) {
+                    workers.get(i).currentTime = currentTime; 
+                }
 				if (rows.size() > 0) {
 				    for (int i = 0; i<rows.size();i++) {
 				        counter++;

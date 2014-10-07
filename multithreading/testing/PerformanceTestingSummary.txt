@@ -1,0 +1,22 @@
+3
+#### - Stopping - processed 300 requests in 14.594 seconds ==> average = 20.55 per second
+#### - Stopping - processed 300 requests in 14.267 seconds ==> average = 21.02 per second
+#### - Stopping - processed 300 requests in 14.766 seconds ==> average = 20.31 per second
+4
+#### - Stopping - processed 300 requests in 14.532 seconds ==> average = 20.64 per second
+#### - Stopping - processed 300 requests in 14.642 seconds ==> average = 20.48 per second
+#### - Stopping - processed 300 requests in 14.11 seconds ==> average = 21.26 per second
+5
+#### - Stopping - processed 300 requests in 14.954 seconds ==> average = 20.06 per second
+#### - Stopping - processed 300 requests in 14.329 seconds ==> average = 20.93 per second
+#### - Stopping - processed 300 requests in 14.11 seconds ==> average = 21.26 per second
+6
+#### - Stopping - processed 300 requests in 14.735 seconds ==> average = 20.35 per second
+#### - Stopping - processed 300 requests in 14.078 seconds ==> average = 21.3 per second
+#### - Stopping - processed 300 requests in 14.329 seconds ==> average = 20.93 per second
+7
+#### - Stopping - processed 300 requests in 14.235 seconds ==> average = 21.07 per second
+#### - Stopping - processed 300 requests in 14.985 seconds ==> average = 20.02 per second
+8
+#### - Stopping - processed 300 requests in 15.907 seconds ==> average = 18.85 per second
+#### - Stopping - processed 300 requests in 14.204 seconds ==> average = 21.12 per second
