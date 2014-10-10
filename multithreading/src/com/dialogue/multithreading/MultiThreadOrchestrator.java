@@ -97,7 +97,7 @@ public class MultiThreadOrchestrator {
 		super();
 	}
 	
-	public void run() {
+	public void orchestrate() {
 		stopFile = performInit();
 		openDBConnection();
 		int counter = 0;

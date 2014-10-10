@@ -31,7 +31,7 @@ public class MultiThreadMain {
 	
 		MultiThreadOrchestrator orchestrator = new MultiThreadOrchestrator();
 		
-		orchestrator.run();
+		orchestrator.orchestrate();
 
 	}
 

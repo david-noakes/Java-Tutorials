@@ -311,6 +311,22 @@ public class EmployeeDTO {
     	}
     }
     
+    
+    
+    @Override
+    public String toString() {
+        return "EmployeeDTO [ID=" + ID + ", Company=" + Company + ", LastName="
+                + LastName + ", FirstName=" + FirstName + ", EmailAddress="
+                + EmailAddress + ", JobTitle=" + JobTitle + ", BusinessPhone="
+                + BusinessPhone + ", HomePhone=" + HomePhone + ", MobilePhone="
+                + MobilePhone + ", FaxNumber=" + FaxNumber + ", Address="
+                + Address + ", City=" + City + ", StateProvince="
+                + StateProvince + ", PostalCode=" + PostalCode
+                + ", CountryRegion=" + CountryRegion + ", WebPage=" + WebPage
+                + ", Notes=" + Notes + ", Attachments=" + Attachments
+                + ", StartDate=" + StartDate + "]";
+    }
+
     // Setters and Getters
 	public int getID() {
 		return ID;
