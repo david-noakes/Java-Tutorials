@@ -54,7 +54,7 @@ public class MultiThreadWorker  implements Runnable {
     	                                   ", working for " + pauseTime);
         	            Thread.sleep(pauseTime);
         	            // send back the results
-        	            outDTO = new OutputDTO(dto.getData());
+        	            outDTO = new OutputDTO(dto);
         	            res = new ServiceResult(MultiThreadOrchestrator.statusSuccess, outDTO);
         	            putToResultQ(res);
                     }
@@ -117,21 +117,25 @@ public class MultiThreadWorker  implements Runnable {
     
     private InputDTO getFromWorkerQ() throws InterruptedException {
         synchronized (workerQueue) {
-            // take() and poll(timeout) can block
-            // the timeout is erratic - often at least 5 to 10 times the value
-            // polling can cause a blocking loop that can run for up to 500ms for all workers
-            // by checking the Q length before trying take(), we generally 
-            // have sufficient rows to satisfy all workers.
-            long t1 = System.nanoTime();
-            InputDTO dto = workerQueue.take(); //poll(); //(pollWaitTime, TimeUnit.MICROSECONDS);
-            long t2 = System.nanoTime() - t1;
-            if (t2 > 100000) { // 10th of milisecond
-                System.out.println(threadName + " poll timeout="+t2+" nanos");
-            }
-            if (dto != null) {
-                isProcessing = true;
-            }
-            return dto;
+        	if (workerQueue.size() > 0) {
+	            // take() and poll(timeout) can block
+	            // the timeout is erratic - often at least 5 to 10 times the value
+	            // polling can cause a blocking loop that can run for up to 500ms for all workers
+	            // by checking the Q length before trying take(), we generally 
+	            // have sufficient rows to satisfy all workers.
+	            long t1 = System.nanoTime();
+	            InputDTO dto = workerQueue.take(); //poll(); //(pollWaitTime, TimeUnit.MICROSECONDS);
+	            long t2 = System.nanoTime() - t1;
+	            if (t2 > 100000) { // 10th of millisecond
+	                System.out.println(threadName + " poll timeout="+t2+" nanos");
+	            }
+	            if (dto != null) {
+	                isProcessing = true;
+	            }
+	            return dto;
+        	} else {
+        		return null;
+        	}
         }
     }
     

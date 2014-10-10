@@ -440,7 +440,11 @@ public class MultiThreadOrchestrator {
     
     public ServiceResult getFromResultQ() throws InterruptedException{
         synchronized (resultQueue) {
-            return resultQueue.take();
+        	if (resultQueue.size() > 0) {
+        		return resultQueue.take();
+        	} else {
+        		return null;
+        	}
         }
     }
 
@@ -454,6 +458,12 @@ public class MultiThreadOrchestrator {
         // process 1 entry in our input q
         System.out.println("processing ResultQ len=" + getResultQLength());
         ServiceResult sr = getFromResultQ();
-        Thread.sleep(pseudoProcessingSleepTimeValue);
+        if (sr != null) {
+    		// simulate processing the data
+        	System.out.println("rowNbr = " + sr.getDto().getRowNbr());
+        	Thread.sleep(pseudoProcessingSleepTimeValue);
+        } else {
+        	Thread.sleep(pseudoProcessingSleepTimeValue);
+        }
     }
 }
