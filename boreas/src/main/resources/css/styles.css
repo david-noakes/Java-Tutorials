@@ -21,3 +21,13 @@
    text-align:left;
    background:none repeat scroll 0 0 #D3D3D3;
 }
+
+.empolyeeDetailText{
+   text-align:left;
+   background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.employeeDetailLabel{
+   text-align:left;
+   background:none repeat scroll 0 0 #D3D3D3;
+}

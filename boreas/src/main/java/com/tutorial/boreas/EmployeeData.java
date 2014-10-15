@@ -42,10 +42,6 @@ public class EmployeeData  implements Serializable{
                EmployeeDTO employee = new EmployeeDTO();
                //employee.morphFromDB(results);
                employee.morphUsingReflection(results);
-//               employee.setID(results.getInt(1));
-//               employee.setCompany(results.getString(2));
-//               employee.setLastName(results.getString(3));
-//               employee.setFirstName(results.getString(4));
                records.add(employee);				
             }
          } catch (SQLException e) {
