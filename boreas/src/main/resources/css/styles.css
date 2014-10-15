@@ -22,12 +22,30 @@
    background:none repeat scroll 0 0 #D3D3D3;
 }
 
-.empolyeeDetailText{
+employeeDetailForm .text-input{
+    background-color:#fbfbfb;
+    border:solid 10px #000000;
+    margin-bottom:8px;
+    width:178px;
+    padding:8px 5px;
+    color:#797979;
+}
+
+employeeDetailForm .empolyeeDetailText{
    text-align:left;
    background:none repeat scroll 0 0 #FFFFFFF;	
 }
 
-.employeeDetailLabel{
+employeeDetailForm .employeeDetailLabel{
    text-align:left;
    background:none repeat scroll 0 0 #D3D3D3;
 }
+employeeDetailForm\:employeeId{
+	background:pink;
+	color:blue	
+}
+.test1{
+	background: #D3D3D3;
+	color: blue;
+}
+

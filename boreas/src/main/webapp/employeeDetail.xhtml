@@ -3,18 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html">
-<head>
-   <title>JSF Tutorial!</title>
-</head>
+<h:head>	  
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>JSF Tutorial!</title>
+    <h:outputStylesheet library="css" name="styles.css"  /> 
+</h:head>
 <h:body>
 	   <h3>Employee Details</h3>
-   <p>#{employeeData.getContext()}:#{employeeData.getDestination()}</p>
+   <h:form id="employeeDetailForm">
+   <h:outputLabel id="employeeId" value="#{employeeData.getContext()}:#{employeeData.getDestination()}" 
+                         styleClass="test1"/>
+   <br> </br>                       
    <table border="2">
     <tr>
      <td>&nbsp;&nbsp;</td>
      
      <td><table border="1" cellpadding="1">
-         <tr><td>First Name:</td><td>#{employeeData.putEmployeeToSessionData().getFirstName()}</td>
+         <tr><td text-align="left" background="#D3D3D3">First Name:</td><td>#{employeeData.putEmployeeToSessionData().getFirstName()}</td>
          <td rowspan="4">#{employeeData.getEmployeeFromSessionData().getAttachments()}</td>
          <td>Email:</td><td>#{employeeData.getEmployeeFromSessionData().getEmailAddress()}</td>
          </tr>
@@ -43,6 +48,7 @@
      
     </tr>
    </table>
+   </h:form>
    <h:form>
    <h:commandButton action="#{navigationController.showPage()}" value="Employee List" >
    <f:param name="pageId" value="employeeList" />
