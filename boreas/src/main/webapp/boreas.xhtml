@@ -10,10 +10,20 @@
    #{northWind.message}
    <h:form>
    <h3>Simple Menu</h3>
-<!--    <h:commandButton action="employeeList" value="Employee List" /> -->
+   <table>
+   <tr>
+   <td>
    <h:commandButton action="#{navigationController.showPage()}" value="Employee List" >
    <f:param name="pageId" value="employeeList" />
    </h:commandButton>
+   </td>
+   </tr>
+   <tr>
+   <td>
+   <h:commandButton action="#{userData.logout()}" value="Logout"></h:commandButton>
+   </td>
+   </tr>
+   </table>
    </h:form>
 </body>
 </html>
