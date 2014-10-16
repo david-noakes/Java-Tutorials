@@ -22,7 +22,7 @@
    background:none repeat scroll 0 0 #D3D3D3;
 }
 
-employeeDetailForm .text-input{
+#employeeDetailForm .text-input{
     background-color:#fbfbfb;
     border:solid 10px #000000;
     margin-bottom:8px;
@@ -31,16 +31,27 @@ employeeDetailForm .text-input{
     color:#797979;
 }
 
-employeeDetailForm .empolyeeDetailText{
+.empolyeeDetailText{
    text-align:left;
-   background:none repeat scroll 0 0 #FFFFFFF;	
+   background:none repeat scroll 0 0 #ffffc1;	
 }
 
-employeeDetailForm .employeeDetailLabel{
+.employeeDetailLabel{
    text-align:left;
    background:none repeat scroll 0 0 #D3D3D3;
 }
-employeeDetailForm\:employeeId{
+#employeeDetailForm .employeeDetailLabel1{
+   text-align:left;
+   background:none repeat scroll 0 0 #ffb7db;
+}
+#employeeDetailForm .employeeDetailLabel2{
+   text-align:left;
+   background:none repeat scroll 0 0 #84c1ff;
+}
+
+
+
+#employeeDetailForm\:employeeId{
 	background:pink;
 	color:blue	
 }

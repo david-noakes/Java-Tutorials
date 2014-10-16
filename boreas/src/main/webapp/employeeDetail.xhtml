@@ -11,38 +11,41 @@
 <h:body>
 	   <h3>Employee Details</h3>
    <h:form id="employeeDetailForm">
-   <h:outputLabel id="employeeId" value="#{employeeData.getContext()}:#{employeeData.getDestination()}" 
-                         styleClass="test1"/>
+   <h:outputLabel id="employeeId" value="#{employeeData.getContext()}:#{employeeData.getDestination()}" />
+<!--                          styleClass="test1"/> -->
    <br> </br>                       
    <table border="2">
     <tr>
      <td>&nbsp;&nbsp;</td>
      
      <td><table border="1" cellpadding="1">
-         <tr><td text-align="left" background="#D3D3D3">First Name:</td><td>#{employeeData.putEmployeeToSessionData().getFirstName()}</td>
+         <tr><td text-align="left" class="employeeDetailLabel2">
+<!--              <h:outputLabel value="First Name:" styleClass="test1"/> -->
+             <h:outputLabel>First Name:</h:outputLabel>
+         </td><td class="empolyeeDetailText">#{employeeData.putEmployeeToSessionData().getFirstName()}</td>
          <td rowspan="4">#{employeeData.getEmployeeFromSessionData().getAttachments()}</td>
-         <td>Email:</td><td>#{employeeData.getEmployeeFromSessionData().getEmailAddress()}</td>
+         <td class="employeeDetailLabel2"><h:outputLabel>Email:</h:outputLabel></td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getEmailAddress()}</td>
          </tr>
-         <tr><td>Last Name:</td><td>#{employeeData.getEmployeeFromSessionData().getLastName()}</td>
-         <td>Web:</td><td>#{employeeData.getEmployeeFromSessionData().getWebPage()}</td>
+         <tr><td class="employeeDetailLabel2"><h:outputLabel>Last Name:</h:outputLabel></td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getLastName()}</td>
+         <td class="employeeDetailLabel2"><h:outputLabel >Web:</h:outputLabel></td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getWebPage()}</td>
          </tr>
-         <tr><td>Company:</td><td>#{employeeData.getEmployeeFromSessionData().getCompany()}</td><td colspan="2">&nbsp;</td></tr>
-         <tr><td>Job Title:</td><td>#{employeeData.getEmployeeFromSessionData().getJobTitle()}</td><td colspan="2">&nbsp;</td></tr>
+         <tr><td class="employeeDetailLabel2"><h:outputLabel>Company:</h:outputLabel></td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getCompany()}</td><td colspan="2">&nbsp;</td></tr>
+         <tr><td class="employeeDetailLabel2"><h:outputLabel>Job Title:</h:outputLabel></td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getJobTitle()}</td><td colspan="2">&nbsp;</td></tr>
          <tr><td colspan="5">&nbsp;</td></tr>
-         <tr><td>Phone Numbers</td><td>&nbsp;</td><td>Notes</td></tr>
-         <tr><td>Business Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getBusinessPhone()}</td>
-         <td colspan="3" rowspan="11" style="vertical-align:top">#{employeeData.getEmployeeFromSessionData().getNotes()}</td>
+         <tr><td class="employeeDetailLabel1">Phone Numbers</td><td>&nbsp;</td><td>Notes</td></tr>
+         <tr><td class="employeeDetailLabel1">Business Phone:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getBusinessPhone()}</td>
+         <td colspan="3" rowspan="11" style="vertical-align:top" class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getNotes()}</td>
          </tr>
-         <tr><td>Home Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getHomePhone()}</td></tr>
-         <tr><td>Mobile Phone:</td><td>#{employeeData.getEmployeeFromSessionData().getMobilePhone()}</td></tr>
-         <tr><td>Fax Number:</td><td>#{employeeData.getEmployeeFromSessionData().getFaxNumber()}</td></tr>
+         <tr><td class="employeeDetailLabel1">Home Phone:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getHomePhone()}</td></tr>
+         <tr><td class="employeeDetailLabel1">Mobile Phone:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getMobilePhone()}</td></tr>
+         <tr><td class="employeeDetailLabel1">Fax Number:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getFaxNumber()}</td></tr>
          <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
          <tr><td>Address</td><td>&nbsp;</td></tr>
-         <tr><td>Street:</td><td>#{employeeData.getEmployeeFromSessionData().getAddress()}</td></tr>
-         <tr><td>City:</td><td>#{employeeData.getEmployeeFromSessionData().getCity()}</td></tr>
-         <tr><td>State/Province:</td><td>#{employeeData.getEmployeeFromSessionData().getStateProvince()}</td></tr>
-         <tr><td>Zip/Postcode:</td><td>#{employeeData.getEmployeeFromSessionData().getPostalCode()}</td></tr>
-         <tr><td>Country/Region:</td><td>#{employeeData.getEmployeeFromSessionData().getCountryRegion()}</td></tr>
+         <tr><td class="employeeDetailLabel">Street:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getAddress()}</td></tr>
+         <tr><td class="employeeDetailLabel">City:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getCity()}</td></tr>
+         <tr><td class="employeeDetailLabel">State/Province:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getStateProvince()}</td></tr>
+         <tr><td class="employeeDetailLabel">Zip/Postcode:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getPostalCode()}</td></tr>
+         <tr><td class="employeeDetailLabel">Country/Region:</td><td class="empolyeeDetailText">#{employeeData.getEmployeeFromSessionData().getCountryRegion()}</td></tr>
 		</table>
 	</td>
      
