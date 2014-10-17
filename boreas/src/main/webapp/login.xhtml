@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:tp="http://java.sun.com/jsf/composite/components">
+   <h:head>
+      <title>JSF tutorial - Custom Component</title>		     
+   </h:head>
+   <h:body> 
+      <h2>Please Login</h2>
+      <h:form>
+      <h:outputText value="Username or Password is invalid" rendered="#{!userData.isLoginValid()}" style="color:red"></h:outputText>
+      <tp:loginComponent 
+         usernameLabel="Enter User Name: " 
+         usernameValue="#{userData.name}" 
+         passwordLabel="Enter Password: " 
+         passwordValue="#{userData.password}"
+         loginButtonLabel="Login" 
+         loginButtonAction="#{userData.login}" />
+      </h:form>
+   </h:body>
+</html>

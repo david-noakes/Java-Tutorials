@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir="..">
+
+<echo message="pulling in property files"/>
+	
+<echo message="calling the web services generation ant task: axis_bujava"/>
+ <target name="main" >
+ 	<copy todir="D:/dev/opt/apache-tomcat-7.0.40/webapps/boreas" overwrite="true">
+ 	  <fileset dir="main">
+ 	    <include name="/resources/**"/>
+ 	    <include name="/resources/*.xhtml"/>
+ 	  </fileset>
+ 	</copy>
+  </target>
+  
+</project>

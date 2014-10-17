@@ -129,6 +129,19 @@ public class EmployeeData  implements Serializable{
     
     public String confirmEdit(){
         //TODO - write to database
+        // don't use the procedures, 
+        EmployeeDTO employee = getEmployeeFromSessionData();
+        if (employee.getID() == -1) {
+            // insert
+        } else {
+            // update
+        }
+        
+        setEditMode(false);
+        setReadOnly(true);
+        setNewMode(false);
+        setDeleteMode(false);
+        
         return EMPLOYEE_LIST_FORM;
     }
     public void cancelEdit(){
@@ -152,7 +165,7 @@ public class EmployeeData  implements Serializable{
      * @return saved employeeDTO
      */
 	public EmployeeDTO getEmployeeFromSessionData() {
-		EmployeeDTO employee = getSavedEmployee();
+		EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
 		return employee;
 	}
      
@@ -183,7 +196,10 @@ public class EmployeeData  implements Serializable{
 		if (sessionData == null) {
 			getConnection();
 		}
-		EmployeeDTO employee = getContextEmployee();
+		EmployeeDTO employee = getEmployeeFromSessionData(); 
+		if (employee == null || !Integer.toString(employee.getID()).equals(getDestination())) {
+		    employee = getContextEmployee();
+		}
 		return employee;
 	}
 
