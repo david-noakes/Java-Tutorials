@@ -22,7 +22,7 @@ public class SessionData extends HashMap {
 	private String password = " ";
 	private static SessionData instance = null;
 	private Connection connection;
-	
+	private String message = "";
 	
     private static String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
 	private static String url = "jdbc:odbc:NorthWindEx"; // System ODBC name = NorthWindEx
@@ -40,7 +40,13 @@ public class SessionData extends HashMap {
 		this.password = password;
 	}
 
-	private SessionData(String uName, String pWord) throws SQLException {
+	public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    private SessionData(String uName, String pWord) throws SQLException {
 		this.username = uName;
 		this.password = pWord;
 		connection = DriverManager.getConnection(url, username, password);

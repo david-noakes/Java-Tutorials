@@ -11,7 +11,7 @@
    <h:body> 
       <h2>Please Login</h2>
       <h:form>
-      <h:outputText value="Username or Password is invalid" rendered="#{!userData.isLoginValid()}" style="color:red"></h:outputText>
+      <h:outputText value="#{userData.getMessage()}" rendered="#{!userData.isLoginValid()}" style="color:red"></h:outputText>
       <tp:loginComponent 
          usernameLabel="Enter User Name: " 
          usernameValue="#{userData.name}" 

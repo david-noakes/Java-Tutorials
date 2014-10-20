@@ -29,6 +29,7 @@ public class EmployeeData  implements Serializable{
     private boolean deleteMode;
     
     private static final String EMPLOYEE_DTO = "employeeDTO";
+    private static final String EMPLOYEE_DTO_ORIG = "employeeDTO_orig";
     private static final String SHOW_HTML_ELEMENT = "block";
     private static final String HIDE_HTML_ELEMENT = "none";
     public static final String EMPLOYEE_LIST_FORM = "employeeList";
@@ -81,6 +82,7 @@ public class EmployeeData  implements Serializable{
         ResultSet results = null;
         PreparedStatement pst = null;
         String sql = "select * from employees where ID = "+getDestination();
+        
         try {   
             pst = con.prepareStatement(sql);
             pst.execute();
@@ -103,6 +105,8 @@ public class EmployeeData  implements Serializable{
     public EmployeeDTO putEmployeeToSessionData() {
     	EmployeeDTO employee = getContextEmployee();
     	sessionData.put(EMPLOYEE_DTO, employee);
+    	EmployeeDTO clone = (EmployeeDTO) employee.clone();
+        sessionData.put(EMPLOYEE_DTO_ORIG, clone); // for detecting changes in update mode
     	return employee;
     }
     public void startEditMode() {
@@ -127,6 +131,27 @@ public class EmployeeData  implements Serializable{
         setEditMode(false);
     }
     
+    public int updateEmployee(){
+        if (sessionData == null) {
+            getConnection();
+        }
+        int result=0;
+        EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
+        EmployeeDTO orig     = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG);
+        PreparedStatement pst = null;
+        String sql = employee.toSQLString();
+        
+        try {   
+            pst = employee.toUpdateSQLStatement(); // stuffs up - ODBC barfs with incorrect COUNT
+           // pst = con.prepareStatement(sql);
+            result=pst.executeUpdate(); 
+
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+        return result;
+        
+    }
     public String confirmEdit(){
         //TODO - write to database
         // don't use the procedures, 
@@ -135,6 +160,7 @@ public class EmployeeData  implements Serializable{
             // insert
         } else {
             // update
+            updateEmployee();
         }
         
         setEditMode(false);

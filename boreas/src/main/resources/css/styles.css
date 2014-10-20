@@ -12,7 +12,7 @@
    padding:2px;
 }
 
-.empolyeeTableOddRow{
+.employeeTableOddRow{
    text-align:left;
    background:none repeat scroll 0 0 #FFFFFFF;	
 }
@@ -31,11 +31,15 @@
     color:#797979;
 }
 
-.empolyeeDetailText{
+.employeeDetailText{
+   text-align:left;
+   background:none repeat scroll 0 0 #ffd2aa;	
+}
+
+#employeeDetailForm .employeeDetailText{
    text-align:left;
    background:none repeat scroll 0 0 #ffffc1;	
 }
-
 .employeeDetailLabel{
    text-align:left;
    background:none repeat scroll 0 0 #D3D3D3;

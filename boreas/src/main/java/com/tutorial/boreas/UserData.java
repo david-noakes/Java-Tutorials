@@ -18,31 +18,45 @@ public class UserData implements Serializable {
    private String password;
    private boolean loggedIn;
    private boolean loginValid;
+   private String message = "";
    
    public static final String LOGIN_PAGE = "login";
-   public static final String MAIN_PAGE = "boreas";
+   public static final String MAIN_PAGE = "boreas?faces-redirect=true";
    
    public String getName() {
-      return name;
+       return name;
    }
    public void setName(String name) {
        System.out.println("Setname ["+name+"]");
-      this.name = name;
+       this.name = name;
    }
    public String getPassword() {
-      return password;
+       return password;
    }
    public void setPassword(String password) {
        System.out.println("Setpwd ["+password+"]");
-      this.password = password;
+       this.password = password;
    }    
+   public String getMessage() {
+       return message;
+   }
+   public void setMessage(String message) {
+       this.message = message;
+   }
    public String login(){
        System.out.println("Login: ["+name+"|"+password+"]");
        if (name.length()>0 && password.length()>0) {
            session.put(SessionData.USERNAME, name);
+           message = "";
            return MAIN_PAGE;
        } else {
            session.put(SessionData.USERNAME, "");
+           message = "Username or Password is invalid";
+           if (name.length() == 0) {
+               message = "Username is required";
+           } else if (password.length() == 0) {
+               message = "Password is required";
+           }
            loggedIn = false;
            loginValid = false;
            return LOGIN_PAGE;
@@ -51,6 +65,7 @@ public class UserData implements Serializable {
    public String logout() {
        name = "";
        password = "";
+       message = "";
        loggedIn = false;
        loginValid = true;
        session.put(SessionData.USERNAME, name);

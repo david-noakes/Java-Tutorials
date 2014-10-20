@@ -18,9 +18,10 @@ public class NavigationController  implements Serializable {
 	private String destination;
 	private SessionData sessionData;
 
-	public static final String NAV_MAIN_PAGE = "boreas";
-	public static final String NAV_EMPLOYEE_LIST = "employeeList";
-	public static final String NAV_EMPLOYEE_DETAILS = "employeeDetails";
+	public static final String NAV_MAIN_PAGE = "boreas?faces-redirect=true";
+	public static final String NAV_EMPLOYEE_LIST = "employeeList?faces-redirect=true";
+	public static final String NAV_EMPLOYEE_DETAILS = "employeeDetails?faces-redirect=true";
+	public static final String FACES_REDIRECT = "?faces-redirect=true";
 	  
 	/* 
 	 * convention is context:destination
@@ -45,16 +46,16 @@ public class NavigationController  implements Serializable {
 		    	sessionData.put(SessionData.CONTEXT, "");
 		    	sessionData.put(SessionData.DESTINATION, destination);
 			    if ((this.pageId.equals("1")) || (this.pageId.equals("2"))) {
-				      return "page" + this.pageId;
+				      return "page" + this.pageId+FACES_REDIRECT;
 				}
-		    	return this.pageId;
+		    	return this.pageId+FACES_REDIRECT;
 		    } else {
 		    	context = bits[0];
 		    	destination = bits[1];
 		    	sessionData.put(SessionData.CONTEXT, context);
 		    	sessionData.put(SessionData.DESTINATION, destination);
 			    if (context.trim().length()>0) {
-			    	return context; 
+			    	return context+FACES_REDIRECT; 
 			    }
 			    
 		    }

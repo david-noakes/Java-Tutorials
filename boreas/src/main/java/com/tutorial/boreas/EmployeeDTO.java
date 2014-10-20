@@ -2,37 +2,40 @@ package com.tutorial.boreas;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 
 public class EmployeeDTO extends HashMap{
-	// Northwind Employee Table
-    //	private int ID;
-    //	private String Company;
-    //	private String LastName;
-    //	private String FirstName;
-    //  private String EmailAddress;
-    //  private String JobTitle;
-    //  private String BusinessPhone;
-    //  private String HomePhone;
-    //  private String MobilePhone;
-    //  private String FaxNumber;
-    //  private String Address;
-    //  private String City;
-    //  private String StateProvince;
-    //  private String PostalCode;
-    //  private String CountryRegion;
-    //  private String WebPage;
-    //  private String Notes;
-    //  private String Attachments;
-    //  private Date   StartDate;
+	// Northwind Employee Table - these fields are needed by JSF to pass updated values to the setters
+      private int ID;
+      private String Company;
+      private String LastName;
+      private String FirstName;
+      private String EmailAddress;
+      private String JobTitle;
+      private String BusinessPhone;
+      private String HomePhone;
+      private String MobilePhone;
+      private String FaxNumber;
+      private String Address;
+      private String City;
+      private String StateProvince;
+      private String PostalCode;
+      private String CountryRegion;
+      private String WebPage;
+      private String Notes;
+      private String Attachments;
+      private Date   StartDate;
     
-    
+    private static String BLANK = " ";
     // Attribute names
     private static final String ID_name = "ID";
     private static final String Company_name = "Company";
@@ -108,23 +111,23 @@ public class EmployeeDTO extends HashMap{
     public EmployeeDTO() {
 		super();
 		setID(-1);
-		setCompany("");
-		setLastName("");
-		setFirstName("");
-		setEmailAddress("");
-		setJobTitle("");
-		setBusinessPhone("");
-		setHomePhone("");
-		setMobilePhone("");
-		setFaxNumber("");
-		setAddress("");
-		setCity("");
-		setStateProvince("");
-		setPostalCode("");
-		setCountryRegion("");
-		setWebPage("");
-		setNotes("");
-		setAttachments("");
+		setCompany(BLANK);
+		setLastName(BLANK);
+		setFirstName(BLANK);
+		setEmailAddress(BLANK);
+		setJobTitle(BLANK);
+		setBusinessPhone(BLANK);
+		setHomePhone(BLANK);
+		setMobilePhone(BLANK);
+		setFaxNumber(BLANK);
+		setAddress(BLANK);
+		setCity(BLANK);
+		setStateProvince(BLANK);
+		setPostalCode(BLANK);
+		setCountryRegion(BLANK);
+		setWebPage(BLANK);
+		setNotes(BLANK);
+		setAttachments(BLANK);
 		setStartDate(new Date(0));
 	    if (fieldSetters.size() == 0) {
 	    	loadSetters();
@@ -225,7 +228,7 @@ public class EmployeeDTO extends HashMap{
 				    	if (this.get(key).getClass().equals(String.class)) {
     				    	fieldValue = result.getString(keyIdx);
     				    	if (fieldValue == null) {
-                                setter.invoke(this, "");
+                                setter.invoke(this, BLANK);
     				    	} else { 
     				    	    if (key.equals(WebPage_name)) {
         				    		// for some reason, the field repeats with #
@@ -276,6 +279,92 @@ public class EmployeeDTO extends HashMap{
 		}
     }
     
+    public String toSQLString(){
+        String updateClause = "UPDATE employees SET";
+        String sep = " ";
+        String key = "";
+        String dbFieldName = "";
+        Object obj;
+        // create update string
+        Iterator pe = (Iterator) fieldList.keySet().iterator();
+        int i = 1; // params start at 1
+        while (pe.hasNext()) {
+            key = (String) pe.next();
+            dbFieldName  = (String)fieldList.get(key);
+            if (!dbFieldName.equals(db_ID_name) && !dbFieldName.equals(db_Attachments_name)) {
+                updateClause = updateClause + sep + "[" + dbFieldName + "] = ";
+                obj = this.get(key);
+                if (obj == null) {
+                    updateClause = updateClause + "' '";  
+                  } else if (obj.getClass()==String.class) {
+                      updateClause = updateClause + "'" + obj.toString() + "'";
+                  } else if (obj.getClass()==java.sql.Date.class) {
+                      updateClause = updateClause + "'" + ((java.sql.Date) obj).toString() +"'";
+                  } else if (obj.getClass()==Date.class) {
+                      updateClause = updateClause + "'" + ((Date) obj).toString() +"'";
+                  }
+                if (i==1){
+                    sep = " , ";
+                }
+                i++;
+            }
+        }
+        updateClause = updateClause + " WHERE ["+db_ID_name+"]="+getID();
+        return updateClause;
+       
+    }
+    public PreparedStatement toUpdateSQLStatement(){
+        String updateClause = "UPDATE employees SET";
+        String sep = " ";
+        SessionData session;
+        String key = "";
+        String dbFieldName = "";
+        PreparedStatement pst = null;
+        HashMap parms = new HashMap();
+        try {
+            
+            // create update string
+            Iterator pe = (Iterator) fieldList.keySet().iterator();
+            int i = 1; // params start at 1
+            while (pe.hasNext()) {
+                key = (String) pe.next();
+                dbFieldName  = (String)fieldList.get(key);
+                if (!dbFieldName.equals(db_ID_name) && !dbFieldName.equals(db_Attachments_name)) {
+                    updateClause = updateClause + sep + "[" + dbFieldName + "] = ?";
+                    parms.put(i, this.get(key));
+                    if (i==1){
+                        sep = " , ";
+                    }
+                    i++;
+                }
+            }
+            updateClause = updateClause + " WHERE ["+db_ID_name+"]="+getID();
+            session = SessionData.getInstance();
+            Connection conn = session.getConnection();
+            pst = conn.prepareStatement(updateClause);
+            // add parameter values
+            Object obj;
+            java.sql.Date jDate = new java.sql.Date(0);
+            for (int j = 1;j<i;j++){
+                obj = parms.get(j);
+                if (obj == null) {
+                  pst.setNull(j, java.sql.Types.VARCHAR);  
+                } else if (obj.getClass()==String.class) {
+                    pst.setString(j, (String) obj);
+                } else if (obj.getClass()==Date.class) {
+                    jDate.setTime(((Date) obj).getTime());
+                    pst.setDate(j, jDate);
+                } else if (obj.getClass()==java.sql.Date.class) {
+                    jDate.setTime(((java.sql.Date) obj).getTime());
+                    pst.setDate(j, jDate);
+                }
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return pst;
+    }
     
     // this is used to help with morphUsingReflection()
     private void loadSetters() {
@@ -286,6 +375,7 @@ public class EmployeeDTO extends HashMap{
 		paramDate[0] = Date.class;
 		Class[] paramInt = new Class[1];	
 		paramInt[0] = Integer.TYPE;
+		
 		Method method;
     	if (fieldSetters.size() == 0) {
     		// TODO - we have the list in a map, try using a loop (from getMethods()
@@ -372,7 +462,7 @@ public class EmployeeDTO extends HashMap{
 		if (company != null) {
 		    this.put(Company_name,company);
 		} else {
-            this.put(Company_name,"");
+            this.put(Company_name,BLANK);
 		}
 	}
 	public String getLastName() {
@@ -382,7 +472,7 @@ public class EmployeeDTO extends HashMap{
 		if (lastName != null) {
 			this.put(LastName_name, lastName);
 		} else {
-            this.put(LastName_name, "");
+            this.put(LastName_name, BLANK);
 		}
 	}
 	public String getFirstName() {
@@ -392,7 +482,7 @@ public class EmployeeDTO extends HashMap{
 		if (firstName != null) {
 			this.put(FirstName_name, firstName);
 		} else {
-		    this.put(FirstName_name, "");
+		    this.put(FirstName_name, BLANK);
 		}
 	}
 	public String getEmailAddress() {
@@ -402,7 +492,7 @@ public class EmployeeDTO extends HashMap{
 		if (emailAddress != null) {
 		    this.put(EmailAddress_name, emailAddress);
 		} else {
-		    this.put(EmailAddress_name, "");
+		    this.put(EmailAddress_name, BLANK);
 		}
 	}
 	public String getJobTitle() {
@@ -412,7 +502,7 @@ public class EmployeeDTO extends HashMap{
 		if (jobTitle != null) {
 		    this.put(JobTitle_name, jobTitle);
 		} else {
-		    this.put(JobTitle_name, "");
+		    this.put(JobTitle_name, BLANK);
 		}
 	}
 	public String getBusinessPhone() {
@@ -422,7 +512,7 @@ public class EmployeeDTO extends HashMap{
 		if (businessPhone != null) {
 		    this.put(BusinessPhone_name, businessPhone);
 		} else {
-		    this.put(BusinessPhone_name, "");
+		    this.put(BusinessPhone_name, BLANK);
 		}
 	}
 	public String getHomePhone() {
@@ -432,7 +522,7 @@ public class EmployeeDTO extends HashMap{
 		if (homePhone != null) {
 		    this.put(HomePhone_name, homePhone);
 		} else {
-		    this.put(HomePhone_name, "");
+		    this.put(HomePhone_name, BLANK);
 		}
 	}
 	public String getMobilePhone() {
@@ -442,7 +532,7 @@ public class EmployeeDTO extends HashMap{
 		if (mobilePhone != null) {
 		    this.put(MobilePhone_name, mobilePhone);
 		} else {
-		    this.put(MobilePhone_name, "");
+		    this.put(MobilePhone_name, BLANK);
 		}
 	}
 	public String getFaxNumber() {
@@ -452,7 +542,7 @@ public class EmployeeDTO extends HashMap{
 		if (faxNumber != null) {
 			this.put(FaxNumber_name, faxNumber);
 		} else {
-		    this.put(FaxNumber_name, "");
+		    this.put(FaxNumber_name, BLANK);
 		}
 	}
 	public String getAddress() {
@@ -462,7 +552,7 @@ public class EmployeeDTO extends HashMap{
 		if (address != null) {
 		    this.put(Address_name, address);
 		} else {
-		    this.put(Address_name, "");
+		    this.put(Address_name, BLANK);
 		}
 	}
 	public String getCity() {
@@ -472,7 +562,7 @@ public class EmployeeDTO extends HashMap{
 		if (city != null ) {
 		    this.put(City_name, city);
 		} else {
-		    this.put(City_name, "");
+		    this.put(City_name, BLANK);
 		}
 	}
 	public String getStateProvince() {
@@ -482,7 +572,7 @@ public class EmployeeDTO extends HashMap{
 		if (stateProvince != null){
 		    this.put(StateProvince_name, stateProvince);
 		} else {
-		    this.put(StateProvince_name, "");
+		    this.put(StateProvince_name, BLANK);
 		}
 	}
 	public String getPostalCode() {
@@ -492,7 +582,7 @@ public class EmployeeDTO extends HashMap{
 		if (postalCode != null) {
 		    this.put(PostalCode_name, postalCode);
 		} else {
-		    this.put(PostalCode_name, "");
+		    this.put(PostalCode_name, BLANK);
 		}
 	}
 	public String getCountryRegion() {
@@ -502,7 +592,7 @@ public class EmployeeDTO extends HashMap{
 		if (countryRegion != null) {
 		    this.put(CountryRegion_name, countryRegion);
 		} else {
-		    this.put(CountryRegion_name, "");
+		    this.put(CountryRegion_name, BLANK);
 		}
 	}
 	public String getWebPage() {
@@ -512,7 +602,7 @@ public class EmployeeDTO extends HashMap{
 		if (webPage != null) {
 		    this.put(WebPage_name, webPage);
 		} else {
-		    this.put(WebPage_name, "");
+		    this.put(WebPage_name, BLANK);
 		}
 	}
 	public String getNotes() {
@@ -520,10 +610,11 @@ public class EmployeeDTO extends HashMap{
 	}
 	public void setNotes(String notes) {
 		if (notes != null) {
-		    this.put(Notes_name, notes);
+		    this.Notes = notes;
 		} else {
-		    this.put(Notes_name, "");
+		    this.Notes = BLANK;
 		}
+        this.put(Notes_name, this.Notes);
 	}
 	public String getAttachments() {
 		return (String) this.get(Attachments_name);
@@ -532,7 +623,7 @@ public class EmployeeDTO extends HashMap{
 		if (attachments != null) {
 		    this.put(Attachments_name, attachments);
 		} else {
-		    this.put(Attachments_name, "");
+		    this.put(Attachments_name, BLANK);
 		}
 	}
 
@@ -547,4 +638,12 @@ public class EmployeeDTO extends HashMap{
 	        this.put(StartDate_name, new Date(0));
 	    }
 	}	
+    public void setStartDate(java.sql.Date startDate) {
+        if (startDate != null) {
+            this.StartDate = new Date(startDate.getTime());
+        } else {
+            this.StartDate = new Date(0);
+        }
+        this.put(StartDate_name, this.StartDate);
+    }   
 }
