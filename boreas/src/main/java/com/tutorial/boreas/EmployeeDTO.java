@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -279,7 +280,7 @@ public class EmployeeDTO extends HashMap{
 		}
     }
     
-    public String toSQLString(){
+    public String toUpdateSQLString(){
         String updateClause = "UPDATE employees SET";
         String sep = " ";
         String key = "";
@@ -365,6 +366,80 @@ public class EmployeeDTO extends HashMap{
         }
         return pst;
     }
+    
+    public PreparedStatement toInsertSQLStatement(){
+        String insertClause = "INSERT INTO employees (";
+        String valuesClause = ") VALUES (";
+        String sep = " ";
+        SessionData session;
+        String key = "";
+        String dbFieldName = "";
+        PreparedStatement pst = null;
+        HashMap parms = new HashMap();
+        try {
+            
+            // create update string
+            Iterator pe = (Iterator) fieldList.keySet().iterator();
+            int i = 1; // params start at 1
+            while (pe.hasNext()) {
+                key = (String) pe.next();
+                dbFieldName  = (String)fieldList.get(key);
+                if (!dbFieldName.equals(db_ID_name) && !dbFieldName.equals(db_Attachments_name)) {
+                    insertClause = insertClause + sep + "[" + dbFieldName + "] ";
+                    valuesClause = valuesClause + sep + "? ";
+                    parms.put(i, this.get(key));
+                    if (i==1){
+                        sep = " , ";
+                    }
+                    i++;
+                }
+            }
+            insertClause = insertClause + valuesClause +" )";
+            session = SessionData.getInstance();
+            Connection conn = session.getConnection();
+            pst = conn.prepareStatement(insertClause);
+            // add parameter values
+            Object obj;
+            java.sql.Date jDate = new java.sql.Date(0);
+            for (int j = 1;j<i;j++){
+                obj = parms.get(j);
+                if (obj == null) {
+                  pst.setNull(j, java.sql.Types.VARCHAR);  
+                } else if (obj.getClass()==String.class) {
+                    pst.setString(j, (String) obj);
+                } else if (obj.getClass()==Date.class) {
+                    jDate.setTime(((Date) obj).getTime());
+                    pst.setDate(j, jDate);
+                } else if (obj.getClass()==java.sql.Date.class) {
+                    jDate.setTime(((java.sql.Date) obj).getTime());
+                    pst.setDate(j, jDate);
+                }
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return pst;
+    }
+    public PreparedStatement toDeleteSQLStatement(){
+        String deleteClause = "DELETE * FROM employees";
+        String sep = " ";
+        SessionData session;
+        String key = "";
+        String dbFieldName = "";
+        PreparedStatement pst = null;
+        deleteClause = deleteClause + " WHERE ["+db_ID_name+"]="+getID();
+        try {
+            session = SessionData.getInstance();
+            Connection conn = session.getConnection();
+            pst = conn.prepareStatement(deleteClause);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return pst;
+    }
+    
     
     // this is used to help with morphUsingReflection()
     private void loadSetters() {
@@ -628,7 +703,24 @@ public class EmployeeDTO extends HashMap{
 	}
 
 	public Date getStartDate() {
-		return (Date) this.get(StartDate_name);
+	    Object obj = this.get(StartDate_name);
+	    if (obj.getClass()==Date.class) {
+		return (Date) obj;
+	    }
+        if (obj.getClass()==java.sql.Date.class) {
+            return new Date(((java.sql.Date) obj).getTime());
+        }
+        if (obj.getClass()==String.class) {
+            Date date = null;
+            try {
+                date = new Date(Date.parse((String) obj));
+            } catch (Exception e) {
+                date = new Date(0);
+            }
+            setStartDate(date);
+            return date;
+        }
+	    return new Date(0);
 	}
 
 	public void setStartDate(Date startDate) {

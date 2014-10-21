@@ -18,10 +18,13 @@ public class NavigationController  implements Serializable {
 	private String destination;
 	private SessionData sessionData;
 
-	public static final String NAV_MAIN_PAGE = "boreas?faces-redirect=true";
-	public static final String NAV_EMPLOYEE_LIST = "employeeList?faces-redirect=true";
-	public static final String NAV_EMPLOYEE_DETAILS = "employeeDetails?faces-redirect=true";
-	public static final String FACES_REDIRECT = "?faces-redirect=true";
+    public static final String FACES_REDIRECT = "?faces-redirect=true";
+    public static final String CONTEXT_MAIN_PAGE = "boreas";
+    public static final String CONTEXT_EMPLOYEE_DETAIL = "employeeDetail";
+    public static final String CONTEXT_EMPLOYEE_LIST = "employeeList";
+	public static final String NAV_MAIN_PAGE = CONTEXT_MAIN_PAGE+FACES_REDIRECT;
+	public static final String NAV_EMPLOYEE_LIST = CONTEXT_EMPLOYEE_LIST+FACES_REDIRECT;
+	public static final String NAV_EMPLOYEE_DETAILS = CONTEXT_EMPLOYEE_DETAIL+FACES_REDIRECT;
 	  
 	/* 
 	 * convention is context:destination
@@ -53,7 +56,10 @@ public class NavigationController  implements Serializable {
 		    	context = bits[0];
 		    	destination = bits[1];
 		    	sessionData.put(SessionData.CONTEXT, context);
-		    	sessionData.put(SessionData.DESTINATION, destination);
+		    	sessionData.put(SessionData.DESTINATION, destination);   
+		    	if (context.equals(CONTEXT_EMPLOYEE_DETAIL)) {
+		    	    new EmployeeData().putEmployeeToSessionData();
+		    	}
 			    if (context.trim().length()>0) {
 			    	return context+FACES_REDIRECT; 
 			    }
@@ -69,7 +75,7 @@ public class NavigationController  implements Serializable {
 	}
 	  
 	public String employeeDetailContext() {
-		return "employeeDetail:";
+		return CONTEXT_EMPLOYEE_DETAIL+":";
 	}
 	  
 	  

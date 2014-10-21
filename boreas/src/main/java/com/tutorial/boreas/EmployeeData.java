@@ -34,7 +34,8 @@ public class EmployeeData  implements Serializable{
     private static final String HIDE_HTML_ELEMENT = "none";
     public static final String EMPLOYEE_LIST_FORM = "employeeList";
     public static final String EMPLOYEE_DETAIL_FORM = "employeeDetail";
-    
+    public static final String FACES_REDIRECT = "?faces-redirect=true";
+
 	
     public List<EmployeeDTO> getEmployees() {
     	if (sessionData == null) {
@@ -122,6 +123,9 @@ public class EmployeeData  implements Serializable{
         setReadOnly(false);
         setEditMode(false);
         setDeleteMode(false);
+        // create a blank dto
+        EmployeeDTO dto = new EmployeeDTO();
+        sessionData.put(EMPLOYEE_DTO, dto);
     }
     
     public void startDeleteMode() {
@@ -139,10 +143,27 @@ public class EmployeeData  implements Serializable{
         EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
         EmployeeDTO orig     = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG);
         PreparedStatement pst = null;
-        String sql = employee.toSQLString();
         
         try {   
-            pst = employee.toUpdateSQLStatement(); // stuffs up - ODBC barfs with incorrect COUNT
+            pst = employee.toUpdateSQLStatement(); 
+            result=pst.executeUpdate(); 
+
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+        return result;
+    }
+    public int insertEmployee(){
+        if (sessionData == null) {
+            getConnection();
+        }
+        int result=0;
+        EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
+        EmployeeDTO orig     = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG);
+        PreparedStatement pst = null;
+        
+        try {   
+            pst = employee.toInsertSQLStatement(); 
            // pst = con.prepareStatement(sql);
             result=pst.executeUpdate(); 
 
@@ -150,7 +171,24 @@ public class EmployeeData  implements Serializable{
             e.printStackTrace();
          }
         return result;
+    }
+    public int deleteEmployee(){
+        if (sessionData == null) {
+            getConnection();
+        }
+        int result=0;
+        EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
+        PreparedStatement pst = null;
         
+        try {   
+            pst = employee.toDeleteSQLStatement(); 
+           // pst = con.prepareStatement(sql);
+            result=pst.executeUpdate(); 
+
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+        return result;
     }
     public String confirmEdit(){
         //TODO - write to database
@@ -158,6 +196,7 @@ public class EmployeeData  implements Serializable{
         EmployeeDTO employee = getEmployeeFromSessionData();
         if (employee.getID() == -1) {
             // insert
+            insertEmployee();
         } else {
             // update
             updateEmployee();
@@ -168,17 +207,22 @@ public class EmployeeData  implements Serializable{
         setNewMode(false);
         setDeleteMode(false);
         
-        return EMPLOYEE_LIST_FORM;
+        return EMPLOYEE_LIST_FORM+FACES_REDIRECT;
     }
     public void cancelEdit(){
         setEditMode(false);
         setReadOnly(true);
         setNewMode(false);
         setDeleteMode(false);
+        // now to restore the dto to the original
+        EmployeeDTO dto = (EmployeeDTO) ((EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG)).clone();
+        sessionData.put(EMPLOYEE_DTO, dto);
     }
     public String confirmDelete(){
-        //TODO - write to database
-        return EMPLOYEE_LIST_FORM;
+        
+        deleteEmployee();
+        
+        return EMPLOYEE_LIST_FORM+FACES_REDIRECT;
     }
     public void cancelDelete(){
         setEditMode(false);
