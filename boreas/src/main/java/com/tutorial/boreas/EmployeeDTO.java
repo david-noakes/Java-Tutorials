@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -705,15 +706,22 @@ public class EmployeeDTO extends HashMap{
 	public Date getStartDate() {
 	    Object obj = this.get(StartDate_name);
 	    if (obj.getClass()==Date.class) {
-		return (Date) obj;
+	        return (Date) obj;
 	    }
         if (obj.getClass()==java.sql.Date.class) {
             return new Date(((java.sql.Date) obj).getTime());
         }
         if (obj.getClass()==String.class) {
+            String sDate = (String) obj;
+            SimpleDateFormat dt1 = null;
+            if (sDate.indexOf("-")==2) {
+                dt1 = new SimpleDateFormat("dd-MM-yyyy");
+            } else {
+                dt1 = new SimpleDateFormat("yyyy-MM-dd");
+            }
             Date date = null;
             try {
-                date = new Date(Date.parse((String) obj));
+                date = dt1.parse((String) obj);
             } catch (Exception e) {
                 date = new Date(0);
             }
@@ -729,6 +737,7 @@ public class EmployeeDTO extends HashMap{
 	    } else {
 	        this.put(StartDate_name, new Date(0));
 	    }
+	    this.StartDate = getStartDate();
 	}	
     public void setStartDate(java.sql.Date startDate) {
         if (startDate != null) {

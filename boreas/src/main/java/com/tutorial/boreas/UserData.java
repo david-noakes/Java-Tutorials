@@ -3,6 +3,7 @@ package com.tutorial.boreas;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.TimeZone;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -20,7 +21,7 @@ public class UserData implements Serializable {
    private boolean loginValid;
    private String message = "";
    
-   public static final String LOGIN_PAGE = "login";
+   public static final String LOGIN_PAGE = "login?faces-redirect=true";
    public static final String MAIN_PAGE = "boreas?faces-redirect=true";
    
    public String getName() {
@@ -79,7 +80,9 @@ public class UserData implements Serializable {
        return loginValid;
    }
 
-   
+   public TimeZone getTimeZone() {
+       return TimeZone.getDefault();
+   }
    
    public UserData() {
        try {

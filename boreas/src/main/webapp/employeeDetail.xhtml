@@ -39,6 +39,7 @@
   <div id="readDetail" >
   <!--          R E A D   O N L Y     F R A M E   -->
    <br>Readonly #{employeeData.isReadOnly()}</br>                       
+   <p>timeZone="#{userData.timeZone}"</p>
    <table border="2">
     <tr>
      <td>&nbsp;&nbsp;</td>
@@ -63,7 +64,8 @@
          <tr><td class="employeeDetailLabel1">Home Phone:</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getHomePhone()}</td></tr>
          <tr><td class="employeeDetailLabel1">Mobile Phone:</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getMobilePhone()}</td></tr>
          <tr><td class="employeeDetailLabel1">Fax Number:</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getFaxNumber()}</td></tr>
-         <tr><td class="employeeDetailLabel1">Start Date</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getStartDate()}</td></tr>
+         <tr><td class="employeeDetailLabel1">Start Date</td>
+         <td class="employeeDetailText"><h:outputText value="#{employeeData.getEmployeeFromSessionData().StartDate}"><f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{userData.timeZone}" /></h:outputText></td></tr>
          <tr><td>Address</td><td>&nbsp;</td></tr>
          <tr><td class="employeeDetailLabel">Street:</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getAddress()}</td></tr>
          <tr><td class="employeeDetailLabel">City:</td><td class="employeeDetailText">#{employeeData.getEmployeeFromSessionData().getCity()}</td></tr>
@@ -110,19 +112,19 @@
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().JobTitle}"></h:inputText></td><td colspan="2">&nbsp;</td></tr>
          <tr><td colspan="5">&nbsp;</td></tr>
          <tr><td class="employeeDetailText">Phone Numbers</td><td class="employeeDetailText">&nbsp;</td><td class="employeeDetailText" colspan="3">Notes</td></tr>
-         <tr><td class="employeeDetailLabel1">Business Phone:</td>
+         <tr><td class="employeeDetailLabel1">Business Phone</td>
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().BusinessPhone}"></h:inputText></td>
          <td colspan="3" rowspan="11" style="vertical-align:top" class="employeeDetailText">
          <h:inputTextarea rows="31" cols="43" maxlength="32000" value="#{employeeData.getEmployeeFromSessionData().Notes}"></h:inputTextarea></td>
          </tr>
-         <tr><td class="employeeDetailLabel1">Home Phone:</td>
+         <tr><td class="employeeDetailLabel1">Home Phone</td>
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().HomePhone}"></h:inputText></td></tr>
-         <tr><td class="employeeDetailLabel1">Mobile Phone:</td>
+         <tr><td class="employeeDetailLabel1">Mobile Phone</td>
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().MobilePhone}"></h:inputText></td></tr>
-         <tr><td class="employeeDetailLabel1">Fax Number:</td>
+         <tr><td class="employeeDetailLabel1">Fax Number</td>
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().FaxNumber}"></h:inputText></td></tr>
          <tr><td class="employeeDetailLabel1">Start Date</td>
-         <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().StartDate}"></h:inputText></td></tr>
+         <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().StartDate}"><f:convertDateTime pattern="dd-MM-yyyy"  timeZone="#{userData.timeZone}" /></h:inputText></td></tr>
          <tr><td>Address</td><td>&nbsp;</td></tr>
          <tr><td class="employeeDetailLabel">Street:</td>
          <td class="employeeDetailText"><h:inputText value="#{employeeData.getEmployeeFromSessionData().Address}"></h:inputText></td></tr>

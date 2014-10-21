@@ -38,7 +38,9 @@
          #{c.getJobTitle()}
       </h:column>
       <h:column><f:facet name="header">Start Date</f:facet>
-         #{c.getStartDate()}
+      <h:outputText value="#{c.StartDate}">
+      <f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{userData.timeZone}" />
+      </h:outputText>
       </h:column>
       <h:column><f:facet name="header">Notes</f:facet>
          #{c.getNotes()}
@@ -81,6 +83,7 @@
 <!--       </h:column> -->
    </h:dataTable>
    <h:form>
+   <br></br>
    <h:commandButton action="boreas?faces-redirect=true" value="Home" >
    </h:commandButton>
    </h:form>
