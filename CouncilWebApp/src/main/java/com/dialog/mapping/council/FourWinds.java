@@ -3,12 +3,12 @@ package com.dialog.mapping.council;
 import java.io.PrintStream;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name="FourWinds", eager=true)
+@ManagedBean(name="fourWinds", eager=true)
 public class FourWinds
 {
   public FourWinds()
   {
-    System.out.println("NorthWind started!");
+    System.out.println("FourWinds started!");
   }
   
   public String getMessage()
