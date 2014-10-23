@@ -8,6 +8,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/resources" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/scripts" source-path="/src/main/scripts"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/scripts"/>
     <dependent-module archiveName="jsf-api-2.1.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/sun/faces/jsf-api/2.1.7/jsf-api-2.1.7.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
