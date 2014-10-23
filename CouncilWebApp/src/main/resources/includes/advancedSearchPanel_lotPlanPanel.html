@@ -1,0 +1,35 @@
+                           <li id="lotPlanPanel" class="advancedSearchPanel closedPanel clearfix>">
+                                <div class="advancedSearchPanelHeader clearfix">
+                                <p class="sectionTitle">Lot and Plan number</p>
+                                    <div class="advancedSearchButtonPanel">
+                                        <button class="help" title="Find a property by its title reference if you do not know the address"></button>
+                                        <button class="toggleSearchSection" title="Toggle visibility of Lot and Section panel"></button>
+                                   </div>
+                                </div>
+                                <div id="lotPlanDetails" class="advanceSearchPanelDetails">
+                                <form id="lotPlanDetailsForm">
+                                        <div class="criteriaBlock nonScrollableblock">
+                                            <div class="nonScrollableblockContent">
+                                                <div class="clearfix">
+                                                    <label id="lblASLotNumber" for="txtASLotNumber">Enter lot number*</label>
+                                                    <button class="help" title="Leave lot number blank when searching for strata plans"></button>
+                                                    <input id="txtASLotNumber" name="txtASLotNumber" placeholder="Enter lot number. Eg: 13" type="text" required />
+                                                </div>
+                                                <div class="clearfix">
+                                                    <label for="txtASPlanNumber">Enter plan number*</label>
+                                                    <button class="help" title="Enter plan number, including plan type (dp/sp): eg DP5265"></button>
+                                                    <input id="txtASPlanNumber" name="txtASPlanNumber" placeholder="Enter plan number. Eg: DP5265" type="text" required />
+                                                </div>
+                                                <div class="clearfix">
+                                                    <label for="txtASSectionNumber">Enter section number</label>
+                                                    <button class="help" title="Only enter a section number if you know it"></button>
+                                                    <input id="txtASSectionNumber" name="txtASSectionNumber" placeholder="Enter section number. Eg: 14" type="text" />
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <button id="btnLotPlanSearch" class="search" title="Perform Lot and Plan search">Search</button>
+                                    <button id="btnLotPlanClear" class="clearSearch" title="Clear Search Results">Clear</button>
+                                </form>
+                                </div>
+                           </li>

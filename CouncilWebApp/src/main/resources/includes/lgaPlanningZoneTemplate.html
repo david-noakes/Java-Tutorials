@@ -1,0 +1,11 @@
+    <script id="lgaPlanningZoneTemplate" type="text/x-jquery-tmpl">
+            <ul">
+                {{each Zones}}
+                <li>
+                    <div class="lgaZoneNamePanel clearfix">
+                        <input type="checkbox" data-zone_short_code="${ShortCode}" title="Toggle Zone Visibility"/><div class="planningZone" style="border: 1px solid ${OutlineColor};background-color: ${FillColor};"><span>${ShortCode}</span></div><span class="layerName" title="${Name}">${truncateZone(Name)}</span>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+    </script>

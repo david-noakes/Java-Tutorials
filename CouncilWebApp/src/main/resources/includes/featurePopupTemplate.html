@@ -1,0 +1,44 @@
+<!--
+    <script id="featurePopupTemplate" type="text/x-jquery-tmpl">
+        <ul id="featureDetailsPopup">
+        {{each Layers}}
+            <li class="featurePopupSection closedPanel clearfix" data-layerid="${Layer}">
+                <div class="popupLayerTitle clearfix">
+                    <p class="popupLayerName">${Layer}</p>
+                    <button class="popupLayerToggle" title="Toggle visibility of feature details"></button>
+                </div>
+                <div class="popupLayerFeatures">
+                {{if Features.length != 0}}
+                <table class="popupLayerTable">
+                    <tbody>
+                    <tr>
+                        {{each Features.Headers}}
+                            <th>${Name}</th>
+                        {{/each}}
+                    </tr>
+                    {{each Features.Features}}
+                    <tr>
+                        {{each Attributes}}
+                        {{if (Type == "url")}}
+                            <td><a href="${Value}" target="${strip(Value)}" title="Link to Legislation">Click to open legislation</a></td>
+                        {{else}}
+                            <td>${Value}</td>
+                        {{/if}}
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                    <p>No Feature details or attributes not configured</p>
+                {{/if}}
+                </div>
+            </li>
+        {{/each}}
+        </ul>
+        <div id="mapTilesSection" class="themeMapTilesSection" >
+              <span class="propertyInfoKey">NSW Legislation Map Tile Reference: </span>
+              <span class="propertyInfoValue">${MapTiles}</span>
+        </div>
+    </script>
+-->

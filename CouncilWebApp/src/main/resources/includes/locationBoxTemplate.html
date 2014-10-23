@@ -1,0 +1,101 @@
+    <script id="locationBoxTemplate" type="text/x-jquery-tmpl">
+        {{if (parcel)}}
+        <div class="locationBox">
+            <div id="propertyInformationSection" class="themeLocationBoxSection openPanel clearfix">
+                <div class="themeLocationBoxTitle clearfix">
+                    <p class="themeLocationBoxTitleText">Property Information</p>
+                    <button class="locationBoxPanelToggle" title="Toggle visibility of property information"></button>
+                </div>
+                <ul class="themeSectionPanel locationBoxContent">
+                    <li><span class="propertyInfoKey">Address:</span><span class="propertyInfoValue">${address ? address: ''}</span></li>
+                    <li>
+                            <span class="propertyInfoKey">Lot: </span><span class="propertyInfoValue">${parcel.LotNumber ? parcel.LotNumber : 'N/A'}</span>
+                            <span class="propertyInfoKey">DP/SP: </span><span class="propertyInfoValue">${parcel.LotPlan ? parcel.LotPlan : ''}</span>
+                            {{if (parcel.LotSection)}}
+                            <span class="propertyInfoKey">Section: </span><span class="propertyInfoValue">${parcel.LotSection}</span>
+                            {{/if}}
+                    </li>
+                    <li><span class="propertyInfoKey">Local Government Area: </span><span class="propertyInfoValue">${parcel ? parcel.Lga : ''}</span></li>
+                    <li><div class="propertyBox"><span class="propertyInfoKey">Land Use Zone: </span>
+                        {{if parcel.LandUseZones.length > 0}}
+                        {{each parcel.LandUseZones}}
+                        <span class="propertyInfoValue">${Description}</span>
+                            {{if (Link)}}
+                                <button class="propertylegislationLink" title="Link to legislation" onclick="window.open('${Link}', '${strip(Link)}')"></button>
+                            {{else}}
+                                <button class="propertylegislationLink" title="Link to legislation" onclick="showDataNotAvailable();"></button>
+                            {{/if}}
+                        {{/each}}
+                        {{else}}
+                            <span class="propertyInfoValue">Data Not Currently Available</span>
+                        {{/if}}
+                        </div>
+                    </li>
+                    <li><div class="propertyBox"><span class="propertyInfoKey">EPI: </span><span class="propertyInfoValue">${parcel ? parcel.LEP : ''}</span></div>
+                            {{if (parcel.LegislationReferenceLink)}}
+                                <button class="propertylegislationLink" title="Link to legislation" onclick="window.open('${parcel.LegislationReferenceLink}', '${strip(parcel.LegislationReferenceLink)}')"></button>
+                            {{else}}
+                                <button class="propertylegislationLink" title="Link to legislation" onclick="showDataNotAvailable();"></button>
+                            {{/if}}
+                    </li>
+                    <li><span class="propertyInfoKey">Building Height: </span><span class="propertyInfoValue">${parcel ? parcel.BuildingHeight : ''}</span></li>
+                    <li><span class="propertyInfoKey">Floor Space Ratio: </span><span class="propertyInfoValue">${parcel ? parcel.FloorSpaceRatio : ''}</span></li>
+                </ul>
+            </div>
+            <div id="planningLayersSection" class="themeLocationBoxSection closedPanel clearfix">
+                <div class="themeLocationBoxTitle clearfix">
+                    <p class="themeLocationBoxTitleText">Planning Layers Associated with Property</p>
+                    <button class="locationBoxPanelToggle" title="Toggle visibility of layer"></button>
+                </div>
+                <ul class="themeSectionPanel locationBoxContent">
+                    {{if parcel.IntersectingLayers.length > 0}}
+                    {{each parcel.IntersectingLayers}}
+                    <li class="layerHeader">
+                        <input type="checkbox" data-layerid="${LayerId}" onclick="layerManager.setVisibility('${LayerId}', this.checked)" class="layerVisibility dl_${LayerId}" title="Toggle Layer Visibility" />
+                        <span class="layerName" title="${Description}">${QueryAlias}</span>
+                        <button class="layerFeatureDataInfo" onclick="searchManager.getLayerFeatures('${LayerId}', '${parcel.Id}', '${parcel.MapTiles}')" title="View layer features"></button>
+                     </li>
+                    {{/each}}
+                    {{else}}
+                    <li class="layerHeader">
+                        <span>(No Layers Found)</span>
+                     </li>
+                    {{/if}}
+                </ul>
+            </div>
+            
+            {{if parcel.BufferDistance != null && parcel.BufferDistance > 0}}
+            <div id="planningLayersBufferedSection" class="themeLocationBoxSection closedPanel clearfix">
+                <div class="themeLocationBoxTitle clearfix">
+                    <p class="themeLocationBoxTitleText">Planning Layers in proximity of ${parcel.BufferDistance}m</p>
+                    <button class="locationBoxPanelToggle" title="Toggle visibility of layer"></button>
+                </div>
+                <ul class="themeSectionPanel locationBoxContent">
+                    {{if parcel.BufferedIntersectingLayers != null && parcel.BufferedIntersectingLayers.length > 0}}
+                        {{each parcel.BufferedIntersectingLayers}}
+                            <li class="layerHeader">
+                                <input type="checkbox" data-layerid="${LayerId}" onclick="layerManager.setVisibility('${LayerId}', this.checked)" title="Toggle Layer Visibility" class="layerVisibility dl_${LayerId}" />
+                                <span class="layerName" title="${Description}">${QueryAlias}</span>
+                                <button class="layerFeatureDataInfo" onclick="searchManager.getLayerFeatures('${LayerId}', '${parcel.Id}', '${parcel.MapTiles}', ${parcel.BufferDistance} )" title="View layer features"></button>
+                            </li>
+                        {{/each}}
+                    {{else}}
+                    <li class="layerHeader">
+                            <span>(No Layers Found)</span>
+                     </li>
+                    {{/if}}
+                </ul>
+            </div>
+            {{/if}}
+        </div>
+        {{else}}
+            <div class="notfoundPanel">
+                <div class="notFound"></div>
+                <div class="resultDetails">
+                    <ul>
+                        <li><span class="propertyValue">No land parcels found</span></li>
+                    </ul>
+                </div>
+            </div>
+        {{/if}}
+    </script>

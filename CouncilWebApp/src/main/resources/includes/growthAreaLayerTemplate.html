@@ -1,0 +1,11 @@
+    <script id="growthAreaLayerTemplate" type="text/x-jquery-tmpl">
+        <ul">
+            {{each Layers}}
+            <li>
+                <div class="lgalayerNamePanel clearfix">
+                    <input type="checkbox" data-layerid="${LayerId}" onclick="validateGrowthAreaLayerSelection('${LayerId}', this.checked, this)" title="Toggle Layer Visibility" class="layerVisibility dl_${LayerId}" /><span class="layerName" title="${DisplayAlias}">${truncateLayer(DisplayAlias)}</span>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
