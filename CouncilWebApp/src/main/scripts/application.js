@@ -39,12 +39,9 @@ $(document).ready(function () {
     }
 
 
-    var mapCentre = new google.maps.LatLng(-27.64288610,153.10398550);	
-	var mapBounds = new google.maps.LatLngBounds();
-	mapBounds.extend(mapCentre);
     var mapOptions = {
-        zoom: 13,
-        center: mapCentre,
+        zoom: 15,
+        center: councilCentre,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
         scaleControl: true
@@ -86,24 +83,26 @@ $(document).ready(function () {
     searchManager = new SearchManager(map);
     layerManager = new LayerManager(map);
 
-    searchManager.createMarker('Logan Central', mapCentre, false);
+    searchManager.createMarker('Logan Council', councilCentre, false);
 
     geocoder = new google.maps.Geocoder();
 
-    map.fitBounds(mapBounds);
+    // council bounds is a variable defined in a script
+
+    map.fitBounds(councilBounds);
 
     basicSearchBox = new google.maps.places.Autocomplete(
         $("#txtBasicSearchText").get(0),
         {
             componentRestrictions: { country: "au" },
-            bounds: mapBounds
+            bounds: councilBounds
         });
 
     proximitySearchBox = new google.maps.places.Autocomplete(
         $("#txtASProximityAddress").get(0),
         {
             componentRestrictions: { country: "au" },
-            bounds: mapBounds
+            bounds: councilBounds
         });
 
     basicSearchPlaceChangedListener = google.maps.event.addListener(basicSearchBox, 'place_changed', function () {
@@ -1715,7 +1714,7 @@ function clearBasicPlace() {
             $("#txtBasicSearchText").get(0),
             {
                 componentRestrictions: { country: "au" },
-                bounds: mapBounds
+                bounds: councilBounds
             }
         );
 
@@ -1737,7 +1736,7 @@ function clearProximityPlace() {
             $("#txtASProximityAddress").get(0),
             {
                 componentRestrictions: { country: "au" },
-                bounds: mapBounds
+                bounds: councilBounds
             }
         );
 
@@ -1994,6 +1993,13 @@ function proximityPlaceChanged(place) {
 function processAdminResponse(responseData) {
 
     if (responseData.isState) {
+        // Return to original state
+
+        //var councilCentre = councilBounds.getCenter();
+        //searchManager.clearMarkers();
+        //searchManager.createMarker('QLD', councilCentre, false);
+
+        //map.fitBounds(councilBounds);
 
         if (responseData.lat && responseData.lng) {
             zoomToLatLng(responseData.lat, responseData.lng, 7);

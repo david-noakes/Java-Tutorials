@@ -8,9 +8,14 @@
     <link href="./PlanningViewer_files/jquery.jscrollpane.css" rel="stylesheet" type="text/css">
     <link href="./PlanningViewer_files/jquery.share.css" rel="stylesheet" type="text/css">
     <link href="./PlanningViewer_files/style.css" rel="stylesheet" type="text/css">
+<!--	
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU9TItKDu_e344nNW-UEfweyAM6nlLMrc">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU9TItKDu_e344nNW-UEfweyAM6nlLMrc&libraries=places,drawing,visualization">
     </script>
+-->	
+    <script 
+         src="https://maps.googleapis.com/maps/api/js?v=3.15&client=gme-nswgovernmentdepartment&channel=planningviewer-dev&sensor=false&libraries=places,drawing,visualization">
+    </script>        
     <script src="./PlanningViewer_files/modernizr-2.6.2.js" type="text/javascript"></script>
     <script src="./PlanningViewer_files/jquery-1.10.2.js"></script>
     <script src="./PlanningViewer_files/jquery-ui.js" type="text/javascript"></script>
@@ -134,7 +139,7 @@
                 <ul>
                     <li><span class="propertyKey">Address:</span><span class="propertyValue">${address}</span></li>
                     <li><span class="propertyKey">LGA:</span><span class="propertyValue">${parcel.Lga}</span></li>
-                    <li><span class="propertyKey">State:</span><span class="propertyValue">NSW</span></li>
+                    <li><span class="propertyKey">State:</span><span class="propertyValue">QLD</span></li>
                 </ul>
             </div>
             <div class="legislationLink">
@@ -228,7 +233,7 @@
         {{/each}}
         </ul>
         <div id="mapTilesSection" class="themeMapTilesSection" >
-              <span class="propertyInfoKey">NSW Legislation Map Tile Reference: </span>
+              <span class="propertyInfoKey">QLD Legislation Map Tile Reference: </span>
               <span class="propertyInfoValue">${MapTiles}</span>
         </div>
     </script>
@@ -272,9 +277,6 @@
         })();
     </script>
 
-<script type="text/javascript" src="./PlanningViewer_files/challenge"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/map.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/controls.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/drawing_impl.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/marker.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/geocoder.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/places_impl.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/infowindow.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/stats.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/geometry.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/poly.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/onion.js"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/ViXvvn6WvGm7h5LRRVPURJjrzxLS8DBt5ZKDB-JaL0A.js"></script><style type="text/css">.recaptchatable td img{display:block}.recaptchatable .recaptcha_image_cell center img{height:57px}.recaptchatable .recaptcha_image_cell center{height:57px}.recaptchatable .recaptcha_image_cell{background-color:white;height:57px;padding:7px!important}.recaptchatable,#recaptcha_area tr,#recaptcha_area td,#recaptcha_area th{margin:0!important;border:0!important;border-collapse:collapse!important;vertical-align:middle!important}.recaptchatable *{margin:0;padding:0;border:0;color:black;position:static;top:auto;left:auto;right:auto;bottom:auto}.recaptchatable #recaptcha_image{position:relative;margin:auto;border:1px solid #dfdfdf!important}.recaptchatable #recaptcha_image #recaptcha_challenge_image{display:block}.recaptchatable #recaptcha_image #recaptcha_ad_image{display:block;position:absolute;top:0}.recaptchatable a img{border:0}.recaptchatable a,.recaptchatable a:hover{cursor:pointer;outline:none;border:0!important;padding:0!important;text-decoration:none;color:blue;background:none!important;font-weight:normal}.recaptcha_input_area{position:relative!important;background:none!important}.recaptchatable label.recaptcha_input_area_text{border:1px solid #dfdfdf!important;margin:0!important;padding:0!important;position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important}.recaptcha_theme_red label.recaptcha_input_area_text,.recaptcha_theme_white label.recaptcha_input_area_text{color:black!important}.recaptcha_theme_blackglass label.recaptcha_input_area_text{color:white!important}.recaptchatable #recaptcha_response_field{font-size:11pt}.recaptcha_theme_blackglass #recaptcha_response_field,.recaptcha_theme_white #recaptcha_response_field{border:1px solid gray}.recaptcha_theme_red #recaptcha_response_field{border:1px solid #cca940}.recaptcha_audio_cant_hear_link{font-size:7pt;color:black}.recaptchatable{line-height:1em;border:1px solid #dfdfdf!important}.recaptcha_error_text{color:red}.recaptcha_only_if_privacy{float:right;text-align:right;margin-right:7px}#recaptcha-ad-choices{position:absolute;height:15px;top:0;right:0}#recaptcha-ad-choices img{height:15px}.recaptcha-ad-choices-collapsed{width:30px;height:15px;display:block}.recaptcha-ad-choices-expanded{width:75px;height:15px;display:none}#recaptcha-ad-choices:hover .recaptcha-ad-choices-collapsed{display:none}#recaptcha-ad-choices:hover .recaptcha-ad-choices-expanded{display:block}
-
-.recaptcha_is_showing_audio .recaptcha_only_if_image,.recaptcha_isnot_showing_audio .recaptcha_only_if_audio,.recaptcha_had_incorrect_sol .recaptcha_only_if_no_incorrect_sol,.recaptcha_nothad_incorrect_sol .recaptcha_only_if_incorrect_sol{display:none !important}</style><script type="text/javascript" src="./PlanningViewer_files/reload"></script><script type="text/javascript" charset="UTF-8" src="./PlanningViewer_files/usage.js"></script><script type="text/javascript" src="./PlanningViewer_files/reload(1)"></script><script type="text/javascript" src="./PlanningViewer_files/reload(2)"></script><script type="text/javascript" src="./PlanningViewer_files/reload(3)"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/StatsService.RecordStats?1m5&1sut%7Cclient%3Agme-nswgovernmentdepartment&2sinteraction&6m2&1span&2v1&1m5&1sut%7Cclient%3Agme-nswgovernmentdepartment%7Cchannel%3Aplanningviewer-dev&2sinteraction&6m2&1span&2v1&callback=_xdc_._a613&token=73424"></script></head>
 
 <body>
 
@@ -317,7 +319,7 @@
         <div id="shareOptionsStrip">
             <button id="shareByTwitter" class="ui-button-share-option ui-button-twitter"></button>
             <button id="shareByFacebook" class="ui-button-share-option ui-button-facebook"></button>
-            <button id="shareByEmail" class="ui-button-share-option ui-button-email" href="mailto:?subject=Planning%20Viewer&amp;body=The NSW Government has made certain planning maps available in a Google viewer.%0D%0A%0D%0AClick on this link to see the Planning Viewer - https://maps.planningportal.nsw.gov.au/"></button>
+            <button id="shareByEmail" class="ui-button-share-option ui-button-email" href="mailto:?*** FIX THIS ***"></button>
             <button id="shareByGooglePlus" class="ui-button-share-option ui-button-googleplus"></button>
         </div>
     </div>
@@ -356,7 +358,7 @@
                         <div class="basicOptions clearfix">
                             <button id="btnDropPin" title="Click here and then click on the map to select a location from the map." class="ui-button-droppin">Place on map</button>
                         </div>
-                        <div id="searchResultsPanel" style=""><div class="mapPin"></div>             <div class="resultDetails">         <ul>                          <li><span class="propertyKey">State:</span><span class="propertyValue">NSW</span></li>         </ul>         </div></div>
+                        <div id="searchResultsPanel" style=""><div class="mapPin"></div>             <div class="resultDetails">         <ul>                          <li><span class="propertyKey">State:</span><span class="propertyValue">QLD</span></li>         </ul>         </div></div>
                     </div>
                 </div>
                 <div id="advancedSearchContainer" style="display:none;">
@@ -865,7 +867,7 @@
                                             <div class="clearfix">
                                                 <label id="lblLocalGovernmentArea2" class="error" style="display: none;">Please select an LGA.</label>
 
-                                                <label for="planningZonePanel">Select a zone (for NSW)*</label>
+                                                <label for="planningZonePanel">Select a zone (for QLD)*</label>
                                                     <button class="help" title="Up to seven zones can be searched at one time"></button>
                                                 <div id="planningZonePanel">
                                                 </div>
@@ -891,7 +893,11 @@
                         <span>Welcome</span>
                         <button id="hideWelcome" title="Close Welcome Panel"></button>
                     </div>
-                    <div><p>The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979.</p><p>The Viewer is an initiative of the New South Wales Government and is designed to help people better understand map-based planning information.</p><p>The Viewer enables users to search, navigate and view the map layers using standard map viewer functionality.</p><p>The service is maintained by the Department of Planning and Environment.</p></div>
+                    <div>
+                    <p>The Planning Viewer provides public access to the map layers for certain planning maps. 
+                    <p>The Viewer enables users to search, navigate and view the map layers using 
+                    standard map viewer functionality.</p>
+                    </div>
                     <button id="btnShowTerms" class="">Terms and Conditions</button>
                 </div><div id="layerManager" style="display: none;">
                     <button id="btnClearLayers" title="Clear visibility of all layers." class="ui-button-clear-layers">Clear all layers</button>
@@ -2517,7 +2523,26 @@
                 <div id="termsContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
                     
                 <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
-                        <div style="padding: 10px;"><h1>Planning Viewer Terms and Conditions of use</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979.<br>The Planning Viewer enables users to search, navigate and view the map layers using standard map viewer functionality.</p><p style="padding: 8px 0px 8px 0px;">PDF versions of the official maps adopted when the instruments are made are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is an initiative of the New South Wales Government and has been designed to help people better understand map-based planning information.  The service is maintained by the Department of Planning and Environment.</p></div><h2>Access and use of the Planning Viewer</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The NSW Government grants You a non-exclusive, non-transferable licence to access and use the Planning Viewer in accordance with these terms and conditions.</p></div><h2>The Planning Viewer beta program</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is being made publicly available as part of an open beta program.  The purpose of the program is to make a pre-release version of the Planning Viewer available to the public for the purpose of providing feedback on the quality and usability of the service, including the map layers.</p></div><h2>Map layers</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The map layers available in the Planning Viewer should be treated as being reference documents only and You should exercise Your own skill and care with respect to the use of the material.</p><p style="padding: 8px 0px 8px 0px;">The map layers are updated as new PDF maps are published.  You should be aware that there may be delays between when the official PDF maps are published on the NSW legislation website and when the map layers are updated on the Planning Viewer.  The Department of Planning and Environment tries to update the layers within 2 weeks of any changes to the official PDF maps.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer only shows the current In Force map layers.  Historical versions of the maps are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p></div><h2>Feedback</h2><div><p style="padding: 8px 0px 8px 0px;">Help make the Planning Viewer even better by letting us know of any quality and usability issues You encounter by clicking the ‘Feedback’ button and sending through a response.</p><p style="padding: 8px 0px 8px 0px;">We may also request additional feedback from You through email, web questionnaires or other feedback mechanisms.  By agreeing to these terms and conditions, You agree that We may contact You from time to time about the beta program.</p></div><h2>Disclaimer</h2><div><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of Your use or reliance on the Planning Viewer, nor will it be liable for any indirect or consequential punitive or special damages or loss of profit.</p><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of, or in part by, its negligent acts or omissions in procuring, compiling, collecting, interpreting, reporting, communicating or delivering any information through the Planning Viewer.</p></div></div>
+                        <div style="padding: 10px;"><h1>Planning Viewer Terms and Conditions of use</h1><div style="margin-bottom: 10px;">
+                        <p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for 
+                        certain planning maps incorporated by reference in environmental planning instruments.<br>
+                        The Planning Viewer enables users to search, navigate and view the map layers using standard map 
+                        viewer functionality.</p>
+                        <p style="padding: 8px 0px 8px 0px;">                        
+                        Insert your terms and conditions here.
+                        </p>
+                        </div>
+                        <h2>Feedback</h2><div><p style="padding: 8px 0px 8px 0px;">Help make the Planning Viewer 
+                        even better by letting us know of any quality and usability issues You encounter by clicking the 
+                        ‘Feedback’ button and sending through a response.</p>
+                        <p style="padding: 8px 0px 8px 0px;">We may also request additional feedback from You through email, 
+                        web questionnaires or other feedback mechanisms.  By agreeing to these terms and conditions, You 
+                        agree that We may contact You from time to time about the beta program.</p>
+                        </div>
+                        <h2>Disclaimer</h2>
+                        <div>
+                        <p style="padding: 8px 0px 8px 0px;">Insert disclaimer text here</p>
+                        </div></div>
                         <div style="width:100%">
                             <button id="btnGotoTopTerms" class="top" title="Back to top of page"></button>
                         </div>
@@ -2527,7 +2552,15 @@
                 <div id="contactusContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
                     
                 <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
-                        <div style="padding: 10px;"><h1>Contact us</h1><div style="margin-bottom: 10px;"><p>For any customer service related enquiries, please contact</p><p style="margin-top:15px;">Tel 13 77 88</p><p style="margin-top:15px;">Email <a href="mailto:info@service.nsw.gov.au" style="text-decoration:none;color: #0099ff;" title="Email address for enquiries">info@service.nsw.gov.au</a></p></div></div><div style="padding: 10px;"><h1>Hearing or speech impaired</h1><div style="margin-bottom: 10px;"><p>For Speak and Listen (Speech-to-speech relay) users, please contact</p><p style="margin-top:15px;">Tel 1300 555 727</p><p style="margin-top:15px;">Internet relay</p><p style="margin-top: 15px;"><a href="http://relayservice.gov.au/news/new-nrs-relay-services-2013-latest/" style="text-decoration:none;color: #0099ff;" title="National Relay Service" target="RelayService">National relay service</a></p></div></div><div style="padding: 10px;"><h1>Translator and Interpreter services</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">For translator and interpreter services, please contact</p><p style="padding: 8px 0px 8px 0px;">Tel 13 14 50 and ask the interpreter to phone 13 77 88</p></div></div>
+                        <div style="padding: 10px;"><h1>Contact us</h1><div style="margin-bottom: 10px;">
+                        <p>For any customer service related enquiries, please contact</p>
+                        <p style="margin-top:15px;">Tel 13 77 88</p>
+                        <p style="margin-top:15px;">Email <a href="mailto:email@address.here" style="text-decoration:none;color: #0099ff;" title="Email address for enquiries">email@address.here</a></p>
+                        </div></div><div style="padding: 10px;">
+                        <h1>Hearing or speech impaired</h1><div style="margin-bottom: 10px;">
+                        <p>For Speak and Listen (Speech-to-speech relay) users, please contact</p>
+                        <p style="margin-top:15px;">Tel 9999 999 999</p>
+                        </div></div>
                         <div style="width:100%">
                             <button id="btnGotoTopContactUs" class="top" title="Back to top of page"></button>
                         </div>
@@ -2538,8 +2571,21 @@
                     
                     
                 <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
-                        <div style="padding: 10px;"><h1>About the Planning Viewer</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979. The Viewer is an initiative of the New South Wales Government and is designed to help people better understand map-based planning information.</p><p style="padding: 8px 0px 8px 0px;">The Viewer enables users to search, navigate and view the map layers using standard map viewer functionality. The service is maintained by the Department of Planning and Environment.</p><p style="padding: 8px 0px 8px 0px;"><a href="http://www.planning.nsw.gov.au/eplanning" style="text-decoration:none;color: #0099ff;" target="AboutDepartment" title="Link to more information about ePlanning program">Click here for more information about the Department of Planning and Environment's ePlanning program.</a></p></div></div>
-                    </div><div style="width:100%">
+                    <div style="padding: 10px;">
+                    <h1>About the Planning Viewer</h1>
+                    <div style="margin-bottom: 10px;">
+                    <p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map 
+                    layers for certain planning maps incorporated by reference in environmental planning 
+                    instruments.</p>
+                    <p style="padding: 8px 0px 8px 0px;">The Viewer enables users to search, navigate and view 
+                    the map layers using standard map viewer functionality.</p>
+                    <p style="padding: 8px 0px 8px 0px;">
+                    <a href="http://www.unknown.unknown" style="text-decoration:none;color: #0099ff;" 
+                    target="AboutDepartment" title="Link to more information">Click here for 
+                    more information - link to be determined</a></p>
+                    </div></div>
+                    </div>
+                    <div style="width:100%">
                         <button id="btnGotoTopAboutUs" class="top" title="Back to top of page"></button>
                     </div></div></div></div>
             </div>
@@ -2567,14 +2613,14 @@
     <div style="margin-bottom: 10px; margin-left: 6px;">
         <p style="padding: 8px 0px 8px 0px;">Please send us your comments, questions and feedback through the form below, or write to us at:</p>
         <div style="padding-left:25px;padding-bottom:10px;">
-            <p style="padding:2px;">Service NSW Feedback</p>
-            <p style="padding:2px;">GPO Box 7057</p>
-            <p style="padding:2px;">Sydney NSW 2001</p>
+            <p style="padding:2px;">Feedback for CouncilWebApp</p>
+            <p style="padding:2px;">GPO Box xxxx</p>
+            <p style="padding:2px;">Suburb QLD 9999</p>
         </div>
     </div>
-
+ 
     <div class="feedbackForm">
-<form action="https://maps.planningportal.nsw.gov.au/Map/SendFeedback" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-success="sendFeedbackComplete" data-ajax-update="#feedbackAjax" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="Ujs4gEToXXYP51viPS2483b0bLRZnh7bep7FMWO2V61-MnsnqpmTIJKz19iSaG-Mfu5fpcB4UmzJdnHNAU1KkKGPbYA1">                <div class="clearfix">
+<form action="https://feedback.portal.url/SendFeedback" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-success="sendFeedbackComplete" data-ajax-update="#feedbackAjax" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="Ujs4gEToXXYP51viPS2483b0bLRZnh7bep7FMWO2V61-MnsnqpmTIJKz19iSaG-Mfu5fpcB4UmzJdnHNAU1KkKGPbYA1">                <div class="clearfix">
                     <div class="fieldgroup clearfix">
                         <div class="editor-label">
                             <label for="FeedbackFirstName">First name *</label>
@@ -2640,16 +2686,19 @@
                         <div class="editor-label">
                             <label for="captchadiv">Security code *</label>
                         </div>
-                        
+               <!--          
                         <div class="editor-field" style="margin-left:5px;">
                             <div id="captchadiv" class="editor-field recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio"><div id="recaptcha_area"><table id="recaptcha_table" class="recaptchatable recaptcha_theme_clean"> <tbody><tr height="73"> <td class="recaptcha_image_cell" width="302"><center><div id="recaptcha_image" style="width: 300px; height: 57px;"><img id="recaptcha_challenge_image" alt="reCAPTCHA challenge image" height="57" width="300" src="./PlanningViewer_files/image"></div></center></td> <td style="padding: 10px 7px 7px 7px;"> <a id="recaptcha_reload_btn" title="Get a new challenge"><img id="recaptcha_reload" width="25" height="18" alt="Get a new challenge" src="./PlanningViewer_files/refresh.png"></a> <a id="recaptcha_switch_audio_btn" class="recaptcha_only_if_image" title="Get an audio challenge"><img id="recaptcha_switch_audio" width="25" height="15" alt="Get an audio challenge" src="./PlanningViewer_files/audio.png"></a><a id="recaptcha_switch_img_btn" class="recaptcha_only_if_audio" title="Get a visual challenge"><img id="recaptcha_switch_img" width="25" height="15" alt="Get a visual challenge" src="./PlanningViewer_files/text.png"></a> <a id="recaptcha_whatsthis_btn" title="Help"><img id="recaptcha_whatsthis" width="25" height="16" src="./PlanningViewer_files/help.png" alt="Help"></a> </td> <td style="padding: 18px 7px 18px 7px;"> <img id="recaptcha_logo" alt="" width="71" height="36" src="./PlanningViewer_files/logo.png"> </td> </tr> <tr> <td style="padding-left: 7px;"> <div class="recaptcha_input_area" style="padding-top: 2px; padding-bottom: 7px;"> <span id="recaptcha_challenge_field_holder" style="display: none;"><input type="hidden" name="recaptcha_challenge_field" id="recaptcha_challenge_field" value="03AHJ_VuvElKuwZcLccjYe7GdfLZpIw_iSlgqbonnf6Zq3ijAKSAGIYCZdzayaOSizeZKGpcHdMqTvhbDvHDZ3OahMv8fSJq8c9KhAuCoP7pENMhp57GNDmFM2MVr_pOsLxAM2J62xkK3n9negdKNed9IpGDN9YasRb2dkZoIciy7KGO8nfrzT8-XcylsajXhEpzNkUR-6KEB1biC-CFqn18bX23W7BVrpnA"></span><input style="border: 1px solid #3c3c3c; width: 302px;" name="recaptcha_response_field" id="recaptcha_response_field" type="text" placeholder="Type the text" autocomplete="off"> </div> </td> <td colspan="2"><span id="recaptcha_privacy" class="recaptcha_only_if_privacy"><a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a></span></td> </tr> </tbody></table> </div></div>
                             <span class="field-validation-valid" data-valmsg-for="captcha" data-valmsg-replace="true"></span>
                         </div>
+                 -->        
                     </div>
 
                     <div style="padding:5px; margin-top: 20px;">
                         <p style="margin-bottom:5px;margin-left:5px;">
-                            The Department of Planning and Environment is subject to the requirements of the <span style="font-style: italic">Privacy and Personal Information Protection Act 1998 (NSW)</span>.  Under that Act you have a right to access and change personal information that we hold.  For further information please see the Department’s <a href="http://www.planning.nsw.gov.au/default.aspx?tabid=60" title="Link to privacy statement" target="privacystatement">privacy statement</a>.
+                        Text for privacy statement goes here. 
+                            <a href="http://www.portal.url/privacy.html" 
+                            title="Link to privacy statement" target="privacystatement">privacy statement</a>.
                         </p>
                         <button type="submit" class="ui-button">Submit</button>
                     </div>                    
@@ -2688,15 +2737,17 @@ This is the help text set in the database
     </div>
     
     <script type="text/javascript">
-        var nswBounds = new google.maps.LatLngBounds(new google.maps.LatLng(-36, 143), new google.maps.LatLng( -29,  152));
+        var councilCentre = new google.maps.LatLng(-27.64288610,153.10398550);	
 
-        var shareViaTwitterLink  = "https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fmaps.planningportal.nsw.gov.au&text=The NSW Government has made certain planning maps available in a Google viewer.&tw_p=tweetbutton&url=https%3A%2F%2Fmaps.planningportal.nsw.gov.au&via=NSWPlanning";
+        var councilBounds = new google.maps.LatLngBounds(new google.maps.LatLng(-27.5, 152.8), new google.maps.LatLng(-27.8, 153.4));
+
+        var shareViaTwitterLink  = "https://twitter.com/intent/tweet?";
         
-        var shareViaGooglePlusLink = "https://plusone.google.com/_/+1/confirm?hl=en&url=https%3A%2F%2Fmaps.planningportal.nsw.gov.au";
+        var shareViaGooglePlusLink = "https://plusone.google.com/_/+1/confirm?";
 
-        var shareViaFacebookLink  = "http://www.facebook.com/share.php?u=https%3A%2F%2Fmaps.planningportal.nsw.gov.au";
+        var shareViaFacebookLink  = "http://www.facebook.com/share.php?";
 
-        var shareViaEmailLink = "mailto:?subject=Planning%20Viewer&body=The NSW Government has made certain planning maps available in a Google viewer.%0D%0A%0D%0AClick on this link to see the Planning Viewer - https://maps.planningportal.nsw.gov.au/";
+        var shareViaEmailLink = "mailto:?";
         
         var defaultVisibleLayers = [];
 
@@ -3482,22 +3533,23 @@ This is the help text set in the database
     <script src="./PlanningViewer_files/GeoJSON.js" type="text/javascript"></script>
 
     
-    <script type="text/javascript" src="./PlanningViewer_files/recaptcha_ajax.js"></script>
-    <script type="text/javascript">
+<!--     <script type="text/javascript" src="./PlanningViewer_files/recaptcha_ajax.js"></script> -->
+<!--     <script type="text/javascript">
 
-        function showRecaptcha() {
-            $("#captchadiv").empty();
-            Recaptcha.create("6LcNYPUSAAAAAKI2UTrg6XQBC1Me214Sobr8cbbm", 'captchadiv', {
-                theme: "clean",
-            });
-        }
+         function showRecaptcha() {
+             $("#captchadiv").empty();
+             Recaptcha.create("6LcNYPUSAAAAAKI2UTrg6XQBC1Me214Sobr8cbbm", 'captchadiv', {
+                 theme: "clean",
+             });
+         }
 
-        function sendFeedbackComplete() {
-            showRecaptcha();
-        }
+         function sendFeedbackComplete() {
+             showRecaptcha();
+         }
 
-        showRecaptcha();
-    </script>
+         showRecaptcha();
+    </script> 
+-->
 
 
 
