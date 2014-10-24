@@ -36,8 +36,10 @@ public class EmployeeDTO extends HashMap{
       private String Notes;
       private String Attachments;
       private Date   StartDate;
+      private String UserId;
+      private String Password;
     
-    private static String BLANK = " ";
+    public static String BLANK = " ";
     // Attribute names
     private static final String ID_name = "ID";
     private static final String Company_name = "Company";
@@ -58,6 +60,8 @@ public class EmployeeDTO extends HashMap{
     private static final String Notes_name = "Notes";
     private static final String Attachments_name = "Attachments";
     private static final String StartDate_name   = "StartDate"; 
+    private static final String UserId_name   = "UserId"; 
+    private static final String Password_name   = "Password"; 
     
     private static final String SET_PREFIX = "set";
     
@@ -81,9 +85,11 @@ public class EmployeeDTO extends HashMap{
     public static final String db_Notes_name = "Notes";
     public static final String db_Attachments_name = "Attachments";
     public static final String db_StartDate_name = "Start Date";
+    private static final String db_UserId_name   = "UserID"; 
+    private static final String db_Password_name   = "Password"; 
     
     
-    // mappings 
+    // mappings - add new fields in here *****
     
     private static final HashMap fieldList = new HashMap() {{
 	    put(ID_name, db_ID_name);
@@ -105,6 +111,8 @@ public class EmployeeDTO extends HashMap{
 	    put(Notes_name, db_Notes_name);
 	    put(Attachments_name, db_Attachments_name);
 	    put(StartDate_name, db_StartDate_name);
+        put(UserId_name, db_UserId_name);
+        put(Password_name, db_Password_name);
     }};
     
     private static HashMap fieldSetters = new HashMap();
@@ -131,6 +139,8 @@ public class EmployeeDTO extends HashMap{
 		setNotes(BLANK);
 		setAttachments(BLANK);
 		setStartDate(new Date(0));
+		setUserId(BLANK);
+		setPassword(BLANK);
 	    if (fieldSetters.size() == 0) {
 	    	loadSetters();
 	    }
@@ -191,6 +201,10 @@ public class EmployeeDTO extends HashMap{
 		    setAttachments(result.getString(dbFieldName));
 		    dbFieldName  = (String)fieldList.get(StartDate_name);
 		    setStartDate(result.getDate(dbFieldName));
+		    dbFieldName = (String) fieldList.get(UserId_name);
+		    setUserId(result.getString(dbFieldName));
+		    dbFieldName = (String) fieldList.get(Password_name);
+		    setPassword(result.getString(dbFieldName));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -496,6 +510,10 @@ public class EmployeeDTO extends HashMap{
 	    		fieldSetters.put(Attachments_name, method);
 	    		method = cls.getDeclaredMethod(SET_PREFIX+StartDate_name, paramDate);
 	    		fieldSetters.put(StartDate_name, method);
+                method = cls.getDeclaredMethod(SET_PREFIX+UserId_name, paramString);
+                fieldSetters.put(UserId_name, method);
+                method = cls.getDeclaredMethod(SET_PREFIX+Password_name, paramString);
+                fieldSetters.put(Password_name, method);
 		    } catch  (NoSuchMethodException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -511,16 +529,30 @@ public class EmployeeDTO extends HashMap{
     
     @Override
     public String toString() {
-        return "EmployeeDTO [ID=" + getID() + ", Company=" + getCompany() 
-                + ", LastName=" + getLastName() + ", FirstName=" 
-                + getFirstName() + ", EmailAddress=" + getEmailAddress() 
-                + ", JobTitle=" + getJobTitle() + ", BusinessPhone=" + getBusinessPhone() 
-                + ", HomePhone=" + getHomePhone() + ", MobilePhone=" + getMobilePhone() 
-                + ", FaxNumber=" + getFaxNumber() + ", Address=" + getAddress() 
-                + ", City=" + getCity() + ", StateProvince=" + getStateProvince()
-                + ", PostalCode=" + getPostalCode() + ", CountryRegion=" + getCountryRegion() 
-                + ", WebPage=" + getWebPage() + ", Notes=" + getNotes() 
-                + ", Attachments=" + getAttachments() + ", StartDate=" + getStartDate() + "]";
+        Iterator pe = (Iterator) fieldList.keySet().iterator();
+        String dbFieldName;
+        String sep = "";
+        String key;
+        String toString = "EmployeeDTO [";
+        while (pe.hasNext()) {
+            key = (String) pe.next();
+            dbFieldName  = (String)fieldList.get(key);
+            toString = toString + sep + dbFieldName + " = " + this.get(key);
+            sep = " , ";
+        }
+        toString = toString + "]";
+
+//        return "EmployeeDTO [ID=" + getID() + ", Company=" + getCompany() 
+//                + ", LastName=" + getLastName() + ", FirstName=" 
+//                + getFirstName() + ", EmailAddress=" + getEmailAddress() 
+//                + ", JobTitle=" + getJobTitle() + ", BusinessPhone=" + getBusinessPhone() 
+//                + ", HomePhone=" + getHomePhone() + ", MobilePhone=" + getMobilePhone() 
+//                + ", FaxNumber=" + getFaxNumber() + ", Address=" + getAddress() 
+//                + ", City=" + getCity() + ", StateProvince=" + getStateProvince()
+//                + ", PostalCode=" + getPostalCode() + ", CountryRegion=" + getCountryRegion() 
+//                + ", WebPage=" + getWebPage() + ", Notes=" + getNotes() 
+//                + ", Attachments=" + getAttachments() + ", StartDate=" + getStartDate() + "]";
+        return toString;
     }
 
     // Setters and Getters
@@ -746,5 +778,23 @@ public class EmployeeDTO extends HashMap{
             this.StartDate = new Date(0);
         }
         this.put(StartDate_name, this.StartDate);
+    }
+
+    public String getUserId() {
+        return (String) this.get(UserId_name);
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
+        this.put(UserId_name, userId);
+    }
+
+    public String getPassword() {
+        return (String) this.get(Password_name);
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+        this.put(Password_name, password);
     }   
 }

@@ -19,8 +19,26 @@ public class NorthwindTest {
 	 String url = "jdbc:odbc:NorthWindEx"; // System ODBC name = NorthWindEx
 	 String username = " "; // No username/password required
 	 String password = " "; // for desktop access to MS Access.
-	 showEmployeeTable(driver, url, username, password);
-	 //showEmployee(driver, args);
+	 //showEmployeeTable(driver, url, username, password);
+	 showEmployee(driver, args);
+	 UserData ud = new UserData();
+	 byte[] z;
+	 String s;
+	 z = ud.encrypt("password");
+	 s = ud.decrypt(z);
+     z = ud.encrypt("secret");
+     s = ud.decrypt(z);
+     z = ud.encrypt("pwd");
+     s = ud.decrypt(z);
+     z = ud.encrypt("it's a secret");
+     s = ud.decrypt(z);
+     z = ud.encrypt("qx9");
+     s = ud.decrypt(z);
+     z = ud.encrypt("q");
+     s = ud.decrypt(z);
+	 System.out.println("david + q "+ud.validUidPwd("david", "q"));
+     System.out.println("Danny + qx9 "+ud.validUidPwd("Danny", "qx9"));
+     System.out.println("HelluA + it's a secret "+ud.validUidPwd("HelluA", "it's a secret"));
  }
  /** Query the employee table and print the first and
  * last names.

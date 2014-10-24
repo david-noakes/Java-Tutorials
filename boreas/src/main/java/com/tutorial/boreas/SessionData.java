@@ -15,8 +15,9 @@ public class SessionData extends HashMap {
 	
 	public static final String CONTEXT = "context";
 	public static final String DESTINATION = "destination";
-	public static final String USERNAME = "username";
 	public static final String PASSWORD = "password";
+    public static final String USER_EMPLOYEE = "user_emp";
+    public static final String USERNAME = "username";
 	
 	private String username = " ";
 	private String password = " ";

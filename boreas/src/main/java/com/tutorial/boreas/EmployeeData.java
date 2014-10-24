@@ -272,6 +272,31 @@ public class EmployeeData  implements Serializable{
 		}
 		return employee;
 	}
+	
+	public EmployeeDTO fetchEmpByUid(String uid) {
+        if (sessionData == null) {
+            getConnection();
+        }
+        EmployeeDTO employee = new EmployeeDTO();
+        ResultSet results = null;
+        PreparedStatement pst = null;
+        String sql = "select * from employees where UserID = '"+uid+"'";
+        
+        try {   
+            pst = con.prepareStatement(sql);
+            pst.execute();
+            results = pst.getResultSet();
+
+            while(results.next()){
+               //employee.morphFromDB(results);
+               employee.morphUsingReflection(results);
+            }
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+        return employee;
+	    
+	}
 
 	public String readModeVisibility() {
 	    if (readOnly) {
