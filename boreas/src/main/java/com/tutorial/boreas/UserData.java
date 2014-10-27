@@ -2,12 +2,14 @@ package com.tutorial.boreas;
 
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.TimeZone;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -21,6 +23,8 @@ import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+import com.fugue.utilities.CipherUtility;
 
 /// NOTE - Encryption requires the encryption jar file to go into the JRE runtime ..  jre/lib/ext directory
 //         currently the bouncy castle jar file is "bcprov-jdk16-1.45.jar"
@@ -36,7 +40,8 @@ public class UserData implements Serializable {
    private boolean loggedIn;
    private boolean loginValid;
    private String message = "";
-   private byte[] keyBytes =  new byte [] {78, -90, 42, 70, -5, 20, -114, 103, -99, -25, 76, 95, -85, 94, 57, 54};
+   private byte[] keyBytes =  new byte [] {78, (byte) 166, 42, 70, (byte) 251, 20, (byte) 142, 103, (byte) 157, (byte) 231, 76, 95, (byte) 171, 94, 57, 54};
+   private String rubbish;
 
    private SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
  
@@ -112,9 +117,13 @@ public class UserData implements Serializable {
        Security.addProvider(new BouncyCastleProvider());
        try {
            session = SessionData.getInstance();
+           rubbish = new String(keyBytes, "UTF-8");
        } catch (SQLException e) {
         // TODO Auto-generated catch block
            e.printStackTrace();
+       } catch (UnsupportedEncodingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
        }
        loginValid = true;  // default
        loggedIn = false;
@@ -128,7 +137,7 @@ public class UserData implements Serializable {
        }
        password = "";
    }
-   public byte[] encrypt(String encryptMe) {
+   public byte[] encryptBC(String encryptMe) {
        byte[] input = encryptMe.getBytes();
        int len = encryptMe.length() / 16;
        int rem = encryptMe.length() % 16;
@@ -150,7 +159,7 @@ public class UserData implements Serializable {
     return cipherText;   
 
    }
-   public String decrypt(byte[] decryptMe) {
+   public String decryptBC(byte[] decryptMe) {
        byte[] plainText = new byte[decryptMe.length];
        String s = "";
        Cipher cipher;
@@ -180,12 +189,37 @@ public class UserData implements Serializable {
        if (eDTO == null) {
            return false;
        }
-       byte[] ePwd = encrypt(pwd);
-       String s = new String(ePwd);
-       if (eDTO.getPassword().equals(s) || 
-               (pwd.equals(EmployeeDTO.BLANK) && eDTO.getPassword().equalsIgnoreCase(EmployeeDTO.BLANK))) {
-           return true;
-       }
+       CipherUtility cyx = new CipherUtility();
+       
+       String ePwd;
+        try {
+            ePwd = cyx.encrypt(pwd, rubbish);
+            if (eDTO.getPassword().equals(ePwd) || 
+                    (pwd.equals(EmployeeDTO.BLANK) && eDTO.getPassword().equalsIgnoreCase(EmployeeDTO.BLANK))) {
+                return true;
+            }
+        } catch (InvalidKeyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
        
        return false;
    }

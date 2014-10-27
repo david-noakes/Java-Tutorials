@@ -85,8 +85,8 @@ public class EmployeeDTO extends HashMap{
     public static final String db_Notes_name = "Notes";
     public static final String db_Attachments_name = "Attachments";
     public static final String db_StartDate_name = "Start Date";
-    private static final String db_UserId_name   = "UserID"; 
-    private static final String db_Password_name   = "Password"; 
+    public static final String db_UserId_name   = "UserID"; 
+    public static final String db_Password_name   = "Password"; 
     
     
     // mappings - add new fields in here *****
