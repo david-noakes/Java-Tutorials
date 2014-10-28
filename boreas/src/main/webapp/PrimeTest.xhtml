@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+  
+    <h:head>  
+  
+    </h:head>  
+      
+    <h:body>  
+      
+		<h:form>
+		<p:messages/> <!--  needed for the requiredMessage to show -->
+		<b>Choose number:</b> <p:spinner value="#{testBean.number}" stepFactor="0.5"/><br/>
+		<b>Choose date:</b> <p:calendar value="#{testBean.date}" showButtonPanel="true" effect="fadeIn" required="true"
+			requiredMessage="Date is required"/><br/>
+		<p:commandButton action="#{testBean.doAction()}" ajax="false" value="Submit"/>
+		<h:panelGrid>
+		<h:panelGroup>F:
+		<p:inputText id="fInput1" value="#{testBean.f}"/>
+		</h:panelGroup>
+		<p:slider minValue="32" maxValue="212" for="fInput1"> 
+		<p:ajax process="fInput1" update="status"/>
+		</p:slider>
+		<h:outputText value="#{testBean.status}" id="status" escape="false"/>
+		<h:panelGroup>
+		<p:commandButton value="Convert to C" ajax="false"/>
+		#{testBean.f}F = #{testBean.c}C<p/>
+		</h:panelGroup>
+</h:panelGrid>
+		</h:form>
+    </h:body>  
+</html>  

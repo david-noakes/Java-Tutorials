@@ -4,9 +4,10 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry excluding="*.jsp" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-api/2.1.7/jsf-api-2.1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/sun/faces/jsf-impl/2.1.7/jsf-impl-2.1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/bouncycastle/bcprov-jdk16/1.45/bcprov-jdk16-1.45.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/primefaces/primefaces/5.0/primefaces-5.0.jar"/>
 	<classpathentry kind="output" path="target/boreas/classes"/>
 </classpath>
