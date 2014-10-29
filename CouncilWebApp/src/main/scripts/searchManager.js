@@ -301,7 +301,7 @@
                 gaEventCategory = gaEventCategory + 'POI Search';
             }
 
-            _gaq.push(['_trackEvent', gaEventCategory, 'Get', locationSearchRequest.address]);
+           // _gaq.push(['_trackEvent', gaEventCategory, 'Get', locationSearchRequest.address]);
 
             searchManager.SearchByLocation(locationSearchRequest);
         }
@@ -333,7 +333,7 @@
 
                         // Log the POI search 
                         gaEventCategory = gaEventCategory + 'Drag & Drop Search';
-                        _gaq.push(['_trackEvent', gaEventCategory, 'Get', locationSearchRequest.address]);
+                     //   _gaq.push(['_trackEvent', gaEventCategory, 'Get', locationSearchRequest.address]);
 
                         searchManager.SearchByLocation(locationSearchRequest);
                     }

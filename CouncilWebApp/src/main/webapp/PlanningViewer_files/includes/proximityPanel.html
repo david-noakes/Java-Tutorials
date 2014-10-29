@@ -1,0 +1,35 @@
+                        <li id="proximityPanel" class="advancedSearchPanel closedPanel clearfix">
+                                <div class="advancedSearchPanelHeader clearfix">
+                                <p class="sectionTitle">Proximity</p>
+                                    <div class="advancedSearchButtonPanel">
+                                        <button class="help" title="Find planning data layers that are relevant to properties surrounding a property"></button>
+                                <button class="toggleSearchSection" title="Toggle visibility of Proximity panel"></button>
+                            </div>
+                                </div>
+                            <div id="proximityDetails" class="advanceSearchPanelDetails ">
+                                <form id="proximityDetailsForm">
+                                    <div class="criteriaBlock nonScrollableblock">
+                                        <div class="nonScrollableblockContent">
+                                            <div class="clearfix">
+                                                <label for="txtASProximityAddress">Enter street address*</label>
+                                                <input id="txtASProximityAddress" type="text" placeholder="Search Address or Place" autocomplete="off">
+                                            </div>
+
+                                            <div class="clearfix">
+                                                <label for="cbxRange">Select proximity to address*</label>
+                                                <button class="help" title="Show layers for surrounding properties within this distance:"></button>
+                                                <select id="cbxRange">
+                                                    <option value="20" selected="">20m</option>
+                                                    <option value="50">50m</option>
+                                                    <option value="200">200m</option>
+                                                    <option value="400">400m</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button id="btnProximitySearch" class="search" title="Perform Proximity Search">Search</button>
+                                    <button id="btnProximityClear" class="clearSearch" title="Clear Search Results">Clear</button>
+                                </form>
+                            </div>
+                        </li>

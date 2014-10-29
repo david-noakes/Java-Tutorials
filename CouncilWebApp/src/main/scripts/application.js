@@ -693,36 +693,36 @@ $(document).ready(function () {
     // Add click events to share buttons
     //---------------------------------------------------------------
 
-    $("#shareByTwitter").click(function () {
-        if (shareViaTwitterLink) {
-            window.open(shareViaTwitterLink, "Share", "width=550, height=500");
-        }
-        hideShareOptions();
-    });
-
-    $("#shareByEmail").attr('href', shareViaEmailLink);
-
-    $("#shareByEmail").click(function () {
-        if (shareViaEmailLink) {
-            window.open(shareViaEmailLink, "Share");
-        }
-        hideShareOptions();
-    });
-
-    $("#shareByFacebook").click(function () {
-        if (shareViaFacebookLink) {
-            window.open(shareViaFacebookLink, "Share", "width=550, height=500");
-        }
-        hideShareOptions();
-    });
-
-    $("#shareByGooglePlus").click(function () {
-        if (shareViaGooglePlusLink) {
-            window.open(shareViaGooglePlusLink, "Share", "width=550, height=500");
-        }
-        hideShareOptions();
-    });
-
+//    $("#shareByTwitter").click(function () {
+//        if (shareViaTwitterLink) {
+//            window.open(shareViaTwitterLink, "Share", "width=550, height=500");
+//        }
+//        hideShareOptions();
+//    });
+//
+//    $("#shareByEmail").attr('href', shareViaEmailLink);
+//
+//    $("#shareByEmail").click(function () {
+//        if (shareViaEmailLink) {
+//            window.open(shareViaEmailLink, "Share");
+//        }
+//        hideShareOptions();
+//    });
+//
+//    $("#shareByFacebook").click(function () {
+//        if (shareViaFacebookLink) {
+//            window.open(shareViaFacebookLink, "Share", "width=550, height=500");
+//        }
+//        hideShareOptions();
+//    });
+//
+//    $("#shareByGooglePlus").click(function () {
+//        if (shareViaGooglePlusLink) {
+//            window.open(shareViaGooglePlusLink, "Share", "width=550, height=500");
+//        }
+//        hideShareOptions();
+//    });
+//
 
     //---------------------------------------------------------------
     // Add click events to the search and clear buttons for the the
@@ -2152,13 +2152,13 @@ function updateBasicResultsDisplay(data) {
 function updateAdminResultsDisplay(data) {
         clearBasicSearchResults();
 
-    if (data) {
-        $("#adminTemplate").tmpl(data).appendTo("#searchResultsPanel");
-        $("#searchResultsPanel").show();
-    }
-    else {
-        $("#searchResultsPanel").hide();
-    }
+//    if (data) {
+//        $("#adminTemplate").tmpl(data).appendTo("#searchResultsPanel");
+//        $("#searchResultsPanel").show();
+//    }
+//    else {
+//        $("#searchResultsPanel").hide();
+//    }
 
     resizeScreen();
 }

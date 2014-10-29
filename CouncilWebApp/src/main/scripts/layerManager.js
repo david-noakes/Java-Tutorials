@@ -315,9 +315,12 @@ function LayerManager(parentMap) {
                 raiseHideBusy();
 
             },
+//            error: function (status, error) {
+//                raiseHideBusy();
+//                raiseError(status);
             error: function (status, error) {
                 raiseHideBusy();
-                raiseError(status);
+                //raiseError(status);
             }
         });
     }

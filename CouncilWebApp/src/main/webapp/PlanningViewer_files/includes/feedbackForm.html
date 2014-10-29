@@ -1,0 +1,130 @@
+            <div id="feedback" class="panel" style="display:none;">
+                <div id="feedbackContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
+                    
+                <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
+                        <div id="feedbackAjax">
+
+
+<div id="feedbackSent" class="hidden" style="padding: 10px;">
+    <h1>Feedback Sent</h1>
+    <div style="margin-bottom: 10px;">
+        <p style="padding: 8px 0px 8px 0px;">Thank you for providing us with your feedback on the Planning Viewer.</p>
+        <p style="padding: 8px 0px 8px 0px;">We appreciate you taking the time to respond. We will take your comments, questions and feedback on board for subsequent releases of the service.</p>
+        <p style="padding: 8px 0px 8px 0px;">Click on the Home button to go back to view the map.</p>
+    </div> 
+</div>
+
+<div id="feedbackForm" style="padding: 10px;">
+    <h1>Feedback on the Planning Viewer</h1>
+    <div style="margin-bottom: 10px; margin-left: 6px;">
+        <p style="padding: 8px 0px 8px 0px;">The Planning Viewer is being made publicly available as part of an open beta program. We appreciate your feedback on any quality or usability issues that you may have encountered.</p>            
+    </div>
+    <div style="margin-bottom: 10px; margin-left: 6px;">
+        <p style="padding: 8px 0px 8px 0px;">Please send us your comments, questions and feedback through the form below, or write to us at:</p>
+        <div style="padding-left:25px;padding-bottom:10px;">
+            <p style="padding:2px;">Service NSW Feedback</p>
+            <p style="padding:2px;">GPO Box 7057</p>
+            <p style="padding:2px;">Sydney NSW 2001</p>
+        </div>
+    </div>
+
+    <div class="feedbackForm">
+<form action="https://maps.planningportal.nsw.gov.au/Map/SendFeedback" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-success="sendFeedbackComplete" data-ajax-update="#feedbackAjax" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="Ujs4gEToXXYP51viPS2483b0bLRZnh7bep7FMWO2V61-MnsnqpmTIJKz19iSaG-Mfu5fpcB4UmzJdnHNAU1KkKGPbYA1">                <div class="clearfix">
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            <label for="FeedbackFirstName">First name *</label>
+                        </div>
+                        <div class="editor-field first-name">
+                            <input class="text-box single-line" data-val="true" data-val-required="This field is required" id="FeedbackFirstName" name="FeedbackFirstName" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackFirstName" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            <label for="FeedbackLastName">Last name *</label>
+                        </div>
+                        <div class="editor-field last-name">
+                            <input class="text-box single-line" data-val="true" data-val-required="This field is required" id="FeedbackLastName" name="FeedbackLastName" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackLastName" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            <label for="FeedbackEmail">Email *</label>
+                        </div>
+                        <div class="editor-field email">
+                            <input class="text-box single-line" data-val="true" data-val-email="Invalid Email Address" data-val-required="This field is required" id="FeedbackEmail" name="FeedbackEmail" type="email" value="">
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackEmail" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            <label for="FeedbackPostcode">Postcode</label>
+                        </div>
+                        <div class="editor-field postcode">
+                            <input data-val="true" data-val-number="The field Postcode must be a number." data-val-range="Please enter a valid Australian post code" data-val-range-max="9999" data-val-range-min="1000" id="FeedbackPostcode" name="FeedbackPostcode" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackPostcode" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="fieldgroup clearfix">
+                        <fieldset>
+                            <legend class="editor-label">Type of feedback</legend>
+                            <div class="editor-field feedbackType">
+                                <input data-val="true" data-val-required="This field is required" id="FeedbackComplaintType" name="FeedbackType" title="Complaint" type="radio" value="Complaint"> Complaint
+                                <input checked="" id="FeedbackComplimentType" name="FeedbackType" title="Compliment" type="radio" value="Compliment"> Compliment
+                                <input id="FeedbackDefectType" name="FeedbackType" title="Defect" type="radio" value="Defect"> Defect
+                                <input id="FeedbackEnhancementType" name="FeedbackType" title="Enhancement" type="radio" value="Enhancement"> Enhancement
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackType" data-valmsg-replace="true"></span>
+                        </div>
+                        </fieldset>
+                    </div>
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            
+                            <p style="font-weight:normal; ">Please tell us</p>
+                            <p style="font-weight:normal; ">your thoughts *</p>
+                            <p style="font-weight:normal; font-style: italic">(max 1000 words)</p>
+                        </div>
+                        <div class="editor-field">
+                            <textarea class="feedbackText" cols="20" data-val="true" data-val-required="This field is required" id="FeedbackText" name="FeedbackText" rows="2" title="Feedback Text"></textarea>
+                            <span class="field-validation-valid" data-valmsg-for="FeedbackText" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="fieldgroup clearfix">
+                        <div class="editor-label">
+                            <label for="captchadiv">Security code *</label>
+                        </div>
+                        
+                        <div class="editor-field" style="margin-left:5px;">
+                            <div id="captchadiv" class="editor-field recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio"><div id="recaptcha_area"><table id="recaptcha_table" class="recaptchatable recaptcha_theme_clean"> <tbody><tr height="73"> <td class="recaptcha_image_cell" width="302"><center><div id="recaptcha_image" style="width: 300px; height: 57px;"><img id="recaptcha_challenge_image" alt="reCAPTCHA challenge image" height="57" width="300" src="./PlanningViewerOrig_files/image"></div></center></td> <td style="padding: 10px 7px 7px 7px;"> <a id="recaptcha_reload_btn" title="Get a new challenge"><img id="recaptcha_reload" width="25" height="18" alt="Get a new challenge" src="./PlanningViewerOrig_files/refresh.png"></a> <a id="recaptcha_switch_audio_btn" class="recaptcha_only_if_image" title="Get an audio challenge"><img id="recaptcha_switch_audio" width="25" height="15" alt="Get an audio challenge" src="./PlanningViewerOrig_files/audio.png"></a><a id="recaptcha_switch_img_btn" class="recaptcha_only_if_audio" title="Get a visual challenge"><img id="recaptcha_switch_img" width="25" height="15" alt="Get a visual challenge" src="./PlanningViewerOrig_files/text.png"></a> <a id="recaptcha_whatsthis_btn" title="Help"><img id="recaptcha_whatsthis" width="25" height="16" src="./PlanningViewerOrig_files/help.png" alt="Help"></a> </td> <td style="padding: 18px 7px 18px 7px;"> <img id="recaptcha_logo" alt="" width="71" height="36" src="./PlanningViewerOrig_files/logo.png"> </td> </tr> <tr> <td style="padding-left: 7px;"> <div class="recaptcha_input_area" style="padding-top: 2px; padding-bottom: 7px;"> <span id="recaptcha_challenge_field_holder" style="display: none;"><input type="hidden" name="recaptcha_challenge_field" id="recaptcha_challenge_field" value="03AHJ_VuvElKuwZcLccjYe7GdfLZpIw_iSlgqbonnf6Zq3ijAKSAGIYCZdzayaOSizeZKGpcHdMqTvhbDvHDZ3OahMv8fSJq8c9KhAuCoP7pENMhp57GNDmFM2MVr_pOsLxAM2J62xkK3n9negdKNed9IpGDN9YasRb2dkZoIciy7KGO8nfrzT8-XcylsajXhEpzNkUR-6KEB1biC-CFqn18bX23W7BVrpnA"></span><input style="border: 1px solid #3c3c3c; width: 302px;" name="recaptcha_response_field" id="recaptcha_response_field" type="text" placeholder="Type the text" autocomplete="off"> </div> </td> <td colspan="2"><span id="recaptcha_privacy" class="recaptcha_only_if_privacy"><a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a></span></td> </tr> </tbody></table> </div></div>
+                            <span class="field-validation-valid" data-valmsg-for="captcha" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div style="padding:5px; margin-top: 20px;">
+                        <p style="margin-bottom:5px;margin-left:5px;">
+                            The Department of Planning and Environment is subject to the requirements of the <span style="font-style: italic">Privacy and Personal Information Protection Act 1998 (NSW)</span>.  Under that Act you have a right to access and change personal information that we hold.  For further information please see the Department’s <a href="http://www.planning.nsw.gov.au/default.aspx?tabid=60" title="Link to privacy statement" target="privacystatement">privacy statement</a>.
+                        </p>
+                        <button type="submit" class="ui-button">Submit</button>
+                    </div>                    
+                </div>
+</form>        </div>
+</div>
+
+                        </div>
+                        <div style="width:100%;">
+                            <button id="btnGotoTopFeedback" class="top" title="Back to top of page" style="margin-bottom:95px;"></button>
+                        </div>
+                    </div></div></div></div>
+            </div>
+            <div id="help" class="panel" style="display:none;">
+                <div class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
+                    
+                    
+                <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><h1>Help Text</h1><div>
+                        Sourced from cache.
+This is the help text set in the database
+                    </div></div></div></div>
+            </div>
+

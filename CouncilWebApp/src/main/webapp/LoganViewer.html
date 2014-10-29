@@ -12,97 +12,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Logan Council Map Viewer</title>
+<!-- 
     <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
     <link href="resources/css/jquery.ui.all.css" rel="stylesheet" type="text/css" />
     <link href="resources/css/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
     <link href="resources/css/jquery.share.css" rel="stylesheet" type="text/css" />
-<!--    
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.15&client=gme-nswgovernmentdepartment&channel=planningviewer-dev&sensor=false&libraries=places,drawing,visualization"></script>    
-    <script src="scripts/modernizr-2.6.2.js" type="text/javascript"></script>
-    <script src="scripts/jquery.tmpl.min.js" type="text/javascript"></script>
-    <script src="scripts/jquery.cookie.js" type="text/javascript"></script> 
-    <script src="scripts/jquery-ui-touch-punch.min.js"></script>
-    <script src="scripts/jquery.mousewheel.js"></script>
-    <script src="scripts/jquery.jscrollpanel.js"></script>
-    <script src="scripts/jquery.share.js"></script>
-    <script src="scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
-    <script src="scripts/jquery.placeholder.js"></script>
--->
+ -->    
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwMIW6mBJ_ZQNUL4OL042jGjVKjA0-9w&libraries=places,drawing">
     </script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.js" type="text/javascript"></script>
+    <link href="./PlanningViewer_files/jquery.ui.all.css" rel="stylesheet" type="text/css">
+    <link href="./PlanningViewer_files/jquery.jscrollpane.css" rel="stylesheet" type="text/css">
+    <link href="./PlanningViewer_files/jquery.share.css" rel="stylesheet" type="text/css">
+    <link href="./PlanningViewer_files/style.css" rel="stylesheet" type="text/css">
+    <script src="./PlanningViewer_files/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/jquery-1.10.2.js"></script>
+    <script src="./PlanningViewer_files/jquery-ui.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/jquery.validate.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/jquery.cookie.js" type="text/javascript"></script> 
+    <script src="./PlanningViewer_files/jquery-ui-touch-punch.min.js"></script>
+    <script src="./PlanningViewer_files/jquery.mousewheel.js"></script>
+    <script src="./PlanningViewer_files/jquery.jscrollpanel.js"></script>
+    <script src="./PlanningViewer_files/jquery.share.js"></script>
+    <script src="./PlanningViewer_files/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/jquery.placeholder.js"></script>
     
-<!--#include file="resources/includes/locationBoxTemplate.html" -->    
-
-    <script id="basicResultsTemplate" type="text/x-jquery-tmpl">
-
-        {{if (parcel)}}
-            <div class="mapPin"></div>        
-            <div class="resultDetails"> 
-                <ul>
-                    <li><span class="propertyKey">Address:</span><span class="propertyValue">${address}</span></li>
-                    <li><span class="propertyKey">LGA:</span><span class="propertyValue">${parcel.Lga}</span></li>
-                    <li><span class="propertyKey">State:</span><span class="propertyValue">NSW</span></li>
-                </ul>
-            </div>
-            <div class="legislationLink">
-                {{if (parcel.LegislationLink)}}
-                <button id="btnShowLegislation" class="legislationLink" title="Link to legislation" onclick="window.open('${parcel.LegislationLink}', '${strip(parcel.LegislationLink)}')"></button>
-                {{else}}
-                <button id="btnShowLegislation" class="legislationLink" title="Link to legislation" onclick="showDataNotAvailable();"></button>
-                {{/if}}
-            </div>
-        {{else}}
-            <div class="notFound"></div>
-            <div class="resultDetails">
-                <ul>
-                    <li><span class="propertyValue">No land parcels found</span></li>
-                </ul>
-            </div>
-        {{/if}}
-    </script>
-
-<!-- 
-    <script id="adminTemplate" type="text/x-jquery-tmpl">
-        <div class="mapPin"></div>
-            <div class="resultDetails">
-        <ul>
-            {{if (admin)}}
-                <li><span class="propertyKey">Location:</span><span class="propertyValue">${admin}</span></li>
-            {{/if}}
-            <li><span class="propertyKey">State:</span><span class="propertyValue">${state}</span></li>
-        </ul>
-        </div>
-    </script>
-
-    <script id="lgaLayerTemplate" type="text/x-jquery-tmpl">
-            <ul>
-                {{each Layers}}
-                <li>
-                    <div class="lgalayerNamePanel clearfix">
-                          <input type="checkbox" data-layerid="${LayerId}" onclick="validateLGALayerSelection('${LayerId}', this.checked, this)" class="layerVisibility dl_${LayerId}" /><span class="layerName" title="${DisplayAlias}">${truncateLayer(DisplayAlias)}</span>
-                    </div>
-                </li>
-                {{/each}}
-            </ul>
-    </script>
- -->
-     
-  <!--#include file="resources/includes/growthAreaLayerTemplate.html" -->    
-
-  <!--#include file="resources/includes/featurePopupTemplate.html" -->    
-    
-  <!--#include file="resources/includes/lgaPlanningZoneTemplate.html" -->    
-
-    <script id="searchHistoryTemplate" type="text/x-jquery-tmpl">
-            {{each data}}
-                <div class="pac-item history-item" data-key="${title}"><span class="pac-item-query"><span class="pac-matched">${title}</span></span></div>
-            {{/each}}
-    </script>
-
+<!--     
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -123,6 +59,7 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
+ -->
 
 </head>
 
@@ -162,17 +99,7 @@
             <div class="errorBlock" style="width:100px;">No match found.</div>
         </div>
     </div>
-
-    <div id="shareOptions" style="display:none;">
-        <div id="shareOptionsStrip">
-            <button id="shareByTwitter"class="ui-button-share-option ui-button-twitter"></button>
-            <button id="shareByFacebook"class="ui-button-share-option ui-button-facebook" ></button>
-            <button id="shareByEmail" class="ui-button-share-option ui-button-email"></button>
-            <button id="shareByGooglePlus" class="ui-button-share-option ui-button-googleplus"></button>
-        </div>
-    </div>
-
-    <div id="header" class="clearfix" role="region" aria-label="Navigation Bar" >
+    <div id="header" class="clearfix" role="region" aria-label="Navigation Bar">
         <div class="pageNavigation floatright" role="navigation" aria-label="Primary">
             <button id="btnHome" aria-label="Home" data-page="mapcanvas" class="ui-button ui-button-home ui-button-active navButton">Home</button>
             <button id="btnAboutUs" aria-label="About Us" data-page="aboutus" class="ui-button navButton">About Us</button>
@@ -183,7 +110,8 @@
             <button id="btnHelp" aria-label="Help" onclick="showHelp();" class="ui-button ui-button-help">Help</button>
         </div>
     </div>
-    <div id="contentPanel">
+
+    <div id="contentPanel" style="height: 831px;">
         <div id="navigationPanel" class="openNavPanel">
             <div id="upperPanel">
                 <div id="searchType">
@@ -197,221 +125,94 @@
                 <div id="basicSearchContainer">
                     <div id="basicSearch" class="clearfix">
                         <div id="searchControl" class="clearfix">
-                            <input id="txtBasicSearchText" type="text" placeholder="Search Address or Place" title="Basic address search" autocomplete="off" />
-                            <div id="searchButtons" class="searchButtons">
+                            <input id="txtBasicSearchText" type="text" placeholder="Search Address or Place" title="Basic address search" autocomplete="off" style="width: 264px;">
+                            <div id="searchButtons" class="searchButtons" style="height: 30px;">
                             <button id="btnShowHistory" class="ui-button-history" title="Show Search History"></button>
-                            <button id="btnSearch" class="ui-button-search" title="Perform Search"></button>
+                            <button id="btnSearch" class="ui-button-search" title="Perform Search" style="height: 30px; width: 31px;"></button>
                         </div>
                         </div>
                         <div class="basicOptions clearfix">
                             <button id="btnDropPin" title="Click here and then click on the map to select a location from the map." class="ui-button-droppin">Place on map</button>
                         </div>
-                        <div id="searchResultsPanel" style="display:none;">
-                            <div id="searchResultsDetails" class="searchResultsDetails">
-                            </div>
-                        </div>
+                        <div id="searchResultsPanel" style=""><div class="mapPin"></div>             <div class="resultDetails">         <ul>                          <li><span class="propertyKey">State:</span><span class="propertyValue">NSW</span></li>         </ul>         </div></div>
                     </div>
                 </div>
                 <div id="advancedSearchContainer" style="display:none;">
                     <div id="advancedSearch">
                         <ul>
-  <!--#include file="resources/includes/advancedSearchPanel_lotPlanPanel.html" -->    
+<!-- remove spaces to uncomment include -->
+  <!--#include file="PlanningViewer_files/includes/lotPlanPanel.html" -->    
+  <!--  #include file="PlanningViewer_files/includes/proximityPanel.html" -->    
+  <!--  #include file="PlanningViewer_files/includes/lgaPanel.html" -->    
+  <!--  #include file="PlanningViewer_files/includes/growthAreaPanel.html" -->    
+  <!--  #include file="PlanningViewer_files/includes/landUseZonePanel.html" -->    
                         
-  <!--#include file="resources/includes/advancedSearchPanel_proximityPanel.html" -->    
-                        
-  <!--#include file="resources/includes/advancedSearchPanel_lgaPanel.html" -->    
-                        
-  <!--#include file="resources/includes/advancedSearchPanel_growthAreaPanel.html" -->    
-                        
-  <!--#include file="resources/includes/advancedSearchPanel_landUseZonePanel.html" -->    
-                    	</ul>
+                    </ul>
                     </div>
                 </div>
             </div>
-           
-            <div id="lowerPanel">
-                <div id="welcome" >
+            <div id="lowerPanel" style="height: 647px; overflow: hidden; padding: 0px; width: 360px;">
+                
+                
+            <div class="jspContainer" style="width: 360px; height: 647px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 360px;"><div id="welcome">
                     <div class="welcomePanelHeader clearfix">
                         <span>Welcome</span>
                         <button id="hideWelcome" title="Close Welcome Panel"></button>
                     </div>
-                    <div><p>
-                    The Logan Council Map Viewer provides public access to the map layers for certain planning maps 
-                 <!--    incorporated by reference in environmental planning instruments made under the 
-                    Environmental Planning and Assessment Act 1979.   -->
-                    </p>
-					</div>
+                    <div><p>The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979.</p><p>The Viewer is an initiative of the New South Wales Government and is designed to help people better understand map-based planning information.</p><p>The Viewer enables users to search, navigate and view the map layers using standard map viewer functionality.</p><p>The service is maintained by the Department of Planning and Environment.</p></div>
                     <button id="btnShowTerms" class="">Terms and Conditions</button>
-                </div>
-  <!--#include file="resources/includes/layerManager.html" -->    
-
-        </div>
-
-        <div id="mapPanel">
-            <div id="mapcanvas" class="panel"></div>
+                   </div>
+  <!-- #include file="PlanningViewer_files/includes/layerManager.html" -->    
+    </div>
+	</div>
+    </div>
+    </div>
+    
+    
+    
+    
+    <div id="mapPanel" style="width: 1064px;">
+            <div id="mapcanvas" class="panel" style="position: relative; 
+                   overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+            </div>
+                   
+                   
+                   
             <div id="terms" class="panel" style="display:none;">
-                <div id="termsContent" class="panelContent">
-                    <div class="panelContentPage">
-                        <div style="padding: 10px;"><h1>Planning Viewer Terms and Conditions of use</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979.<br />The Planning Viewer enables users to search, navigate and view the map layers using standard map viewer functionality.</p><p style="padding: 8px 0px 8px 0px;">PDF versions of the official maps adopted when the instruments are made are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is an initiative of the New South Wales Government and has been designed to help people better understand map-based planning information.  The service is maintained by the Department of Planning and Environment.</p></div><h2>Access and use of the Planning Viewer</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The NSW Government grants You a non-exclusive, non-transferable licence to access and use the Planning Viewer in accordance with these terms and conditions.</p></div><h2>The Planning Viewer beta program</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is being made publicly available as part of an open beta program.  The purpose of the program is to make a pre-release version of the Planning Viewer available to the public for the purpose of providing feedback on the quality and usability of the service, including the map layers.</p></div><h2>Map layers</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The map layers available in the Planning Viewer should be treated as being reference documents only and You should exercise Your own skill and care with respect to the use of the material.</p><p style="padding: 8px 0px 8px 0px;">The map layers are updated as new PDF maps are published.  You should be aware that there may be delays between when the official PDF maps are published on the NSW legislation website and when the map layers are updated on the Planning Viewer.  The Department of Planning and Environment tries to update the layers within 2 weeks of any changes to the official PDF maps.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer only shows the current In Force map layers.  Historical versions of the maps are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p></div><h2>Feedback</h2><div><p style="padding: 8px 0px 8px 0px;">Help make the Planning Viewer even better by letting us know of any quality and usability issues You encounter by clicking the ‘Feedback’ button and sending through a response.</p><p style="padding: 8px 0px 8px 0px;">We may also request additional feedback from You through email, web questionnaires or other feedback mechanisms.  By agreeing to these terms and conditions, You agree that We may contact You from time to time about the beta program.</p></div><h2>Disclaimer</h2><div><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of Your use or reliance on the Planning Viewer, nor will it be liable for any indirect or consequential punitive or special damages or loss of profit.</p><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of, or in part by, its negligent acts or omissions in procuring, compiling, collecting, interpreting, reporting, communicating or delivering any information through the Planning Viewer.</p></div></div>
+                <div id="termsContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
+                    
+                <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
+                        <div style="padding: 10px;"><h1>Planning Viewer Terms and Conditions of use</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979.<br>The Planning Viewer enables users to search, navigate and view the map layers using standard map viewer functionality.</p><p style="padding: 8px 0px 8px 0px;">PDF versions of the official maps adopted when the instruments are made are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is an initiative of the New South Wales Government and has been designed to help people better understand map-based planning information.  The service is maintained by the Department of Planning and Environment.</p></div><h2>Access and use of the Planning Viewer</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The NSW Government grants You a non-exclusive, non-transferable licence to access and use the Planning Viewer in accordance with these terms and conditions.</p></div><h2>The Planning Viewer beta program</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer is being made publicly available as part of an open beta program.  The purpose of the program is to make a pre-release version of the Planning Viewer available to the public for the purpose of providing feedback on the quality and usability of the service, including the map layers.</p></div><h2>Map layers</h2><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The map layers available in the Planning Viewer should be treated as being reference documents only and You should exercise Your own skill and care with respect to the use of the material.</p><p style="padding: 8px 0px 8px 0px;">The map layers are updated as new PDF maps are published.  You should be aware that there may be delays between when the official PDF maps are published on the NSW legislation website and when the map layers are updated on the Planning Viewer.  The Department of Planning and Environment tries to update the layers within 2 weeks of any changes to the official PDF maps.</p><p style="padding: 8px 0px 8px 0px;">The Planning Viewer only shows the current In Force map layers.  Historical versions of the maps are available from a map link index from the relevant environmental planning instrument on the NSW legislation website.</p></div><h2>Feedback</h2><div><p style="padding: 8px 0px 8px 0px;">Help make the Planning Viewer even better by letting us know of any quality and usability issues You encounter by clicking the ‘Feedback’ button and sending through a response.</p><p style="padding: 8px 0px 8px 0px;">We may also request additional feedback from You through email, web questionnaires or other feedback mechanisms.  By agreeing to these terms and conditions, You agree that We may contact You from time to time about the beta program.</p></div><h2>Disclaimer</h2><div><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of Your use or reliance on the Planning Viewer, nor will it be liable for any indirect or consequential punitive or special damages or loss of profit.</p><p style="padding: 8px 0px 8px 0px;">The NSW Government will be in no way liable for any loss, damage or injury arising as a result of, or in part by, its negligent acts or omissions in procuring, compiling, collecting, interpreting, reporting, communicating or delivering any information through the Planning Viewer.</p></div></div>
                         <div style="width:100%">
                             <button id="btnGotoTopTerms" class="top" title="Back to top of page"></button>
                         </div>
-                    </div>
-                </div>
+                    </div></div></div></div>
             </div>
             <div id="contactus" class="panel" style="display:none;">
-                <div id="contactusContent" class="panelContent">
-                    <div class="panelContentPage">
+                <div id="contactusContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
+                    
+                <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
                         <div style="padding: 10px;"><h1>Contact us</h1><div style="margin-bottom: 10px;"><p>For any customer service related enquiries, please contact</p><p style="margin-top:15px;">Tel 13 77 88</p><p style="margin-top:15px;">Email <a href="mailto:info@service.nsw.gov.au" style="text-decoration:none;color: #0099ff;" title="Email address for enquiries">info@service.nsw.gov.au</a></p></div></div><div style="padding: 10px;"><h1>Hearing or speech impaired</h1><div style="margin-bottom: 10px;"><p>For Speak and Listen (Speech-to-speech relay) users, please contact</p><p style="margin-top:15px;">Tel 1300 555 727</p><p style="margin-top:15px;">Internet relay</p><p style="margin-top: 15px;"><a href="http://relayservice.gov.au/news/new-nrs-relay-services-2013-latest/" style="text-decoration:none;color: #0099ff;" title="National Relay Service" target="RelayService">National relay service</a></p></div></div><div style="padding: 10px;"><h1>Translator and Interpreter services</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">For translator and interpreter services, please contact</p><p style="padding: 8px 0px 8px 0px;">Tel 13 14 50 and ask the interpreter to phone 13 77 88</p></div></div>
                         <div style="width:100%">
                             <button id="btnGotoTopContactUs" class="top" title="Back to top of page"></button>
                         </div>
-                    </div>
-                </div>
+                    </div></div></div></div>
             </div>            
             <div id="aboutus" class="panel" style="display:none;">
-                <div id="aboutusContent" class="panelContent">
-                    <div class="panelContentPage">
-                        <div style="padding: 10px;"><h1>About the Planning Viewer</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979. The Viewer is an initiative of the New South Wales Government and is designed to help people better understand map-based planning information.</p><p style="padding: 8px 0px 8px 0px;">The Viewer enables users to search, navigate and view the map layers using standard map viewer functionality. The service is maintained by the Department of Planning and Environment.</p><p style="padding: 8px 0px 8px 0px;"><a href="http://www.planning.nsw.gov.au/eplanning" style="text-decoration:none;color: #0099ff;" target="AboutDepartment" title="Link to more information about ePlanning program">Click here for more information about the Department of Planning and Environment's ePlanning program.</a></p></div></div>
-                    </div>
-                    <div style="width:100%">
-                        <button id="btnGotoTopAboutUs" class="top" title="Back to top of page"></button>
-                    </div>
-                </div>
-            </div>
-            <div id="feedback" class="panel" style="display:none;">
-                <div id="feedbackContent" class="panelContent">
-                    <div class="panelContentPage">
-                        <div id="feedbackAjax">
-
-
-<div id="feedbackSent" class="hidden" style="padding: 10px;">
-    <h1>Feedback Sent</h1>
-    <div style="margin-bottom: 10px;">
-        <p style="padding: 8px 0px 8px 0px;">Thank you for providing us with your feedback on the Planning Viewer.</p>
-        <p style="padding: 8px 0px 8px 0px;">We appreciate you taking the time to respond. We will take your comments, questions and feedback on board for subsequent releases of the service.</p>
-        <p style="padding: 8px 0px 8px 0px;">Click on the Home button to go back to view the map.</p>
-    </div> 
-</div>
-
-<div id="feedbackForm" style="padding: 10px;">
-    <h1>Feedback on the Planning Viewer</h1>
-    <div style="margin-bottom: 10px; margin-left: 6px;">
-        <p style="padding: 8px 0px 8px 0px;">The Planning Viewer is being made publicly available as part of an open beta program. We appreciate your feedback on any quality or usability issues that you may have encountered.</p>            
-    </div>
-    <div style="margin-bottom: 10px; margin-left: 6px;">
-        <p style="padding: 8px 0px 8px 0px;">Please send us your comments, questions and feedback through the form below, or write to us at:</p>
-        <div style="padding-left:25px;padding-bottom:10px;">
-            <p style="padding:2px;">Service NSW Feedback</p>
-            <p style="padding:2px;">GPO Box 7057</p>
-            <p style="padding:2px;">Sydney NSW 2001</p>
-        </div>
-    </div>
-
-    <div class="feedbackForm" >
-<form action="/Map/SendFeedback" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-success="sendFeedbackComplete" data-ajax-update="#feedbackAjax" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="PY5eP47WxwPY9Nd9CEcuGlEZNw0w5dW_WeScI0LeYwjXvtHQrk4Ks8MjYj9Lwt6KfRqLQvvxzj4KYtl8E2-Kgq24v-c1" />                <div class="clearfix">
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            <label for="FeedbackFirstName">First name *</label>
-                        </div>
-                        <div class="editor-field first-name">
-                            <input class="text-box single-line" data-val="true" data-val-required="This field is required" id="FeedbackFirstName" name="FeedbackFirstName" type="text" value="" />
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackFirstName" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            <label for="FeedbackLastName">Last name *</label>
-                        </div>
-                        <div class="editor-field last-name">
-                            <input class="text-box single-line" data-val="true" data-val-required="This field is required" id="FeedbackLastName" name="FeedbackLastName" type="text" value="" />
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackLastName" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            <label for="FeedbackEmail">Email *</label>
-                        </div>
-                        <div class="editor-field email">
-                            <input class="text-box single-line" data-val="true" data-val-email="Invalid Email Address" data-val-required="This field is required" id="FeedbackEmail" name="FeedbackEmail" type="email" value="" />
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackEmail" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            <label for="FeedbackPostcode">Postcode</label>
-                        </div>
-                        <div class="editor-field postcode">
-                            <input data-val="true" data-val-number="The field Postcode must be a number." data-val-range="Please enter a valid Australian post code" data-val-range-max="9999" data-val-range-min="1000" id="FeedbackPostcode" name="FeedbackPostcode" type="text" value="" />
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackPostcode" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-                    <div class="fieldgroup clearfix">
-                        <fieldset>
-                            <legend class="editor-label">Type of feedback</legend>
-                            <div class="editor-field feedbackType">
-                                <input data-val="true" data-val-required="This field is required" id="FeedbackComplaintType" name="FeedbackType" title="Complaint" type="radio" value="Complaint" /> Complaint
-                                <input checked="" id="FeedbackComplimentType" name="FeedbackType" title="Compliment" type="radio" value="Compliment" /> Compliment
-                                <input id="FeedbackDefectType" name="FeedbackType" title="Defect" type="radio" value="Defect" /> Defect
-                                <input id="FeedbackEnhancementType" name="FeedbackType" title="Enhancement" type="radio" value="Enhancement" /> Enhancement
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackType" data-valmsg-replace="true"></span>
-                        </div>
-                        </fieldset>
-                    </div>
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            
-                            <p style="font-weight:normal; ">Please tell us</p>
-                            <p style="font-weight:normal; ">your thoughts *</p>
-                            <p style="font-weight:normal; font-style: italic">(max 1000 words)</p>
-                        </div>
-                        <div class="editor-field">
-                            <textarea class="feedbackText" cols="20" data-val="true" data-val-required="This field is required" id="FeedbackText" name="FeedbackText" rows="2" title="Feedback Text">
-</textarea>
-                            <span class="field-validation-valid" data-valmsg-for="FeedbackText" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
+                <div id="aboutusContent" class="panelContent" style="overflow: hidden; padding: 0px; width: 0px;">
                     
-                    <div class="fieldgroup clearfix">
-                        <div class="editor-label">
-                            <label for="captchadiv">Security code *</label>
-                        </div>
-                        
-                        <div class="editor-field" style="margin-left:5px;">
-                            <div id="captchadiv" class="editor-field"></div>
-                            <span class="field-validation-valid" data-valmsg-for="captcha" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div style="padding:5px; margin-top: 20px;">
-                        <p style="margin-bottom:5px;margin-left:5px;">
-                            The Department of Planning and Environment is subject to the requirements of the <span style="font-style: italic">Privacy and Personal Information Protection Act 1998 (NSW)</span>.  Under that Act you have a right to access and change personal information that we hold.  For further information please see the Department’s <a href="http://www.planning.nsw.gov.au/default.aspx?tabid=60" title="Link to privacy statement" target="privacystatement" >privacy statement</a>.
-                        </p>
-                        <button type="submit" class="ui-button">Submit</button>
-                    </div>                    
-                </div>
-</form>        </div>
-</div>
-
-
-                        </div>
-                        <div style="width:100%;">
-                            <button id="btnGotoTopFeedback" class="top" title="Back to top of page" style="margin-bottom:95px;"></button>
-                        </div>
-                    </div>
-                </div>
+                    
+                <div class="jspContainer" style="width: 0px; height: 100px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;"><div class="panelContentPage">
+                        <div style="padding: 10px;"><h1>About the Planning Viewer</h1><div style="margin-bottom: 10px;"><p style="padding: 8px 0px 8px 0px;">The Planning Viewer provides public access to the map layers for certain planning maps incorporated by reference in environmental planning instruments made under the Environmental Planning and Assessment Act 1979. The Viewer is an initiative of the New South Wales Government and is designed to help people better understand map-based planning information.</p><p style="padding: 8px 0px 8px 0px;">The Viewer enables users to search, navigate and view the map layers using standard map viewer functionality. The service is maintained by the Department of Planning and Environment.</p><p style="padding: 8px 0px 8px 0px;"><a href="http://www.planning.nsw.gov.au/eplanning" style="text-decoration:none;color: #0099ff;" target="AboutDepartment" title="Link to more information about ePlanning program">Click here for more information about the Department of Planning and Environment's ePlanning program.</a></p></div></div>
+                    </div><div style="width:100%">
+                        <button id="btnGotoTopAboutUs" class="top" title="Back to top of page"></button>
+                    </div></div></div></div>
             </div>
-            <div id="help" class="panel" style="display:none;">
-                <div class="panelContent">
-                    <h1>Help Text</h1>
-                    <div>
-                        Sourced from cache.
-This is the help text set in the database
-                    </div>
-                </div>
-            </div>
+  <!-- #include file="PlanningViewer_files/includes/feedbackForm.html" -->    
+
         </div>
     </div>
+    
 
     <div id="busy" style="display:none;">
         <img src="/images/busy.gif" alt="The application is currently busy waiting for information from the server." />
@@ -423,33 +224,24 @@ This is the help text set in the database
 
     <div id="searchHistory" class="pac-container hidden" style="left: 305px; top: 152px; width: 400px; position: absolute;">
     </div>
+    <script type="text/javascript">
+        var councilCentre = new google.maps.LatLng(-27.64288610,153.10398550);	
+        var councilBounds = new google.maps.LatLngBounds(new google.maps.LatLng(-27.5, 152.8), new google.maps.LatLng(-27.8, 153.4));
+        var parcelParameter = '';
+        var zoomLevelParameter = '';
+        var lgaParameter = '';
+        var layersParameter = '';
+        var gmeAccessToken = 'ya29.pgC6WNdYsBb5S7qFbmnEO2GuYuQyzM069paGFClOuR7axxU9qDB5XzU_';
+        var gmeAccessTokenRetrieved = new Date();
+        var gmeAccessTokenCachePeriodInMinutes = 20;
+	</script>
     
-    <script src="scripts/lgas.js" type="text/javascript"></script>
-
-    <script src="scripts/mapStyle.js" type="text/javascript"></script>
-    <script src="scripts/layerManager.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/mapStyle.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/layerManager.js" type="text/javascript"></script>
     <script src="scripts/searchManager.js" type="text/javascript"></script>
     <script src="scripts/application.js" type="text/javascript"></script>
-    <script src="scripts/GeoJSON.js" type="text/javascript"></script>
+    <script src="./PlanningViewer_files/GeoJSON.js" type="text/javascript"></script>
 
-<!--    
-    <script type="text/javascript" src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
-    <script type="text/javascript">
-
-        function showRecaptcha() {
-            $("#captchadiv").empty();
-            Recaptcha.create("6LcNYPUSAAAAAKI2UTrg6XQBC1Me214Sobr8cbbm", 'captchadiv', {
-                theme: "clean",
-            });
-        }
-
-        function sendFeedbackComplete() {
-            showRecaptcha();
-        }
-
-        showRecaptcha();
-    </script>
--->
 </body>
 
 
