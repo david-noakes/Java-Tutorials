@@ -1,4 +1,4 @@
-﻿.html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+.html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
 {
     margin: 0;
     padding: 0;
@@ -84,7 +84,7 @@ h1
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #808080;
-    background-image: url('Images/Logo2.png');
+    background-image: url('images/MyLogo.png');
     background-repeat: no-repeat;
 }
 .pageNavigation
@@ -95,7 +95,7 @@ h1
 button.search
     {
     background-position: 5px center;
-    background-image: url('Images/search.png');
+    background-image: url('images/search.png');
         cursor: pointer;
         border: 1px solid #808080;
         vertical-align: central;
@@ -129,7 +129,7 @@ button.clearSearch
     z-index: 999;
     position: absolute;
     padding-top: 12px;
-    background-image: url('Images/shareMarker.png');
+    background-image: url('images/shareMarker.png');
     background-repeat: no-repeat;
 }
 #shareOptionsStrip
@@ -361,13 +361,13 @@ button.clearSearch
     #btnToggleNavigation.openNavPanel
     {
         background-position: center center;
-        background-image: url('Images/CollapseNavigation.png');
+        background-image: url('images/CollapseNavigation.png');
         background-repeat: no-repeat;
     }
     #btnToggleNavigation.closedNavPanel
     {
         background-position: center center;
-        background-image: url('Images/ExpandNavigation.png');
+        background-image: url('images/ExpandNavigation.png');
         background-repeat: no-repeat;
     }
 .mapPin
@@ -453,7 +453,7 @@ button.clearSearch
 .stButtonContainer.active
 {
     background-position: center bottom;
-    background-image: url('Images/ActiveButtonMarker.png');
+    background-image: url('images/ActiveButtonMarker.png');
     background-repeat: no-repeat;
 }
 .stButtonContainer
@@ -631,7 +631,7 @@ button.help
     height: 25px;
     margin: 4px 4px 4px 0px;
     display:inline-block;
-    background-image: url('Images/help.png');
+    background-image: url('images/help.png');
 }
 button.toggleSection, button.toggleSearchSection
 {
@@ -1373,7 +1373,7 @@ button.locationBoxPanelToggle,  button.popupLayerToggle
 
 .adminEdit
 {
-    background-image: url('Images/adminEdit.png');
+    background-image: url('images/adminEdit.png');
     background-repeat: repeat;
     padding-left:20px;
 }
@@ -1432,7 +1432,7 @@ button.locationBoxPanelToggle,  button.popupLayerToggle
     padding: 8px 5px 5px 25px;
     background-position: left center;
     font-weight: 500;
-    background-image: url('Images/details_grey.png');
+    background-image: url('images/details_grey.png');
     background-repeat: no-repeat;
     width: auto;
     float: left;
@@ -1481,7 +1481,7 @@ button.locationBoxPanelToggle,  button.popupLayerToggle
 }
 .ui-icon
 {
-    background-image:url('Images/ui-icons_888888_256x240.png') !important;
+    background-image:url('images/ui-icons_888888_256x240.png') !important;
 }
 .ui-dialog-titlebar-close
 {
