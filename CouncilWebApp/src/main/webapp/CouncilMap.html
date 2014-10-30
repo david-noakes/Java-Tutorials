@@ -8,33 +8,79 @@
       #map-canvas { height: 100% ; width: 100%}
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU9TItKDu_e344nNW-UEfweyAM6nlLMrc">
+    <!--  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU9TItKDu_e344nNW-UEfweyAM6nlLMrc">  -->
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwMIW6mBJ_ZQNUL4OL042jGjVKjA0-9w&libraries=places,drawing">
     </script>
     <script type="text/javascript">
 var geocoder;
 var map;
+var brisbaneLatLng;
+var councilCentre;
+var councilBounds;
+var councilMarker;
+
 function initialize()
 {
     geocoder = new google.maps.Geocoder();
-    var brisbaneLatLng = new google.maps.LatLng(-27.4775067,153.0281366);
-
-    map = new google.maps.Map(document.getElementById("map-canvas"),
+    brisbaneLatLng = new google.maps.LatLng(-27.4775067,153.0281366);
+	councilCentre = new google.maps.LatLng(-27.64288610,153.10398550);
+	councilBounds = new google.maps.LatLngBounds(new google.maps.LatLng(-27.5, 152.8), new google.maps.LatLng(-27.8, 153.4));
+	councilMarker = new google.maps.Marker(
+            {
+                position: councilCentre,
+		        title: 'Logan Council, 150 Wembley Road, Logan Central Qld 4141'
+            });
+	// we set defaults. Now try for the real thing
+	var sAddress = 'Logan Council, 150 Wembley Road, Logan Central Qld 4141';
+    geocoder.geocode( { 'address': sAddress}, function(results, status)
     {
-        zoom: 13,
-        center: brisbaneLatLng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+        if (status == google.maps.GeocoderStatus.OK)
+        {
+			councilCentre = new google.maps.LatLng(results[0].geometry.location);
+			var northEast = new google.maps.LatLng(councilCentre.lat+0.15, councilCentre.lng-0.3);
+			var southWest = new google.maps.LatLng(councilCentre.lat-0.15, councilCentre.lng+0.3);
+			councilBounds = new google.maps.LatLngBounds(northEast, southWest);
+            councilMarker = new google.maps.Marker(
+            {
+                position: councilCentre,
+				title: results[0].formatted_address
+            });
+		}
+	});
+	if (councilCentre != null) {
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+        {
+            zoom: 13,
+            center: councilCentre,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+	} else {
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+        {
+            zoom: 13,
+            center: brisbaneLatLng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+	}
+    councilMarker.setMap(map);
+	map.fitBounds(councilBounds);
 }
 
 function codeAddress()
 {
     var address = document.getElementById("address").value;
+    var bounds = map.getBounds();
     geocoder.geocode( { 'address': address}, function(results, status)
     {
         if (status == google.maps.GeocoderStatus.OK)
         {
 		   for (var i=0;i<results.length;i++) {
             map.setCenter(results[i].geometry.location);
+			//var lat = results[i].geometry.location.B;
+			//var lng = results[i].geometry.location.k;
+			//var point = new google.maps.LatLng(lat, lng); // this ends up with an invalid point
+			//bounds.extend(point);                         // this will cause an exception for fitbounds
+			bounds.extend(results[i].geometry.location);   
             var marker = new google.maps.Marker(
             {
                 map: map,
@@ -42,6 +88,7 @@ function codeAddress()
 				title: results[i].formatted_address
             });
 			}
+			//map.fitBounds(bounds);   // this keeps zooming out each time it is called.
         }
         else
         {
