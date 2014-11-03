@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Scroll Panels</title>
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Scroll Panels</h1>
+<p>
+You usually use p:scrollPanel so that you get theme-aware scrollbars.
+But, you can use native browser scrollbars if you want, although if so,
+there is less reason to use p:scrollPanel instead of normal CSS with "overflow: scroll" 
+or "overflow: auto".
+</p>
+<p:accordionPanel dynamic="true" cache="false">
+<p:tab title="Theme-Aware Scrollbars (Normal Usage)">
+<p:scrollPanel style="width: 500px; height: 350px">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:scrollPanel>
+</p:tab>
+<p:tab title="Native Browser Scrollbars (Rare)">
+<p:scrollPanel mode="native" 
+               style="width: 500px; height: 350px">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:scrollPanel>
+</p:tab>
+</p:accordionPanel>
+</h:body></html>

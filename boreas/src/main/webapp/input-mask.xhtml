@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:inputMask</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">p:inputMask</h1>
+<br/>
+<p:fieldset legend="Enter Info">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  Phone:
+  <p:inputMask mask="(999) 999-9999"
+               value="#{maskBean.phone}"
+               required="true" id="phone"
+               requiredMessage="Missing or incomplete phone number"/>
+  <p:message for="phone"/>
+  
+  Phone with Ext:
+  <p:inputMask mask="(999) 999-9999 x999"
+               value="#{maskBean.phoneWithExt}"
+               required="true" id="phoneWithExt"
+               requiredMessage="Missing or incomplete phone number with extension"/>
+  <p:message for="phoneWithExt"/>
+  
+  SSN:
+  <p:inputMask mask="999-99-9999"
+               value="#{maskBean.ssn}"
+               required="true" id="ssn"
+               requiredMessage="Missing or incomplete social security number"/>
+  <p:message for="ssn"/>
+  
+  Product Key: 
+  <p:inputMask mask="aaa-999-a999"
+               value="#{maskBean.productKey}"
+               required="true" id="productKey"
+               requiredMessage="Missing or incomplete product key"/>
+  <p:message for="productKey"/>
+  
+  License Plate: 
+  <p:inputMask mask="*****"
+               value="#{maskBean.license}"
+               required="true" id="license"
+               requiredMessage="Missing or incomplete license plate"/>
+  <p:message for="license"/>
+  
+  Free-text message:
+  <p:inputText value="#{maskBean.message1}"
+               required="true" id="message1" 
+               requiredMessage="Missing message"/>
+  <p:message for="message1"/>
+  
+  Free-text message:
+  <h:inputText value="#{maskBean.message2}" 
+               required="true" id="message2" 
+               requiredMessage="Missing message"/>
+  <p:message for="message2"/>
+</h:panelGrid>
+  <p:commandButton action="#{maskBean.register}" 
+                   value="Register" ajax="false"/>
+</h:form>
+</p:fieldset>
+</h:body></html>

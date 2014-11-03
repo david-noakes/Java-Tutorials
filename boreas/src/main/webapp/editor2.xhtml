@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Version with p:message</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Version with p:message</h1>
+<br/>
+<p:fieldset legend="Message for Customer Service">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  Message:
+  <p:editor value="#{primeMessageBean.message}"
+            required="true" id="message"
+            requiredMessage="Message cannot be empty"/>
+  <p:message for="message"/>
+  Email address:
+  <p:inputText value="#{primeMessageBean.emailAddress}"
+               required="true" id="email"
+               requiredMessage="Email address required"/>
+  <p:message for="email"/>
+</h:panelGrid>
+<p:commandButton action="#{primeMessageBean.showMessage}"
+                 value="Send to Customer Support" ajax="false"/>
+</h:form>
+</p:fieldset>
+</h:body></html>

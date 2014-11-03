@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Dashboard</title>
+<style>
+.ui-growl {
+  right: 50px;
+  top: 150px;
+}
+</style>
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Dashboard</h1>
+<br/>
+<p:accordionPanel>
+<p:tab title="Basic Version">
+<p:dashboard model="#{dashboardBean.model}">  
+  <ui:include src="snippets/dashboard-panels.xhtml"/>
+</p:dashboard> 
+</p:tab>
+<p:tab title="Version with Ajax Reorder Listener">
+<h:form>
+<p:dashboard model="#{dashboardBean.model}">
+  <p:ajax event="reorder" 
+          listener="#{dashboardBean.handleReorder}" 
+          update="growl"/> 
+  <ui:include src="snippets/dashboard-panels.xhtml"/>
+</p:dashboard>
+<p:growl id="growl"/>  
+</h:form>
+</p:tab>
+</p:accordionPanel>
+</h:body></html>

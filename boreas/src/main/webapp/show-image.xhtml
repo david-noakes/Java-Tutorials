@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:inplace</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">p:inplace</h1>
+<br/>
+<p:fieldset legend="Basic Version">
+<h:form>
+<h:panelGrid columns="2" class="formTable">
+  Foreground:
+  <p:inplace>
+    <p:inputText value="#{colorPreferences.foreground}"/>
+  </p:inplace>
+  Background:
+  <p:inplace>
+    <p:inputText value="#{colorPreferences.background}"/>
+  </p:inplace>
+</h:panelGrid>
+<p:commandButton action="#{colorPreferences.showSample}"  
+                 value="Show Sample" ajax="false"/>
+</h:form>
+</p:fieldset>
+<br/>
+<p:fieldset legend="Custom Labels">
+<h:form>
+  <p:inplace label="Foreground (#{colorPreferences.foreground})">
+    <p:colorPicker value="#{colorPreferences.foreground}"/>
+    <p:commandButton action="#{colorPreferences.showSample}"  
+                     value="Show Sample" ajax="false"/>
+  </p:inplace><br/>
+  <p:inplace label="Background (#{colorPreferences.background})">
+    <p:colorPicker value="#{colorPreferences.background}"/>
+    <p:commandButton action="#{colorPreferences.showSample}"  
+                     value="Show Sample" ajax="false"/>
+  </p:inplace>
+</h:form>
+</p:fieldset>
+<br/>
+<p:fieldset legend="Editor (for Toggling)">
+<h:form>
+Image: (click to display)
+<p:inplace label="Random Internet Cafe" editor="true">
+  <h:graphicImage url="#{imageBean.randomImage}"/>
+</p:inplace>
+</h:form>
+</p:fieldset>
+</h:body></html>

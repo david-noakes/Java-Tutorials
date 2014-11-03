@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+    <param-value>6LeE69gSAAAAAI__wLa6oufvqX5xmU0UKN5xk5mM</param-value>
+  </context-param>
+  <context-param>
+    <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+    <param-value>6LeE69gSAAAAABh0W9bF3ktMawpZowjqPGrgAJU1</param-value>
+  </context-param>
 </web-app>

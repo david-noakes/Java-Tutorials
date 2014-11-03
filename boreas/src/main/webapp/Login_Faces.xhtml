@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:password</title>
+<link href="resources/css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">
+p:password</h1>
+<br/>
+<p:fieldset legend="Password with Standard Feedback">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  First name:
+  <p:inputText value="#{registrationBean.firstName}"
+               required="true" id="firstName"
+               requiredMessage="First name required"/>
+  <p:message for="firstName"/>
+  
+  Last name:
+  <p:inputText value="#{registrationBean.lastName}"
+               required="true" id="lastName"
+               requiredMessage="Last name required"/>
+  <p:message for="lastName"/>
+  
+  Email address:
+  <p:inputText value="#{registrationBean.emailAddress}"
+               required="true" id="emailAddress"
+               requiredMessage="Email address required"/>
+  <p:message for="emailAddress"/>
+
+  Password:
+  <p:password value="#{registrationBean.password}"
+              feedback="true"
+              id="password1"
+              required="true"
+              requiredMessage="Password required"
+              validatorMessage="Password must be 4 or more chars.">
+    <f:validateLength minimum="4"/>
+  </p:password>
+  <p:message for="password1"/> 
+</h:panelGrid>
+<p:commandButton action="#{registrationBean.register2}"
+                 value="Register" ajax="false"/>
+</h:form>
+</p:fieldset>
+<br/>
+<p:fieldset legend="Login form with custom password feedback">
+<h:form>
+      <h:outputText value="#{userData.getMessage()}" rendered="#{!userData.isLoginValid()}" style="color:red"></h:outputText>
+<h:panelGrid columns="3" class="formTable">
+
+  User name:
+  <p:inputText value="#{userData.name}"
+               required="true" id="userName"
+               requiredMessage="User name required"/>
+  <p:message for="userName"/>
+  
+  Password:
+  <p:password value="#{userData.password}"
+              feedback="true"
+              promptLabel="Choose a password"
+              weakLabel="Weak - easily cracked."
+              goodLabel="OK, but can be cracked."
+              strongLabel="Good: hard to crack."
+              id="password2"
+              required="true"
+              requiredMessage="Password required"
+              validatorMessage="Password must be 1 or more chars.">
+    <f:validateLength minimum="1"/>
+  </p:password>
+  <p:message for="password2"/> 
+</h:panelGrid>
+<p:commandButton action="#{userData.login}"
+                 value="Login" ajax="false"/>
+</h:form>
+</p:fieldset>
+</h:body>
+</html>

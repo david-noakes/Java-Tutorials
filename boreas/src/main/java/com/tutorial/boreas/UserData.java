@@ -89,7 +89,7 @@ public class UserData implements Serializable {
            }
            loggedIn = false;
            loginValid = false;
-           return LOGIN_PAGE;
+           return ""; //LOGIN_PAGE;
        }
    }    
    public String logout() {
@@ -99,7 +99,7 @@ public class UserData implements Serializable {
        loggedIn = false;
        loginValid = true;
        session.put(SessionData.USERNAME, name);
-       return LOGIN_PAGE;
+       return ""; //LOGIN_PAGE;
    }
 
    public boolean isLoggedIn() {

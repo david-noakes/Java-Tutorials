@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:autoComplete</title>
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">p:autoComplete 3</h1>
+<br/>
+<p:fieldset legend="Autocompleter with Multiple Selection (and Ajax?)">
+<h:form>
+   <h2>Choose a Programming Language</h2>
+   Only entries from the suggestions are allowed.
+   <p:messages id="messages"/>
+   <p:autoComplete value="#{languageBean.languages}"
+                   completeMethod="#{languageBean.completeLanguage}"
+                   required="true"
+                   requiredMessage="You must choose a language"
+                   multiple="true">
+     <p:ajax event="itemSelect" 
+             listener="#{languageBean.selectListener}" 
+             update="messages"/>
+     <p:ajax event="itemUnselect" 
+             listener="#{languageBean.unselectListener}" 
+             update="messages"/>
+   </p:autoComplete>
+   <p:commandButton action="#{languageBean.register2}" 
+                    value="Submit" ajax="false"/>
+</h:form>
+</p:fieldset>
+</h:body></html>

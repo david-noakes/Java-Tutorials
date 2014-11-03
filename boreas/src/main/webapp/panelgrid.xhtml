@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Tables with p:panelGrid</title>
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">Tables with p:panelGrid</h1>
+<br/>
+<p:accordionPanel activeIndex="-1">
+
+<p:tab title="Basics">
+<p:panelGrid columns="2">
+  <f:facet name="header">Minor Stocks</f:facet>
+  Google
+  <h:outputText value="#{financeBean.google}"/>
+  Facebook
+  <h:outputText value="#{financeBean.facebook}"/>
+  Oracle
+  <h:outputText value="#{financeBean.oracle}"/>
+</p:panelGrid>
+</p:tab>
+
+<p:tab title="colspan">
+<h:form>
+<p:panelGrid>
+  <f:facet name="header">
+    <p:row>
+      <p:column colspan="2">Mailing List Signup</p:column>
+    </p:row>
+  </f:facet>
+  <p:row>
+    <p:column>Name:</p:column>
+    <p:column><p:inputText/></p:column>
+  </p:row>
+  <p:row>
+    <p:column>Email:</p:column>
+    <p:column><p:inputText/></p:column>
+  </p:row>
+  <p:row>
+    <p:column colspan="2" style="text-align: center">
+      <p:commandButton value="Sign Up"/>
+    </p:column>
+  </p:row>
+</p:panelGrid>
+</h:form>
+</p:tab>
+
+<p:tab title="rowspan">
+<p:panelGrid>
+  <f:facet name="header">
+    <p:row>
+      <p:column colspan="3">2013 Sales</p:column>
+    </p:row>
+  </f:facet>
+  <p:row>
+    <p:column rowspan="2"><h2>Q1</h2></p:column>
+    <p:column>Apples</p:column>
+    <p:column>$123.45</p:column>
+  </p:row>
+  <p:row>
+    <p:column>Oranges</p:column>
+    <p:column>$678.90</p:column>
+  </p:row>
+  <p:row>
+    <p:column rowspan="2"><h2>Q2</h2></p:column>
+    <p:column>Apples</p:column>
+    <p:column>$456.78</p:column>
+  </p:row>
+  <p:row>
+    <p:column>Oranges</p:column>
+    <p:column>$345.67</p:column>
+  </p:row>
+</p:panelGrid>
+</p:tab>
+
+</p:accordionPanel>
+</h:body></html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:captcha</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">p:captcha</h1>
+<br/>
+<p:fieldset legend="Captcha with Validation">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  First name:
+  <p:inputText value="#{registrationBean.firstName}"
+               required="true" id="firstName"
+               requiredMessage="First name required"/>
+  <p:message for="firstName"/>
+  
+  Last name:
+  <p:inputText value="#{registrationBean.lastName}"
+               required="true" id="lastName"
+               requiredMessage="Last name required"/>
+  <p:message for="lastName"/>
+  
+  Email address:
+  <p:inputText value="#{registrationBean.emailAddress}"
+               required="true" id="emailAddress"
+               requiredMessage="Email address required"/>
+  <p:message for="emailAddress"/>
+  Captcha:
+  <p:captcha id="captcha"
+             required="true"
+             requiredMessage="Captcha entries required"
+             validatorMessage="Text does not match. Try again."/>
+  <p:message for="captcha"/> 
+</h:panelGrid>
+<p:commandButton action="#{registrationBean.register1}"
+                 value="Register" ajax="false"/>
+</h:form>
+</p:fieldset>
+
+</h:body></html>

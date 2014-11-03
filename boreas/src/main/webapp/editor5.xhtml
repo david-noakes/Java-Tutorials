@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Version with p:dialog</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Version with p:dialog</h1>
+<br/>
+<p:fieldset legend="Message for Customer Service">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  Message:
+  <p:editor value="#{primeMessageBean.message}" id="message"/>
+  <p:tooltip for="message" 
+             value="Formatted message for customer service"/>
+  
+  Email address:
+  <p:inputText value="#{primeMessageBean.emailAddress}" id="email"/>
+  <p:tooltip for="email" value="The address for replies"/>
+</h:panelGrid>
+<p:commandButton action="#{primeMessageBean.showMessage2}"
+                 update="messageResult emailResult"
+                 id="button"
+                 value="Send to Customer Support"
+                 onsuccess="dlg.show()"/>
+<p:tooltip for="button" value="Expect reply within 24 hours."/>
+<p:dialog header="Customer Support Message" widgetVar="dlg">
+  <p>Message that was sent to customer support:</p>
+  <hr/>
+  <div style="font-size: 120%">
+  <h:outputText value="#{primeMessageBean.message}" 
+                id="messageResult" escape="false"/>
+  </div>
+  <hr/>
+  <p>Replies will be sent to 
+  <h:outputText value="#{primeMessageBean.emailAddress}" 
+                id="emailResult"/></p>
+</p:dialog>
+</h:form>
+</p:fieldset>
+</h:body></html>

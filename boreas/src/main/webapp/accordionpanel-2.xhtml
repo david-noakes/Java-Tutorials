@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Accordion Panels (Lazy Loading)</title>
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">
+Accordion Panels (Lazy Loading)</h1>
+<p>
+In this version, by using &lt;p:accordionPanel <b>dynamic="true"</b>&gt;, only the content of the first section is loaded at the beginning, and
+the content of the others section is loaded via Ajax only when the associated header
+is first clicked. Content is cached, so opening and closing a section will not change
+its content.
+</p>
+<p:accordionPanel dynamic="true">
+<p:tab title="Sports">
+  <ui:include src="/snippets/sports.xhtml"/>
+</p:tab>
+<p:tab title="Finance">
+  <ui:include src="/snippets/finance.xhtml"/>
+</p:tab>
+<p:tab title="News">
+  <ui:include src="/snippets/news.xhtml"/>
+</p:tab>
+<p:tab title="Weather">
+  <ui:include src="/snippets/weather.xhtml"/>
+</p:tab>
+<p:tab title="Cafe-of-the-Day">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:tab>
+</p:accordionPanel>
+</h:body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>p:autoComplete</title>
+    <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">
+p:autoComplete</h1>
+<br/>
+<p:fieldset legend="Autocompleter with Selection Options">
+<h:form>
+   <h2>Choose a Programming Language</h2>
+   You can enter your own choices in addition to choosing
+   from the suggestion list.
+   <p:messages/>
+   <p:autoComplete value="#{languageBean.language}"
+                   completeMethod="#{languageBean.completeLanguage}"
+                   minQueryLength="2"
+                   queryDelay="1000"
+                   required="true"
+                   requiredMessage="You must choose a language"/>
+   <p:commandButton action="#{languageBean.register}" 
+                    value="Submit" ajax="false"/>
+</h:form>
+</p:fieldset>
+</h:body></html>

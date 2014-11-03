@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Version with p:confirmDialog</title>
+<link href="./css/extra-styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Version with p:confirmDialog</h1>
+<br/>
+<p:fieldset legend="Message for Customer Service">
+<h:form>
+<h:panelGrid columns="3" class="formTable">
+  Message:
+  <p:editor value="#{primeMessageBean.message}" id="message"/>
+  <p:tooltip for="message" value="Formatted message for customer service"/>
+  
+  Email address:
+  <p:inputText value="#{primeMessageBean.emailAddress}" id="email"/>
+  <p:tooltip for="email" value="The address for replies"/>
+</h:panelGrid>
+<p:commandButton update="messageResult"
+                 id="button"
+                 value="Preview"
+                 onsuccess="confirmation.show()"/>
+<p:tooltip for="button" value="Expect reply within 24 hours."/>
+
+<p:confirmDialog header="Review and Confirm" 
+                 message="Verify message below, then send or cancel"
+                 severity="info"
+                 widgetVar="confirmation">
+  <h:outputText value="#{primeMessageBean.confirmDialogMessage}" 
+                id="messageResult" escape="false"/>
+  <br/>
+  <p:commandButton value="Send" 
+                   action="#{primeMessageBean.showMessage3}"
+                   oncomplete="confirmation.hide(); dlg1.show()"/>
+  <p:commandButton value="Cancel" 
+                   onclick="confirmation.hide(); dlg2.show()" />
+</p:confirmDialog>
+<p:dialog header="Customer Support Message" widgetVar="dlg1">
+  <h2>Message sent</h2>
+</p:dialog>
+<p:dialog header="Customer Support Message" widgetVar="dlg2">
+  <h2>Message cancelled</h2>
+</p:dialog>
+</h:form>
+</p:fieldset>
+</h:body></html>

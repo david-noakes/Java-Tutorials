@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Tabbed Panels</title>
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">Tabbed Panels</h1>
+<br/>
+<p:accordionPanel>
+
+<p:tab title="Static Content">
+<p:tabView>
+<p:tab title="Sports">
+  <ui:include src="/snippets/sports.xhtml"/>
+</p:tab>
+<p:tab title="Finance">
+  <ui:include src="/snippets/finance.xhtml"/>
+</p:tab>
+<p:tab title="News">
+  <ui:include src="/snippets/news.xhtml"/>
+</p:tab>
+<p:tab title="Weather">
+  <ui:include src="/snippets/weather.xhtml"/>
+</p:tab>
+<p:tab title="Cafe-of-the-Day">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:tab>
+</p:tabView>
+</p:tab>
+
+<p:tab title="Lazy Loading (Cached)">
+<p:tabView dynamic="true">
+<p:tab title="Sports">
+  <ui:include src="/snippets/sports.xhtml"/>
+</p:tab>
+<p:tab title="Finance">
+  <ui:include src="/snippets/finance.xhtml"/>
+</p:tab>
+<p:tab title="News">
+  <ui:include src="/snippets/news.xhtml"/>
+</p:tab>
+<p:tab title="Weather">
+  <ui:include src="/snippets/weather.xhtml"/>
+</p:tab>
+<p:tab title="Cafe-of-the-Day">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:tab>
+</p:tabView>
+</p:tab>
+
+<p:tab title="Dynamic Content (Lazy/Ajax Loading with no Caching)">
+<p:tabView dynamic="true" cache="false">
+<p:tab title="Sports">
+  <ui:include src="/snippets/sports.xhtml"/>
+</p:tab>
+<p:tab title="Finance">
+  <ui:include src="/snippets/finance.xhtml"/>
+</p:tab>
+<p:tab title="News">
+  <ui:include src="/snippets/news.xhtml"/>
+</p:tab>
+<p:tab title="Weather">
+  <ui:include src="/snippets/weather.xhtml"/>
+</p:tab>
+<p:tab title="Cafe-of-the-Day">
+  <ui:include src="/snippets/cafe.xhtml"/>
+</p:tab>
+</p:tabView>
+</p:tab>
+
+</p:accordionPanel>
+</h:body></html>
