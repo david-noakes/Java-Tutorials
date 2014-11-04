@@ -44,6 +44,7 @@ public class UserData implements Serializable {
    private byte[] keyBytes =  new byte [] {78, (byte) 166, 42, 70, (byte) 251, 20, (byte) 142, 103, (byte) 157, (byte) 231, 76, 95, (byte) 171, 94, 57, 54};
    private String rubbish;
    
+   @ManagedProperty("#{param.myTheme}")
    private String myTheme = "bluesky";
 
    private SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");

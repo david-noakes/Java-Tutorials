@@ -67,7 +67,7 @@ public class MultiThreadWorker  implements Runnable {
                         Thread.sleep(sleepAdj);
                     } else if (deltaT < almost1Second) { // less than a second has elapsed
                         sleepTime = 1000 - deltaT - sleepAdj;
-                        if (sleepTime < 0) {
+                        if (sleepTime <= 0) {
                             sleepTime = smallSleepTime;
                         }
 	            		System.out.println("Thread: " + threadName + ", Qlen = " + getQLength() + ", sleeping for " + sleepTime);

@@ -19,8 +19,10 @@ public class SmartThemeChoices {
       try {
         SessionData session = SessionData.getInstance();
         String currentTheme = (String) session.get("theme");
-        themes.remove(currentTheme);
-        themes.add(0, currentTheme);
+        if (currentTheme != null && currentTheme.trim().length() > 0) {
+	        themes.remove(currentTheme);
+	        themes.add(0, currentTheme);
+        }
     } catch (SQLException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();

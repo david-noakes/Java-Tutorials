@@ -15,10 +15,13 @@ Themes: Looking Up Current Theme</h1>
 <div align="center">
 <h:form>
 <h:panelGrid columns="2">
-Choose a theme:
-<p:themeSwitcher> 
-  <f:selectItems value="#{smartThemeChoices.themes}" />  
-  <p:ajax listener="#{userData.myTheme}" ></p:ajax>
+
+<p:themeSwitcher value="#{userData.myTheme}"> 
+  <f:selectItem itemLabel="Choose a theme:" itemValue="" />
+  <f:selectItems value="#{smartThemeChoices.themes}" var="theme" itemValue="#{theme}"/>  
+  <f:param name="myTheme" value="#{theme}" /> <!-- do we need this -->
+  
+  <p:ajax listener="#{userData.myTheme}" />   <!-- should this be userData.saveTheme ? -->
 </p:themeSwitcher> 
 </h:panelGrid>
 </h:form>
