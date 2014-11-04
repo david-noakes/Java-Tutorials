@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Themes: Common CSS Selector Classes</title>
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">
+Themes: Common CSS Selector Classes</h1>
+<br/>
+<div align="center">
+<h:form>
+<h:panelGrid columns="2">
+Choose a theme:
+<p:themeSwitcher> 
+  <f:selectItems value="#{smartThemeChoices.themes}" />  
+</p:themeSwitcher> 
+</h:panelGrid>
+</h:form>
+</div>
+
+<h1 class="ui-widget-header ui-corner-all">h1 class="ui-widget-header ui-corner-all"</h1>
+
+<h1 class="ui-widget-header">h1 class="ui-widget-header"</h1>
+
+<p class="ui-widget-header ui-corner-all">p class="ui-widget-header ui-corner-all"</p>
+
+<p class="ui-widget-header">p class="ui-widget-header"</p>
+
+<h1 class="ui-widget-content">h1 class="ui-widget-content"</h1>
+
+<p class="ui-widget-content" align="center">
+p class="ui-widget-content"</p>
+
+<h1 class="ui-state-highlight">h1 class="ui-state-highlight"</h1>
+
+<h1 class="ui-state-disabled">h1 class="ui-state-disabled"</h1>
+
+<h:form>
+  <p:commandButton value="ui-state-default" styleClass="ui-state-default"/>
+  <p:commandButton value="ui-state-hover" styleClass="ui-state-hover"/>
+  <p:commandButton value="ui-state-active" styleClass="ui-state-active"/>
+</h:form>
+</h:body></html>

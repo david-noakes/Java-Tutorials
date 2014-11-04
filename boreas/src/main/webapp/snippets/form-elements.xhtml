@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+<h:panelGrid>
+<h3 align="center">Form Elements</h3>
+<h:form>
+<h:panelGrid columns="2">
+Textfield: <p:inputText/>
+Spinner: <p:spinner/>
+Slider: <h:panelGroup>
+          <p:inputText id="sliderField"/>
+          <p:slider for="sliderField"/>
+        </h:panelGroup>
+Radio: <p:selectOneRadio>
+         <f:selectItem itemLabel="One"/>
+         <f:selectItem itemLabel="Two"/>
+         <f:selectItem itemLabel="Three"/>
+       </p:selectOneRadio>
+Checkbox: <p:selectManyCheckbox>
+            <f:selectItem itemLabel="One"/>
+            <f:selectItem itemLabel="Two"/>
+            <f:selectItem itemLabel="Three"/>
+          </p:selectManyCheckbox>
+</h:panelGrid>
+</h:form>
+</h:panelGrid>
+</ui:composition>

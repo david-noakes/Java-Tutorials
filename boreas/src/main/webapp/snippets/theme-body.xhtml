@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+<p:accordionPanel>
+
+<p:tab title="Sample Elements">
+<p:tabView>
+<p:tab title="Main Tab">
+<h:panelGrid columns="4">
+  <ui:include src="/snippets/calendar.xhtml"/>
+  <ui:include src="/snippets/table-and-panel.xhtml"/>
+  <ui:include src="/snippets/form-elements.xhtml"/>
+  <ui:include src="/snippets/popups.xhtml"/>
+</h:panelGrid>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+</p:tabView>
+</p:tab>
+
+<p:tab title="More Content">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More Content">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More Content">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+<p:tab title="More Content">
+  <ui:include src="/snippets/filler.xhtml"/>
+</p:tab>
+
+</p:accordionPanel>
+</ui:composition>

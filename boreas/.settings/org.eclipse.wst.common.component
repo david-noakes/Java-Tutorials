@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/boreas/classes"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/resources" source-path="/src/main/resources"/>
     <dependent-module archiveName="jsf-api-2.1.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/sun/faces/jsf-api/2.1.7/jsf-api-2.1.7.jar">
@@ -14,8 +15,11 @@
     <dependent-module archiveName="jsf-impl-2.1.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/sun/faces/jsf-impl/2.1.7/jsf-impl-2.1.7.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-        <dependent-module archiveName="primefaces-5.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/primefaces/primefaces/5.0/primefaces-5.0.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
+    <dependent-module archiveName="primefaces-5.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/primefaces/primefaces/5.0/primefaces-5.0.jar">
+        <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="all-themes-1.0.10.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.jar">
+        <dependency-type>uses</dependency-type>
+    </dependent-module>
   </wb-module>
 </project-modules>

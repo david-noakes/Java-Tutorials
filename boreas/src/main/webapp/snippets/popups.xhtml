@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+<h:panelGrid>
+<h3 align="center">Popups<br/>(and Buttons)</h3>
+<h:form>
+<div align="center">
+<p:commandButton value="Growl" 
+                 action="#{growlBean.makeMessages}"
+                 update="growl"/>
+<p:growl id="growl"/>
+<br/><br/>
+<p:dialog header="Dialog Title" widgetVar="dlg">
+Blah, blah, blah.<br/>
+Yadda, yadda, yadda.<br/>
+Foo, bar, baz.
+</p:dialog>
+<p:commandButton value="Dialog" onclick="dlg.show()"/>
+<br/><br/>
+<p:commandButton value="Confirm Dialog" onclick="confirmation.show()"/>
+<p:confirmDialog header="Please Confirm" 
+                 message="Are You Sure?"
+                 severity="info"
+                 widgetVar="confirmation">
+    <p:commandButton value="Yes" onclick="confirmation.hide()"/>
+    <p:commandButton value="No" onclick="confirmation.hide()"/>
+</p:confirmDialog>
+</div>
+</h:form>
+</h:panelGrid>
+</ui:composition>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Changing Themes at Runtime withOUT p:themeSwitcher</title>
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">
+Changing Themes at Runtime withOUT p:themeSwitcher</h1>
+<br/>
+<div align="center">
+<h:form>
+<h:panelGrid columns="4">
+<p:commandButton value="Light Theme" 
+                 onclick="PrimeFaces.changeTheme('glass-x')"/>
+<p:commandButton value="Med-Light Theme" 
+                 onclick="PrimeFaces.changeTheme('sunny')"/>
+<p:commandButton value="Med-Dark Theme" 
+                 onclick="PrimeFaces.changeTheme('overcast')"/>
+<p:commandButton value="Dark Theme" 
+                 onclick="PrimeFaces.changeTheme('midnight')"/>
+</h:panelGrid>
+</h:form>
+</div>
+
+<ui:include src="/snippets/theme-body.xhtml"/>
+
+</h:body></html>

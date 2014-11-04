@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head><title>Themes: Looking Up Current Theme</title>
+</h:head>
+<h:body>
+
+<h1 class="ui-widget-header ui-corner-all" align="center">
+Themes: Looking Up Current Theme</h1>
+<br/>
+<div align="center">
+<h:form>
+<h:panelGrid columns="2">
+Choose a theme:
+<p:themeSwitcher> 
+  <f:selectItems value="#{smartThemeChoices.themes}" />  
+</p:themeSwitcher> 
+</h:panelGrid>
+</h:form>
+</div>
+
+<ui:include src="/snippets/theme-body.xhtml"/>
+
+</h:body></html>

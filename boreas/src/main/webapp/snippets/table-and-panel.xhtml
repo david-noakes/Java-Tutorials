@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+<h:panelGrid>
+<h3 align="center">Table and Panel</h3>
+<p:panelGrid columns="2">
+  <f:facet name="header">Major Stocks</f:facet>
+  coreservlets
+  <h:outputText value="#{financeBean.coreservlets}"/>
+  Prime
+  <h:outputText value="#{financeBean.prime}"/>
+</p:panelGrid>
+<br/>
+<p:panel header="Weather">  
+  Weather info...   
+</p:panel>  
+</h:panelGrid>
+</ui:composition>
