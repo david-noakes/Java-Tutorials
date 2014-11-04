@@ -18,6 +18,7 @@ Themes: Looking Up Current Theme</h1>
 Choose a theme:
 <p:themeSwitcher> 
   <f:selectItems value="#{smartThemeChoices.themes}" />  
+  <p:ajax listener="#{userData.myTheme}" ></p:ajax>
 </p:themeSwitcher> 
 </h:panelGrid>
 </h:form>

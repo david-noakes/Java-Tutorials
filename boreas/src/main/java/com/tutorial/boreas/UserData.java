@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.TimeZone;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import java.security.InvalidAlgorithmParameterException;
@@ -42,6 +43,8 @@ public class UserData implements Serializable {
    private String message = "";
    private byte[] keyBytes =  new byte [] {78, (byte) 166, 42, 70, (byte) 251, 20, (byte) 142, 103, (byte) 157, (byte) 231, 76, 95, (byte) 171, 94, 57, 54};
    private String rubbish;
+   
+   private String myTheme = "bluesky";
 
    private SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
  
@@ -69,6 +72,14 @@ public class UserData implements Serializable {
    public void setMessage(String message) {
        this.message = message;
    }
+   public String getMyTheme() {
+    return myTheme;
+   }
+   public void setMyTheme(String myTheme) {
+    this.myTheme = myTheme;
+    session.put("theme", this.myTheme);
+   }
+   
    public String login(){
        System.out.println("Login: ["+name+"|"+password+"]");
        if (name.length()>0 && validUidPwd(name, password)) {
@@ -77,6 +88,7 @@ public class UserData implements Serializable {
            EmployeeData eData = new EmployeeData();
            EmployeeDTO eDTO = eData.fetchEmpByUid(name);
            session.put(SessionData.USER_EMPLOYEE, eDTO);
+           session.put("theme", myTheme);
            return MAIN_PAGE;
        } else {
            session.put(SessionData.USERNAME, "");
@@ -91,6 +103,7 @@ public class UserData implements Serializable {
            loginValid = false;
            return ""; //LOGIN_PAGE;
        }
+       
    }    
    public String logout() {
        name = "";
