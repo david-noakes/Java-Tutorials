@@ -4,10 +4,23 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+ 
+  <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>bluesky</param-value>
+  </context-param>
+<!-- 
   <context-param>
     <param-name>primefaces.THEME</param-name>
     <param-value>cupertino</param-value>
   </context-param>
+ -->  
+<!--   
+  <context-param>
+	<param-name>primefaces.THEME</param-name>
+	<param-value>#{loggedInUser.preferences.theme}</param-value>
+  </context-param>
+ -->  
   <context-param>
     <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
     <param-value>6LeE69gSAAAAAI__wLa6oufvqX5xmU0UKN5xk5mM</param-value>

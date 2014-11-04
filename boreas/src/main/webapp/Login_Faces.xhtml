@@ -12,42 +12,6 @@
 <h1 class="ui-widget-header ui-corner-all" align="center">
 p:password</h1>
 <br/>
-<p:fieldset legend="Password with Standard Feedback">
-<h:form>
-<h:panelGrid columns="3" class="formTable">
-  First name:
-  <p:inputText value="#{registrationBean.firstName}"
-               required="true" id="firstName"
-               requiredMessage="First name required"/>
-  <p:message for="firstName"/>
-  
-  Last name:
-  <p:inputText value="#{registrationBean.lastName}"
-               required="true" id="lastName"
-               requiredMessage="Last name required"/>
-  <p:message for="lastName"/>
-  
-  Email address:
-  <p:inputText value="#{registrationBean.emailAddress}"
-               required="true" id="emailAddress"
-               requiredMessage="Email address required"/>
-  <p:message for="emailAddress"/>
-
-  Password:
-  <p:password value="#{registrationBean.password}"
-              feedback="true"
-              id="password1"
-              required="true"
-              requiredMessage="Password required"
-              validatorMessage="Password must be 4 or more chars.">
-    <f:validateLength minimum="4"/>
-  </p:password>
-  <p:message for="password1"/> 
-</h:panelGrid>
-<p:commandButton action="#{registrationBean.register2}"
-                 value="Register" ajax="false"/>
-</h:form>
-</p:fieldset>
 <br/>
 <p:fieldset legend="Login form with custom password feedback">
 <h:form>

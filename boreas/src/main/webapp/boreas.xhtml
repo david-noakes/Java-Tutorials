@@ -1,12 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"    
-      xmlns:h="http://java.sun.com/jsf/html">
-<head>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
    <title>JSF Tutorial!</title>
-</head>
-<body>
+</h:head>
+<h:body>
    #{northWind.message}
    <h:form>
    <h3>Simple Menu</h3>
@@ -20,10 +22,47 @@
    </tr>
    <tr>
    <td>
+   <p:commandButton action="#{navigationController.showPage()}" 
+                    value="Employee List PF" ajax="false">
+   <f:param name="pageId" value="employeeListPF"/>
+   </p:commandButton>
+<!-- 
+   <h:commandButton action="#{navigationController.showPage()}" value="Employee List PF" >
+   <f:param name="pageId" value="employeeListPF" />
+   </h:commandButton>
+ -->   
+   </td>
+   </tr>
+   <tr>
+   <td>
+<ul>
+  <li><a href="PrimeString1.html">PrimeString1.html</a><br/>
+      Basic string functions.</li>
+  <li><a href="PrimeString2.html">PrimeString2.html</a><br/>
+      More complicated string functions.</li>
+  <li><a href="PrimePanels.html">PrimePanels.html</a><br/>
+      Accordian panels and dashboard</li>
+  <li><a href="PrimeOverlays.html">PrimeOverlays.html</a><br/>
+      Overlays and Popup Windows.</li>
+  <li><a href="PrimeThemes.html">PrimeThemes.html</a><br/>
+      Overlays and Popup Windows.</li>
+</ul>
+   
+   </td>
+   </tr>
+   <tr>
+   <td>
+   <h:commandButton action="#{navigationController.showPage()}" value="Select theme to be used" >
+   <f:param name="pageId" value="themes3" />
+   </h:commandButton>
+   </td>
+   </tr>
+   <tr>
+   <td>
    <h:commandButton action="#{userData.logout()}" value="Logout"></h:commandButton>
    </td>
    </tr>
    </table>
    </h:form>
-</body>
+</h:body>
 </html>
