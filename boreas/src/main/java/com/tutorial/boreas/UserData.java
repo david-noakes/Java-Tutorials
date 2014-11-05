@@ -44,8 +44,6 @@ public class UserData implements Serializable {
    private byte[] keyBytes =  new byte [] {78, (byte) 166, 42, 70, (byte) 251, 20, (byte) 142, 103, (byte) 157, (byte) 231, 76, 95, (byte) 171, 94, 57, 54};
    private String rubbish;
    
-   //@ManagedProperty("#{param.myTheme}")
-   //@SessionScoped
    private String myTheme = "bluesky";
 
    private SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
@@ -78,14 +76,18 @@ public class UserData implements Serializable {
        return myTheme;
    }
    public void setMyTheme(String myTheme) {
-       this.myTheme = myTheme;
-       session.put("theme", this.myTheme);
+       setTheTheme(myTheme);
    }
    public void saveTheme() {
-       session.put("theme", this.myTheme);  // ajax calls this
+       setTheTheme(myTheme);  // ajax calls this
    }
    
-   public String login(){
+   public void setTheTheme(String theTheme){
+       this.myTheme = theTheme;
+       session.put("theme", this.myTheme);
+   }
+   
+    public String login(){
        System.out.println("Login: ["+name+"|"+password+"]");
        if (name.length()>0 && validUidPwd(name, password)) {
            session.put(SessionData.USERNAME, name);

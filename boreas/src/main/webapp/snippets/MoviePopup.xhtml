@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+<h:panelGrid>
+<h3 align="center">Movie Popup</h3>
+<h:form>          
+    <p:commandButton id="imageBtn" value="Basic" type="button" />
+    <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+        <p:graphicImage value="resources/images/nature1.jpg" width="300" />
+        
+    </p:overlayPanel>
+    <br/>
+    <p:commandButton id="movieBtn" value="Dynamic" type="button" />
+    <p:overlayPanel id="moviePanel" for="movieBtn" hideEffect="fade" dynamic="true" style="width:600px">
+        <p:dataTable var="movies" value="#{movieView.movieList}" rows="5" paginator="true">
+            <p:column headerText="Movie">
+                <h:outputText value="#{movies.movie}" />
+            </p:column>
+ 
+            <p:column headerText="Directed By">
+                <h:outputText value="#{movies.directedBy}" />
+            </p:column>
+ 
+            <p:column headerText="Genres">
+                <h:outputText value="#{movies.genres}" />
+            </p:column>
+ 
+            <p:column headerText="Run Time(min.)">
+                <h:outputText value="#{movies.runTime}" />
+            </p:column>
+        </p:dataTable>
+    </p:overlayPanel>
+    <br/>
+    <p:graphicImage id="img" value="resources/images/images.png" style="cursor:pointer" title="Custom Options" />
+    <p:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
+                    dismissable="false" showCloseIcon="true">
+        <p:imageSwitch effect="fade" style="width:300px;height:188px;">
+            <ui:repeat value="#{imageSwitchView.images}" var="image">
+                <p:graphicImage value="#{image}" width="300" />
+            </ui:repeat>
+        </p:imageSwitch>
+    </p:overlayPanel>
+</h:form>
+</h:panelGrid>
+
+</ui:composition>
