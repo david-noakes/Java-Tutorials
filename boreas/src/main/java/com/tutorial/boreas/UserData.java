@@ -44,13 +44,14 @@ public class UserData implements Serializable {
    private byte[] keyBytes =  new byte [] {78, (byte) 166, 42, 70, (byte) 251, 20, (byte) 142, 103, (byte) 157, (byte) 231, 76, 95, (byte) 171, 94, 57, 54};
    private String rubbish;
    
-   @ManagedProperty("#{param.myTheme}")
+   //@ManagedProperty("#{param.myTheme}")
+   //@SessionScoped
    private String myTheme = "bluesky";
 
    private SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
  
    
-   public static final String LOGIN_PAGE = "login?faces-redirect=true";
+   public static final String LOGIN_PAGE = "Login_Faces?faces-redirect=true";
    public static final String MAIN_PAGE = "boreas?faces-redirect=true";
    
    public String getName() {
@@ -74,11 +75,14 @@ public class UserData implements Serializable {
        this.message = message;
    }
    public String getMyTheme() {
-    return myTheme;
+       return myTheme;
    }
    public void setMyTheme(String myTheme) {
-    this.myTheme = myTheme;
-    session.put("theme", this.myTheme);
+       this.myTheme = myTheme;
+       session.put("theme", this.myTheme);
+   }
+   public void saveTheme() {
+       session.put("theme", this.myTheme);  // ajax calls this
    }
    
    public String login(){

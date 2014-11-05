@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Northwind Database - Employee Listing (Prime Faces)</title>
+    <h:outputStylesheet library="css" name="styles.css"  /> 
+</h:head>
+<h:body>
+   <h2>Northwind Database - Employee Listing</h2>
+   <p:dataTable value="#{employeeData.getEmployees()}" var="c"
+      styleClass="employeeTable"
+      headerClass="employeeTableHeader"
+      rowClasses="employeeTableOddRow,employeeTableEvenRow">
+      <p:column><f:facet name="header">Employee ID</f:facet>
+	   <h:form>
+		   <h:commandLink action="#{navigationController.showPage}" value="#{c.getID()}">
+		      <f:param name="pageId" value="#{navigationController.employeeDetailContextPF()}#{c.getID()}" />
+		   </h:commandLink>
+	   </h:form>
+      </p:column>
+      <p:column><f:facet name="header">Last Name</f:facet>
+	   <h:form>
+		   <h:commandLink action="#{navigationController.showPage}" value="#{c.getLastName()}">
+		      <f:param name="pageId" value="#{navigationController.employeeDetailContextPF()}#{c.getID()}" />
+		   </h:commandLink>
+	   </h:form>
+      </p:column>
+      <p:column><f:facet name="header">First Name</f:facet>
+         #{c.getFirstName()}
+      </p:column>
+      <p:column><f:facet name="header">E-mail Address</f:facet>
+         #{c.getEmailAddress()}
+      </p:column>
+      <p:column><f:facet name="header">Job Title</f:facet>
+         #{c.getJobTitle()}
+      </p:column>
+      <p:column><f:facet name="header">Start Date</f:facet>
+      <h:outputText value="#{c.StartDate}">
+      <f:convertDateTime pattern="dd-MM-yyyy" timeZone="#{userData.timeZone}" />
+      </h:outputText>
+      </p:column>
+      <p:column><f:facet name="header">Notes</f:facet>
+         #{c.getNotes()}
+      </p:column>
+<!--       <p:column><f:facet name="header">Company</f:facet> -->
+<!--          #{c.getCompany()} -->
+<!--       </p:column> -->
+      <p:column><f:facet name="header">Business Phone</f:facet>
+         #{c.getBusinessPhone()}
+      </p:column>
+<!--       <p:column><f:facet name="header">Home Phone</f:facet> -->
+<!--          #{c.getHomePhone()} -->
+<!--       </p:column> -->
+      <p:column><f:facet name="header">Mobile Phone</f:facet>
+         #{c.getMobilePhone()}
+      </p:column>
+<!--       <p:column><f:facet name="header">Fax Number</f:facet> -->
+<!--          #{c.getFaxNumber()} -->
+<!--       </p:column> -->
+<!--       <p:column><f:facet name="header">Address</f:facet> -->
+<!--          #{c.getAddress()} -->
+<!--       </p:column> -->
+<!--       <p:column><f:facet name="header">City</f:facet> -->
+<!--          #{c.getCity()} -->
+<!--       </p:column> -->
+<!--       <p:column><f:facet name="header">State/Province</f:facet> -->
+<!--          #{c.getStateProvince()} -->
+<!--       </p:column> -->
+<!--       <p:column><f:facet name="header">ZIP/Postal Code</f:facet> -->
+<!--          #{c.getPostalCode()} -->
+<!--       </p:column> -->
+<!--       <p:column><f:facet name="header">Country/Region</f:facet> -->
+<!--          #{c.getCountryRegion()} -->
+<!--       </p:column> -->
+      <p:column><f:facet name="header">Web Page</f:facet>
+         #{c.getWebPage()}
+      </p:column>
+<!--       <p:column><f:facet name="header">Attachments</f:facet> -->
+<!--          #{c.getAttachments()} -->
+<!--       </p:column> -->
+   </p:dataTable>
+   <h:form>
+   <br></br>
+   <h:commandButton action="boreas?faces-redirect=true" value="Home" >
+   </h:commandButton>
+   </h:form>
+</h:body>
+</html>

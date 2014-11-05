@@ -15,13 +15,14 @@ Themes: Looking Up Current Theme</h1>
 <div align="center">
 <h:form>
 <h:panelGrid columns="2">
-
-<p:themeSwitcher value="#{userData.myTheme}"> 
+Choose a theme:
+<!-- <p:themeSwitcher>  -->   <!-- this does not call setMyTheme -->
+<p:themeSwitcher value="#{userData.myTheme}"> <!-- this calls setMyTheme IF the ajax listener is specified -->
   <f:selectItem itemLabel="Choose a theme:" itemValue="" />
   <f:selectItems value="#{smartThemeChoices.themes}" var="theme" itemValue="#{theme}"/>  
-  <f:param name="myTheme" value="#{theme}" /> <!-- do we need this -->
-  
-  <p:ajax listener="#{userData.myTheme}" />   <!-- should this be userData.saveTheme ? -->
+<!--  <f:param name="userData.myTheme" value="#{theme}" /> --> <!-- not needed -->
+  <p:ajax listener="#{userData.saveTheme}" />    <!-- no param, but forces a call to setMyTheme IF themeSwitcher specifies value -->
+<!-- <p:ajax listener="#{userData.myTheme}" />  -->    <!-- this does not see myTheme and throws exception-->
 </p:themeSwitcher> 
 </h:panelGrid>
 </h:form>

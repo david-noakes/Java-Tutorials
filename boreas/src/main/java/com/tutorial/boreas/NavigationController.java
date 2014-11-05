@@ -22,9 +22,13 @@ public class NavigationController  implements Serializable {
     public static final String CONTEXT_MAIN_PAGE = "boreas";
     public static final String CONTEXT_EMPLOYEE_DETAIL = "employeeDetail";
     public static final String CONTEXT_EMPLOYEE_LIST = "employeeList";
+    public static final String CONTEXT_EMPLOYEE_DETAIL_PF = "employeeDetailPF";
+    public static final String CONTEXT_EMPLOYEE_LIST_PF = "employeeListPF";
 	public static final String NAV_MAIN_PAGE = CONTEXT_MAIN_PAGE+FACES_REDIRECT;
 	public static final String NAV_EMPLOYEE_LIST = CONTEXT_EMPLOYEE_LIST+FACES_REDIRECT;
 	public static final String NAV_EMPLOYEE_DETAILS = CONTEXT_EMPLOYEE_DETAIL+FACES_REDIRECT;
+    public static final String NAV_EMPLOYEE_LIST_PF = CONTEXT_EMPLOYEE_LIST_PF+FACES_REDIRECT;
+    public static final String NAV_EMPLOYEE_DETAILS_PF = CONTEXT_EMPLOYEE_DETAIL_PF+FACES_REDIRECT;
 	  
 	/* 
 	 * convention is context:destination
@@ -57,7 +61,7 @@ public class NavigationController  implements Serializable {
 		    	destination = bits[1];
 		    	sessionData.put(SessionData.CONTEXT, context);
 		    	sessionData.put(SessionData.DESTINATION, destination);   
-		    	if (context.equals(CONTEXT_EMPLOYEE_DETAIL)) {
+		    	if (context.equals(CONTEXT_EMPLOYEE_DETAIL) || context.equals(CONTEXT_EMPLOYEE_DETAIL_PF)) {
 		    	    new EmployeeData().putEmployeeToSessionData();
 		    	}
 			    if (context.trim().length()>0) {
@@ -77,6 +81,9 @@ public class NavigationController  implements Serializable {
 	public String employeeDetailContext() {
 		return CONTEXT_EMPLOYEE_DETAIL+":";
 	}
+    public String employeeDetailContextPF() {
+        return CONTEXT_EMPLOYEE_DETAIL_PF+ ":";
+    }
 	  
 	  
 	public NavigationController()  {

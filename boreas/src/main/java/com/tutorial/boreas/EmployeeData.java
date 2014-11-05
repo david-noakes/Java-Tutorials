@@ -11,6 +11,10 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 @ManagedBean(name = "employeeData", eager = true)
 @SessionScoped
@@ -34,6 +38,8 @@ public class EmployeeData  implements Serializable{
     private static final String HIDE_HTML_ELEMENT = "none";
     public static final String EMPLOYEE_LIST_FORM = "employeeList";
     public static final String EMPLOYEE_DETAIL_FORM = "employeeDetail";
+    public static final String EMPLOYEE_LIST_FORM_PF = "employeeListPF";
+    public static final String EMPLOYEE_DETAIL_FORM_PF = "employeeDetailPF";
     public static final String FACES_REDIRECT = "?faces-redirect=true";
 
 	
@@ -110,6 +116,23 @@ public class EmployeeData  implements Serializable{
         sessionData.put(EMPLOYEE_DTO_ORIG, clone); // for detecting changes in update mode
     	return employee;
     }
+
+    
+    public void buttonAction(ActionEvent actionEvent) {
+        addMessage("Welcome to Primefaces!!");
+    }
+     
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+    
+    
+    public String startEditModePF() {
+        startEditMode();
+        return EMPLOYEE_DETAIL_FORM_PF+FACES_REDIRECT;
+    }
+    
     public void startEditMode() {
         setEditMode(true);
         setReadOnly(false);
@@ -118,6 +141,10 @@ public class EmployeeData  implements Serializable{
         // TODO - any other database stuff
     }
     
+    public String startNewModePF() {
+        startNewMode();
+        return EMPLOYEE_DETAIL_FORM_PF+FACES_REDIRECT;
+    }
     public void startNewMode() {
         setNewMode(true);
         setReadOnly(false);
@@ -128,6 +155,11 @@ public class EmployeeData  implements Serializable{
         sessionData.put(EMPLOYEE_DTO, dto);
     }
     
+    public String startDeleteModePF() {
+        startDeleteMode();
+        return EMPLOYEE_DETAIL_FORM_PF+FACES_REDIRECT;
+    }
+
     public void startDeleteMode() {
         setDeleteMode(true);
         setNewMode(false);
@@ -143,7 +175,9 @@ public class EmployeeData  implements Serializable{
         EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
         EmployeeDTO orig     = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG);
         PreparedStatement pst = null;
-        
+        if (employee.getFirstName().trim().length() == 0 && employee.getLastName().trim().length() == 0) {
+            return -1;
+        }
         try {   
             pst = employee.toUpdateSQLStatement(); 
             result=pst.executeUpdate(); 
@@ -161,7 +195,10 @@ public class EmployeeData  implements Serializable{
         EmployeeDTO employee = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO);
         EmployeeDTO orig     = (EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG);
         PreparedStatement pst = null;
-        
+        if (employee.getFirstName().trim().length() == 0 && employee.getLastName().trim().length() == 0) {
+            return -1;
+        }
+       
         try {   
             pst = employee.toInsertSQLStatement(); 
            // pst = con.prepareStatement(sql);
@@ -190,6 +227,11 @@ public class EmployeeData  implements Serializable{
          }
         return result;
     }
+    public String confirmEditPF(){
+        confirmEdit();
+        return EMPLOYEE_LIST_FORM_PF+FACES_REDIRECT;
+    }
+        
     public String confirmEdit(){
         //TODO - write to database
         // don't use the procedures, 
@@ -201,7 +243,7 @@ public class EmployeeData  implements Serializable{
             // update
             updateEmployee();
         }
-        
+        addMessage("Data Saved");
         setEditMode(false);
         setReadOnly(true);
         setNewMode(false);
@@ -218,11 +260,35 @@ public class EmployeeData  implements Serializable{
         EmployeeDTO dto = (EmployeeDTO) ((EmployeeDTO) sessionData.get(EMPLOYEE_DTO_ORIG)).clone();
         sessionData.put(EMPLOYEE_DTO, dto);
     }
+    public String cancelEditPF(){
+        cancelEdit();
+        return EMPLOYEE_DETAIL_FORM_PF+FACES_REDIRECT;
+    }
+
+    public String confirmDeletePF(){
+        
+        deleteEmployee();
+        setEditMode(false);
+        setReadOnly(true);
+        setNewMode(false);
+        setDeleteMode(false);
+       
+        return EMPLOYEE_LIST_FORM_PF+FACES_REDIRECT;
+    }
     public String confirmDelete(){
         
         deleteEmployee();
+        setEditMode(false);
+        setReadOnly(true);
+        setNewMode(false);
+        setDeleteMode(false);
         
         return EMPLOYEE_LIST_FORM+FACES_REDIRECT;
+    }
+    
+    public String cancelDeletePF(){
+        cancelDelete();
+        return EMPLOYEE_DETAIL_FORM_PF+FACES_REDIRECT;
     }
     public void cancelDelete(){
         setEditMode(false);
