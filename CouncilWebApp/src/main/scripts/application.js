@@ -4,6 +4,7 @@ var brisbaneLatLng;
 var councilCentre;
 var councilBounds;
 var councilMarker;
+var basicSearchBox;
 
 function initialize()
 {
@@ -54,6 +55,14 @@ function initialize()
         map.set('styles', mapStyles);
     }
     resizeScreen();
+
+    basicSearchBox = new google.maps.places.Autocomplete(
+        $("#txtBasicSearchText").get(0),
+        {
+            componentRestrictions: { country: "au" },
+            bounds: councilBounds
+        });
+
 }
 
 function codeAddress()
