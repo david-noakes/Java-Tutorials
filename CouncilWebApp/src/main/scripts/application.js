@@ -8,9 +8,10 @@ var basicSearchBox;
 var selectedPlace;
 var searchHistory = [];
 
+$(document).ready(function () {
 
-function initialize()
-{
+//function initialize()
+//{
     geocoder = new google.maps.Geocoder();
     brisbaneLatLng = new google.maps.LatLng(-27.4775067,153.0281366);
 	councilCentre = new google.maps.LatLng(-27.64288610,153.10398550);
@@ -135,7 +136,8 @@ function initialize()
     });
 
 
-}
+//}
+});
 
 
 
