@@ -5,6 +5,9 @@ var councilCentre;
 var councilBounds;
 var councilMarker;
 var basicSearchBox;
+var selectedPlace;
+var searchHistory = [];
+
 
 function initialize()
 {
@@ -49,7 +52,11 @@ function initialize()
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 	}
-    councilMarker.setMap(map);
+
+	
+    $("#searchHistory").hide();
+    
+	councilMarker.setMap(map);
 	map.fitBounds(councilBounds);
     if (mapStyles != undefined) {
         map.set('styles', mapStyles);
@@ -63,11 +70,93 @@ function initialize()
             bounds: councilBounds
         });
 
+    basicSearchPlaceChangedListener = google.maps.event.addListener(basicSearchBox, 'place_changed', function () {
+        basicSearch_PlaceChanged();
+    });
+
+    $("#btnSearch").click(function () {
+        showMapPage();
+
+        if (selectedPlace) {
+            basicPlaceChanged();
+        }
+    });
+
+    $("#btnShowHistory").click(function () {
+        showMapPage();
+
+        if ($("#searchHistory").is(":visible")) {
+            $("#searchHistory").hide();
+        }
+        else {
+            if (searchHistory.length > 0) {
+                var searchControl = $("#searchControl");
+
+                var temp = [];
+
+                $(searchHistory).each(function (index, value) {
+                    temp.push({ title: value.title });
+                });
+
+                $("#searchHistory").empty();
+                $("#searchHistoryTemplate").tmpl({ data: temp.reverse() }).appendTo("#searchHistory");
+
+                $("#searchHistory").css({ top: searchControl.offset().top + searchControl.height() + 4, left: searchControl.offset().left, width: searchControl.width(), position: 'absolute' });
+
+                $("#searchHistory .pac-item").click(function () {
+                    var selectedItem = $(this)
+
+                    if (selectedItem.length > 0) {
+                        var placeKey = selectedItem.data("key");
+
+                        $(searchHistory).each(function (index, value) {
+                            if (value.title == placeKey) {
+                                selectedPlace = value.place;
+
+                                $("#txtBasicSearchText").val(selectedPlace.formatted_address);
+
+                                $("#searchHistory").hide();
+
+                                basicPlaceChanged();
+                            }
+                        });
+                    }
+                });
+                $("#searchHistory").show();
+                $("#searchHistory").focus();
+            }
+        }
+    });
+
+    $("#searchHistory").blur(function () {
+        setTimeout(function () {
+            $("#searchHistory").hide();
+        }, 100);
+    });
+
+
 }
+
+
+
+/// ****** function declarations **** ///
+
+function basicPlaceChanged() {
+
+    if ((selectedPlace) && (selectedPlace.geometry)) {
+
+        //searchManager.getParcel(selectedPlace.geometry.location.lat(), selectedPlace.geometry.location.lng(), null, selectedPlace);
+
+    	codeAddress();
+    	
+        $('#txtASProximityAddress').val('');
+    }
+}
+
 
 function codeAddress()
 {
-    var address = document.getElementById("address").value;
+    var address = document.getElementById("txtBasicSearchText").value;
     var bounds = map.getBounds();
     geocoder.geocode( { 'address': address}, function(results, status)
     {
@@ -96,9 +185,65 @@ function codeAddress()
     });
 }
 
+function basicSearch_PlaceChanged() {
+    //clearProximityPlace();
+
+    showMapPage();
+    selectedPlace = basicSearchBox.getPlace();
+
+    //---------------------------------------------------------------
+    // We need to check see if the place is in the history. If the 
+    //  value exists then we should remove it and then re add it 
+    //  as the most recent (ie the end)
+    //---------------------------------------------------------------
+
+    var deleteAt;
+
+    $(searchHistory).each(function (index, value) {
+        if (value.title == selectedPlace.formatted_address) {
+            deleteAt = index;
+        }
+    });
+
+    if (deleteAt) {
+        searchHistory.splice(deleteAt, 1);
+    }
+
+    //---------------------------------------------------------------
+    // push the select place onto the history stack
+    //---------------------------------------------------------------
+
+    if (selectedPlace.formatted_address)
+        searchHistory.push({ title: selectedPlace.formatted_address, place: selectedPlace });
+
+    //---------------------------------------------------------------
+    // If the history array is too long remove the first one in the
+    //  stack
+    //---------------------------------------------------------------
+
+    if (searchHistory.length > 7) {
+        searchHistory.splice(0, 1);
+    }
+
+    basicPlaceChanged();
+
+}
+
 function showHelp() {
     windowRef = window.open('resources/documents/Council Map Viewer Help.pdf', 'Help');
 }
+
+function showMapPage() {
+    if (!$("#map-canvas").is(":visible")) {
+        $(".navButton").removeClass("ui-button-active");
+        $(".panel").hide();
+
+        $("#map-canvas").show();
+        $("#btnHome").addClass("ui-button-active");
+    }
+}
+
+
 function resizeScreen() {
     $("#contentPanel").height($(window).height() - $("#header").height() - 2);
 

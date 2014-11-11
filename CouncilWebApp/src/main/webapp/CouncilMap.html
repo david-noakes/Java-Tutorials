@@ -22,6 +22,12 @@
     <script src="scripts/application.js" type="text/javascript">
     </script>
 
+    <script id="searchHistoryTemplate" type="text/x-jquery-tmpl">
+            {{each data}}
+                <div class="pac-item history-item" data-key="${title}"><span class="pac-item-query"><span class="pac-matched">${title}</span></span></div>
+            {{/each}}
+    </script>
+
 
   </head>
   <body  onload="initialize()">
@@ -48,10 +54,12 @@
                 </div>
                 <div id="basicSearchContainer">
                     <div id="basicSearch" class="clearfix">
+	<!-- 				
 					 	<div align="center" style="height: 30px; width: 230px">
 					        <input id="address" type="textbox">
 					        <input type="button" value="Geocode" onclick="codeAddress()">
 					    </div>
+	 -->				    
                         <div id="searchControl" class="clearfix">
                             <input id="txtBasicSearchText" type="text" placeholder="Search Address or Place" title="Basic address search" autocomplete="off" style="width: 264px;">
                             <div id="searchButtons" class="searchButtons" style="height: 30px;">
@@ -78,5 +86,9 @@
 	            </div>
 	    </div>
 	</div>
+
+    <div id="searchHistory" class="pac-container hidden" style="left: 305px; top: 152px; width: 400px; position: absolute;">
+    </div>
+
   </body>
 </html>
