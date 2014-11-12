@@ -53,7 +53,25 @@ $(document).ready(function () {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 	}
-
+	
+	
+	
+	var stylez = [
+	              {
+	            	    featureType: "administrative.land_parcel",
+	            	    elementType: "all",
+	            	    stylers: [
+	            	      { "visibility": "on" }
+	            	    ]
+	            	  }
+	            	];
+	var styledMapOptions = {
+			name: "brisbanePlanning"
+	}
+	
+	var styledMapType = new google.maps.StyledMapType(stylez, styledMapOptions);
+			
+	map.mapTypes.set(styledMapType);
 	
     $("#searchHistory").hide();
     
@@ -151,7 +169,7 @@ function basicPlaceChanged() {
 
     	codeAddress();
     	
-        $('#txtASProximityAddress').val('');
+        $('#txtBasicSearchText').val('');
     }
 }
 
@@ -164,20 +182,23 @@ function codeAddress()
     {
         if (status == google.maps.GeocoderStatus.OK)
         {
-		   for (var i=0;i<results.length;i++) {
-            map.setCenter(results[i].geometry.location);
-			//var lat = results[i].geometry.location.B;
-			//var lng = results[i].geometry.location.k;
-			//var point = new google.maps.LatLng(lat, lng); // this ends up with an invalid point
-			//bounds.extend(point);                         // this will cause an exception for fitbounds
-			bounds.extend(results[i].geometry.location);   
-            var marker = new google.maps.Marker(
-            {
-                map: map,
-                position: results[i].geometry.location,
-				title: results[i].formatted_address
-            });
+		    for (var i=0;i<results.length;i++) {
+			    if (i==0) {
+				    map.setCenter(results[i].geometry.location);
+			    } 
+				//var lat = results[i].geometry.location.B;
+				//var lng = results[i].geometry.location.k;
+				//var point = new google.maps.LatLng(lat, lng); // this ends up with an invalid point
+				//bounds.extend(point);                         // this will cause an exception for fitbounds
+			    bounds.extend(results[i].geometry.location);   
+	            var marker = new google.maps.Marker(
+	            {
+	                map: map,
+	                position: results[i].geometry.location,
+					title: results[i].formatted_address
+	            });
 			}
+		    map.setZoom(20);  // we need to turn on the cadastre layer
 			//map.fitBounds(bounds);   // this keeps zooming out each time it is called.
         }
         else
