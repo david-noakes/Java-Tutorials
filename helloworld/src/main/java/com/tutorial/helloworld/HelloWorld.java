@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean(name = "helloWorld", eager = true)
+@ManagedBean(name = "helloWorld3", eager = true)
 @RequestScoped
 public class HelloWorld {
 	   @ManagedProperty(value="#{message}")

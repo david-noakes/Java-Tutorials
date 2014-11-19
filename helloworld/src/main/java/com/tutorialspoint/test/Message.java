@@ -3,7 +3,7 @@ package com.tutorialspoint.test;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean(name="message", eager=true)
+@ManagedBean(name="message1", eager=true)
 @RequestScoped
 public class Message
 {
