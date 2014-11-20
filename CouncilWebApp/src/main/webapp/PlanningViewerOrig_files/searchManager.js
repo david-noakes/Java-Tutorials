@@ -222,7 +222,10 @@
     this.SearchByLocation = function (request) {
 
         $.ajax({
-            url: "/Cadastre/Get",
+            //url: "/Cadastre/Get",  // original
+            //url: "/CouncilWebApp//Cadastre/Get",
+            url: "Cadastre/GetParcel",  // original
+        	
             data: { lat: request.lat, lng: request.lng, proximity: request.proximity },
             dataType: "json",
             success: function (data) {

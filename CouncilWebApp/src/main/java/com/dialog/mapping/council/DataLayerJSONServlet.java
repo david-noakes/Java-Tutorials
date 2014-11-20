@@ -17,6 +17,9 @@ import com.google.common.base.Charsets;
 
 @WebServlet("/Data/*")
 public class DataLayerJSONServlet extends  HttpServlet{
+
+    private static final long serialVersionUID = 1L;
+
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";

@@ -260,7 +260,8 @@ function LayerManager(parentMap) {
 
         $.ajax({
             //url: "/Data/Layers",  // original value
-            url: "/CouncilWebApp/Data/ListLayers",  // local server
+            //url: "/CouncilWebApp/Data/ListLayers",  // local server
+            url: "Data/ListLayers",  // 
             dataType: "json",
             success: function (data) {
                 var numVisibleLayers = 0;
