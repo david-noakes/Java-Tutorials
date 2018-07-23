@@ -20,13 +20,19 @@ public class TreeBottomDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TreeBottom underTest = new TreeBottom();
-		runTest(underTest, Test1, Expected1, "Test1");
-		runTest(underTest, Test2, Expected2, "Test2");
-		runTest(underTest, Test3, Expected3, "Test3");
-		runTest(underTest, Test4, Expected4, "Test4");
-		runTest(underTest, Test5, Expected5, "Test5");
-			
+//		TreeBottom underTest = new TreeBottom();
+//		runTest(underTest, Test1, Expected1, "Test1");
+//		runTest(underTest, Test2, Expected2, "Test2");
+//		runTest(underTest, Test3, Expected3, "Test3");
+//		runTest(underTest, Test4, Expected4, "Test4");
+//		runTest(underTest, Test5, Expected5, "Test5");
+
+		TreeScanner tScan = new TreeScanner();
+		tScan.createTree(Test1);
+		tScan.createTree(Test2);
+		tScan.createTree(Test3);
+		tScan.createTree(Test4);
+		tScan.createTree(Test5);
 	};
 	
 	public static void runTest(TreeBottom leaf, String test, int[] expected, String testNum) {
