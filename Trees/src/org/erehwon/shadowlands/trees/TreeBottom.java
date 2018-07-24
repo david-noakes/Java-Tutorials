@@ -8,7 +8,7 @@ import java.util.List;
 
 class Node {
 
-	int key;
+	Integer key;
 	Node left, right;
 
 	public Node(int item) {
@@ -21,6 +21,21 @@ class Node {
 		left = null;
 		right = null;
 	}
+    public String toString() {
+    	String result = "(" + key + " ";
+    	if (left != null) {
+    		result += left.toString();
+    	} else {
+    		result += "() ";
+    	}
+    	if (right != null) {
+    		result += right.toString();
+    	} else {
+    		result += "() ";
+    	}
+    	result += ")";
+    	return result;
+    }
 }
 
 // A Java program to introduce Binary Tree
@@ -45,6 +60,13 @@ class BinaryTree {
 		source = null;
 		maxDepth = 0;
 	}
+    public void setRoot(Node root) {
+		this.root = root;
+	}
+
+   public String toString() {
+	   return root.toString(); 
+   }
 }
 
 public class TreeBottom {
