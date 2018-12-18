@@ -1,4 +1,4 @@
-package org.erehwon.shadowlads.geneticalgorythms;
+package org.erehwon.shadowlands.geneticalgorythms;
 
 //Class that implements the Genetic Algorithm
 //at the heighest absraction level

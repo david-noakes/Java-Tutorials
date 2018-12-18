@@ -1,4 +1,4 @@
-package org.erehwon.shadowlads.geneticalgorythms;
+package org.erehwon.shadowlands.geneticalgorythms;
 
 public class Specimen implements Comparable<Specimen> {
     // The genes

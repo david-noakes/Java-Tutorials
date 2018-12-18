@@ -1,4 +1,4 @@
-package org.erehwon.shadowlads.geneticalgorythms;
+package org.erehwon.shadowlands.geneticalgorythms;
 
 import java.util.Arrays;
 import java.util.Collections;
